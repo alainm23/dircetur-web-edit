@@ -1,0 +1,154 @@
+<section>
+<div class="container-fluid px-0 mt-5 mt-lg-0">
+    <div class="row m-0">
+    <div class="col-12 col-xl-4 color-blanco fondo-azul px-sm-5 py-5 height-azul-slider">
+        <div class="row m-0">
+        <div class="col-12 text-center text-lg-left">
+            <h1 class="titulo-subtitulo-viaje">{{detalle.nombre}}</h1>
+            <p class="texto-general mt-xl-3 interloineado text-descripcion-viaje">
+                {{detalle.descripcion}}
+            </p>
+        </div>
+        <div class="col-12 px-0 mt-sm-4">
+            <div class="row m-0">
+                <div class="col-4 col-sm-2 offset-sm-2 offset-lg-0 col-lg-3">
+                    <p class="altitu-texto weight-grueso letra-font">Donde</p>
+                </div>
+                <div class="col-8 col-sm-6 col-lg-9 px-0">
+                    <p class="altitu-texto weight-delgado interloineado">
+                        {{detalle.donde}}
+                    </p>
+                </div>
+                <div class="col-4 col-sm-2 col-lg-3 offset-sm-2 offset-lg-0">
+                    <p class="altitu-texto weight-grueso letra-font">Altitud</p>
+                </div>
+                <div class="col-8 col-sm-6 col-lg-9 px-0">
+                    <p class="altitu-texto weight-delgado">
+                        {{detalle.altitud}}
+                    </p>
+                </div>
+                <div class="col-4 col-sm-2 col-lg-3 offset-sm-2 offset-lg-0">
+                    <p class="altitu-texto weight-grueso letra-font">Tags</p>
+                </div>
+                <div class="col-8 col-sm-6 col-lg-9 px-0">
+                    <div class="row m-0">
+                        <div class="col-6 col-sm-4 px-0">
+                        <p class="altitu-texto  mb-0">Naturaleza</p>
+                        </div>
+                        <div class="col-6 col-sm-4 px-0">
+                        <p class="altitu-texto  mb-0">Caminata</p>
+                        </div>
+                        <div class="col-6 col-sm-4 px-0">
+                        <p class="altitu-texto  mb-0">Apicultura</p>
+                        </div>
+                        <div class="col-6 col-sm-4 px-0">
+                        <p class="altitu-texto  mb-0">Ceramica</p>
+                        </div>
+                        <div class="col-6 col-sm-5 px-0">
+                        <p class="altitu-texto  mb-0">Crianza de cuy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-xl-8 px-0">
+        <div id="amazingslider-wrapper-1" style="display:block;position:relative;width: 100%;">
+        <div id="amazingslider-1" style="display:block;position:relative;margin:0 auto;">
+            <ul class="amazingslider-slides" style="display:none;">
+                <li><img src="assets/imagenes/29001.jpeg" alt="29001"/>
+                </li>
+                <li><img src="assets/imagenes/29002.jpg" alt="viaje-img2"/>
+                </li>
+                <li><img src="assets/imagenes/29003.jpg" alt="viaje-img3"/>
+                </li>
+                <li><img src="assets/imagenes/29004.jpg" alt="viaje-img4"/>
+                </li>
+                <li><img src="assets/imagenes/29005.jpg" alt="viaje-img5"/>
+                </li>
+                <li><img src="assets/imagenes/29005.jpg" alt="viaje-img6"/>
+                </li>
+                <li><img src="assets/imagenes/29005.jpg" alt="viaje-img7"/>
+                </li>
+            </ul>
+            <ul class="amazingslider-thumbnails" style="display:none;">
+                <li><img src="assets/imagenes/29001.jpeg"alt="viaje-img1"/></li>
+                <li><img src="assets/imagenes/29002.jpg" alt="viaje-img2"/></li>
+                <li><img src="assets/imagenes/29003.jpg" alt="viaje-img3"/></li>
+                <li><img src="assets/imagenes/29004.jpg" alt="viaje-img4"/></li>
+                <li><img src="assets/imagenes/29005.jpg" alt="viaje-img5"/></li>
+                <li><img src="assets/imagenes/29005.jpg" alt="viaje-img6"/></li>
+                <li><img src="assets/imagenes/29005.jpg" alt="viaje-img7"/></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+</section>
+
+<section id="fondo-detalle">
+<div class="container-fluid pl-0 pr-0 pr-md-3 py-5">
+    <div class="row m-0">
+    <div class="col-12 col-md-8 col-lg-9 px-0 mt-5 mt-xl-0">
+        <div class="row m-0">
+        <div class="col-12 px-sm-5 text-center text-md-left">
+            <h2 class="subtitulo-intenerario">Itinerario</h2>
+            <p class="color-81 texto-general my-4">
+                {{detalle.itinerario}}
+            </p>
+        </div>
+        <div class="col-12 col-lg-6 fondo-rojo color-blanco text-center px-3 px-sm-5 py-5 my-lg-5">
+            <h2 class="titulo-subtitulo-viaje mb-0">Protección</h2>
+            <h3 class="subtitulo-turi-ruta">para el turista</h3>
+            <p class="texto-ruta-turi mt-5 px-3">
+                {{detalle.proteccion_turista}}    
+            </p>
+        </div>
+        <div class="col-12 col-lg-6 fondo-azul color-blanco px-3 px-sm-5 py-5 my-lg-5 text-center text-lg-left" >
+            <h2 class="titulo-subtitulo-viaje mb-0">Dificultad</h2>
+            <h3 class="subtitulo-turi-ruta">De ruta</h3>
+            <p class="texto-ruta-turi mt-5">
+                {{detalle.dificultad_ruta}}
+            </p>
+        </div>
+        <div class="col-12 px-sm-5 mt-5 mt-lg-0 list-unstyled texto-general color-81 mb-0">
+            <h2 class="color-05 titulo-subtitulo-viaje text-center text-md-left">Restricciones y requisitos</h2>
+            {{detalle.restricciones_requisitos}}
+        </div>
+        <div class="col-12 px-sm-5 my-3 list-unstyled texto-general color-81 mb-0">
+            <h2 class="color-05 titulo-subtitulo-viaje text-center text-md-left">Incluye</h2>
+            {{detalle.incluye}}
+        </div>
+        <div class="col-12 px-sm-5 my-3 list-unstyled texto-general color-81 mb-0">
+            <h2 class="color-05 titulo-subtitulo-viaje text-center text-md-left">No incluye</h2>
+            {{detalle.no_incluye}}
+        </div>
+        <div class="col-12 px-sm-5 my-3">
+            <h2 class="color-05 titulo-subtitulo-viaje text-center text-md-left">Preguntas frecuentes</h2>
+            <div class="accordion-container mt-3">
+                <div *ngFor="let pregunta of preguntas">
+                    <button class="accordion-titulo py-2 px-4 my-2 text-capitalize text-left">{{pregunta.data.pregunta}}<span class="toggle-icon mt-n1"></span></button>
+                    <div class="accordion-content py-3 px-4">
+                        <p>
+                            {{pregunta.data.respuesta}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4 col-lg-3 text-center px-5 px-md-3 py-5 cuadro-derecha mt-md-5 mt-xl-0 sticky-top" style="background-color: #fff;">
+        <h5 class="color-05 my-3" id="verificar-text">Verifique si califica</h5>
+        <input class="py-2 my-3 text-center" id="input-number" type="number" name="number" placeholder="Ingrese du n de DNI aqui"><br>
+        <button class="btn fondo-azul color-blanco texto-ruta-turi px-4 btn-radius my-3">Verificar</button>
+        <h5 class="subtitulo-intenerario color-05 mt-5">Proximas salidas</h5>
+        <p class="text-center my-3" style="color: #3E729A">Viernes<span class="px-1">-</span>23.09.9019<a class="ml-3" href=""><i class="fa fa-angle-right"></i></a></p>
+        <p class="text-center my-3" style="color: #3E729A">Viernes<span class="px-1">-</span>23.09.9019<a class="ml-3" href=""><i class="fa fa-angle-right"></i></a></p>
+        <p class="text-center my-3" style="color: #3E729A">Viernes<span class="px-1">-</span>23.09.9019<a class="ml-3" href=""><i class="fa fa-angle-right"></i></a></p>
+    </div>
+    </div>
+</div>
+</section>

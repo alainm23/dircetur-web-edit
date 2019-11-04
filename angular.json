@@ -24,9 +24,19 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/custom-theme.scss",
+              "node_modules/aos/dist/aos.css",
+              "src/styles.css",
+              "src/assets/css/flickity.css",
+              "src/assets/css/amazingslider-1.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/aos/dist/aos.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/js/flickity.min.js",
+              "src/assets/js/amazingslider.js",
+              "src/assets/js/propio.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -84,9 +94,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/aos/dist/aos.css",
+              "src/styles.css",
+              "src/assets/css/flickity.css",
+              "src/assets/css/amazingslider-1.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/aos/dist/aos.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/js/flickity.min.js",
+              "src/assets/js/amazingslider.js",
+              "src/assets/js/propio.js"
+            ]
           }
         },
         "lint": {
@@ -115,6 +134,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "dir"
 }

@@ -1,0 +1,27 @@
+<p><b>Etiqueta:</b> {{ etiqueta_key }}</p>
+
+<p *ngIf="tipo_entry === 0"><b>Etiqueta actual:</b> {{ etiqueta_valor }}</p>
+<div *ngIf="tipo_entry === 1">
+  <p><b>Etiqueta actual:</b></p>
+  <div [innerHtml]="etiqueta_valor"></div>
+</div>
+<p><b>Idioma:</b> {{ idioma }}</p>
+
+<mat-dialog-content [formGroup]="form" *ngIf="tipo_entry === 0">
+  <mat-form-field>
+    <input matInput placeholder="Valor" formControlName="etiqueta_valor">
+  </mat-form-field>
+</mat-dialog-content>
+
+<div [formGroup]="form" *ngIf="tipo_entry === 1">
+  <ckeditor [editor]="Editor" [config]="config" formControlName="etiqueta_valor"></ckeditor>
+</div>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button"(click)="close ()">
+    Cerrar
+  </button>
+  <button [disabled]="!form.valid" class="mat-raised-button mat-primary"(click)="save ()">
+    Guardar
+  </button>
+</mat-dialog-actions>

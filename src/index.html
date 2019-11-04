@@ -1,14 +1,116 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title>Dir</title>
-  <base href="/">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+      <meta charset="utf-8">
+      <title>Dircetur</title>
+      <base href="/">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+      <link rel="icon" type="image/x-icon" href="favicon.ico">
+      <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+      <link rel="stylesheet" href="assets/css/styles-menu-footer.css"/>
+      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"/>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amiri" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,400" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" />
+      <link rel="stylesheet" href="assets/css/checkbox.css"/>
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <app-root></app-root>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+<script>
+var estado="inicial";
+var estado2="inicial";
+$( document ).ready(function() {
+$('#icono-btn-home').click(function(){
+      if(estado=="inicial"){
+      $('#largo-buscador').css({'position':'absolute','z-index':'1000','padding-left':'5.5%'});
+      $('#largo-buscador').show(500);
+      if($(window).width()<=1280){
+            $('#largo-buscador').css({'transform': 'translate3d(-101%,0,0)'});
+      }
+      if($(window).width()>=1300){
+            $('#largo-buscador').css({'transform': 'translate3d(-100%,0,0)'});
+      }
+      if($(window).width()<=1024){
+            $('#largo-buscador').css({'transform': 'translate3d(-102%,0,0)'});
+      }
+      $('#largo-buscador').css({'transition': 'transform 0.80s;'});
+      $('#largo-buscador').css({'background-color':'#f0f0f0'});
+      $('#largo-buscador').css({'font-size':'17px'});
+      $('.navbar').css({'background-color':'#f0f0f0'});
+      $('#btn-icono').css({'background-color':'#f0f0f0'});
+      $('.padding-0').removeClass('py-2');
+      $('#icono-btn-home').removeClass('fa-search');
+      $('#icono-btn-home').addClass('fa-times');
+      $('#icono-btn-home').css({'margin-top':'10px'});
+      $('.navbar').css({'box-shadow': '0px 3px 6px #00000029;'});
+
+      estado="click";
+      }else{
+      $('.navbar').css({'background-color':'#ffffff'});
+      $('#btn-icono').css({'background-color':'#ffffff'});
+      $('#largo-buscador').hide(200);
+      $('#largo-buscador').css({'width': '0'});
+      $('#icono-btn-home').css({'margin-top':'0px'});
+      $('.padding-0').addClass('py-2');
+      $('#icono-btn-home').removeClass('fa-times');
+      $('#icono-btn-home').addClass('fa-search');
+      $('.navbar').css({'border':'0'});
+      estado="inicial";
+      }
+});
+$('#icono-btn-interiores').click(function(){
+      if(estado2=="inicial"){
+      $('#buscador-exterior').css({'position':'absolute','z-index':'1000','padding-left':'5.5%'});
+      $('#buscador-exterior').show(500);
+      if($(window).width()>=1200){
+            $('#buscador-exterior').css({'transform': 'translate3d(-100.5%,0,0)'});
+            $('#buscador-exterior').css({'background-color':'#f0f0f0'});
+            $('#navcol-1').css({'background-color':'#f0f0f0'});
+      }
+      if($(window).width()>=1300){
+            $('#buscador-exterior').css({'transform': 'translate3d(-100%,0,0)'});
+            $('#buscador-exterior').css({'background-color':'#f0f0f0'});
+            $('#navcol-1').css({'background-color':'#f0f0f0'});
+      }
+      if($(window).width()<=1024){
+            $('#buscador-exterior').css({'transform': 'translate3d(-102.5%,0,0)'});
+            $('#buscador-exterior').css({'background-color':'#f0f0f0'});
+            $('#navcol-1').css({'background-color':'#f0f0f0'});
+      }
+      if($(window).width()<=1023){
+            $('#buscador-exterior').css({'transform': 'translate3d(12%,0,0)'});
+            $('#buscador-exterior').css({'background-color':'#fff'});
+            $('#navcol-1').css({'background-color':'#fff'});
+      }
+      $('#buscador-exterior').css({'transition': 'transform 0.80s;'});
+      $('#buscador-exterior').css({'font-size':'17px'});
+      $('#btn-icono').css({'background-color':'#f0f0f0'});
+      $('.padding-0').removeClass('py-2');
+      $('#icono-btn-interiores').removeClass('fa-search');
+      $('#icono-btn-interiores').addClass('fa-times');
+      $('#icono-btn-interiores').css({'margin-top':'10px'});
+      estado2="click";
+      }else{
+      $('.navbar').css({'background-color':'#ffffff'});
+      $('#btn-icono').css({'background-color':'#ffffff'});
+      $('#buscador-exterior').hide(500);
+      $('#buscador-exterior').css({'width': '0'});
+      $('#icono-btn-interiores').css({'margin-top':'0px'});
+      $('.padding-0').addClass('py-2');
+      $('#icono-btn-interiores').removeClass('fa-times');
+      $('#icono-btn-interiores').addClass('fa-search');
+      $('.navbar').css({'border':'0'});
+            $('#navcol-1').css({'background-color':'#fff'});
+      estado2="inicial";
+            }
+});
+});
+
+</script>
 </body>
 </html>

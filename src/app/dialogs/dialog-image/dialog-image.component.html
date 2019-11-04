@@ -1,0 +1,18 @@
+<p><b>Etiqueta:</b> {{ etiqueta_key }}</p>
+
+<img *ngIf="imagen !== ''" class="img" [src]="imagen">
+
+<div>
+    <input type="file" nbInput id="imagen" accept="image/*" (change)="changeListener($event)" />
+</div>  
+
+<mat-progress-bar class="progress" [value]="uploadPercent"></mat-progress-bar>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button"(click)="close ()">
+        Cerrar
+    </button>
+    <button [disabled]="false" class="mat-raised-button mat-primary"(click)="save ()">
+        Guardar
+    </button>
+</mat-dialog-actions>
