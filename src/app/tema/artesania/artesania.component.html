@@ -180,7 +180,7 @@
             <div class="col-sm-6 col-md-4 mb-4">
             <h6>
                 <span  (click)="openDialog ('artesania_concursos', etiquetas?.artesania_concursos, 0)">
-                   <span class="subtitulo-azul-artesania color-zul-artesania" *ngIf="etiquetas?.artesania_concursos">{{ etiquetas?.sobre_nosotros_subtitulo }}</span>
+                   <span class="subtitulo-azul-artesania color-zul-artesania" *ngIf="etiquetas?.artesania_concursos">{{ etiquetas?.artesania_concursos }}</span>
                    <span class="subtitulo-azul-artesania color-zul-artesania" *ngIf="!etiquetas?.artesania_concursos">artesania_concursos</span>
                 </span>
             </h6>
@@ -193,7 +193,7 @@
             <h6>
                 <span class="subtitulo-azul-artesania color-zul-artesania" (click)="openDialog ('artesania_expociones', etiquetas?.artesania_expociones, 0)">
                    <span *ngIf="etiquetas?.artesania_expociones">{{ etiquetas?.artesania_expociones }}</span> 
-                   <span *ngIf="etiquetas?.artesania_expociones">artesania_expociones</span> 
+                   <span *ngIf="!etiquetas?.artesania_expociones">artesania_expociones</span> 
                 </span>
             </h6>
             <div (click)="openDialog ('artesania_expociones_texto', etiquetas?.artesania_expociones_texto, 1)">
@@ -248,7 +248,12 @@
             </div>
         </div>
         <div class="col-12 px-0">
-            <h6><small class="ins-re-artesania color-65-artesania">Requisto</small></h6>
+            <h6>
+                <span (click)="openDialog ('artesania_requisto', etiquetas?.artesania_requisto, 0)" class="ins-re-artesania color-65-artesania">
+                <span *ngIf="etiquetas?.artesania_requisto">{{ etiquetas?.artesania_requisto }}</span>
+                <span *ngIf="!etiquetas?.artesania_requisto">artesania_requisto</span>
+                </span>
+            </h6>
             <div class="row m-0">
             <div class="col-md-4 px-0">
                 <button class="btn btn-requesitos-artesania px-0">
@@ -325,7 +330,7 @@
             </div>
             <div (click)="openDialog ('artesania_lineas_subtitulo', etiquetas?.artesania_lineas_subtitulo, 0)">
                 <h3 *ngIf="etiquetas?.artesania_lineas_subtitulo" class="subtitulo-pequeño-general mb-0">{{ etiquetas?.artesania_lineas_subtitulo }}</h3>
-                <h3 *ngIf="etiquetas?.artesania_lineas_subtitulo" class="subtitulo-pequeño-general mb-0">artesania_lineas_subtitulo</h3>
+                <h3 *ngIf="!etiquetas?.artesania_lineas_subtitulo" class="subtitulo-pequeño-general mb-0">artesania_lineas_subtitulo</h3>
             </div>
         <img src="assets/imagenes/arrow.png" width="100%">
         </div>
@@ -1098,7 +1103,7 @@
     <div class="col-sm-6 col-md-7 col-lg-8 ancho-col-artesania align-items-center ancho-col-artesania px-sm-5 py-5 py-sm-4 py-md-5 order-2 order-sm-0" style="background-color: #F8F8F8">
         <div class="row m-0">
         <div class="col-lg-9 py-md-4 py-lg-5 my-md-0 my-lg-5">
-            <div (click)="openDialog ('artesania_asociaciones_texto', etiquetas?.artesania_asociaciones_texto, 0)">
+            <div (click)="openDialog ('artesania_asociaciones_texto', etiquetas?.artesania_asociaciones_texto, 1)">
                 <div *ngIf="etiquetas?.artesania_asociaciones_texto" [innerHtml]="etiquetas?.artesania_asociaciones_texto" class="texto-artesania color-81-artesania"></div>
                 <div *ngIf="!etiquetas?.artesania_asociaciones_texto" class="texto-artesania color-81-artesania">artesania_asociaciones_texto</div>
             </div>
@@ -1112,7 +1117,7 @@
     <div class="col-sm-6 col-md-5 col-lg-4 fondo-azul-artesania color-blanco-artesania  ancho-col-artesania text-center px-4 py-5">
         <div (click)="openDialog ('artesania_asociaciones_titulo', etiquetas?.artesania_asociaciones_titulo, 0)">
             <h2 *ngIf="etiquetas?.artesania_asociaciones_titulo" class="subtitulo-general mt-5">{{ etiquetas?.artesania_asociaciones_titulo }}</h2>
-            <h2 *ngIf="etiquetas?.artesania_asociaciones_titulo" class="subtitulo-general mt-5">artesania_asociaciones_titulo</h2>
+            <h2 *ngIf="!etiquetas?.artesania_asociaciones_titulo" class="subtitulo-general mt-5">artesania_asociaciones_titulo</h2>
         </div>  
         <div (click)="openDialog ('artesania_asociaciones_subtitulo', etiquetas?.artesania_asociaciones_subtitulo, 0)">
             <h3 *ngIf="etiquetas?.artesania_asociaciones_subtitulo" class="subtitulo-pequeño-general">{{ etiquetas?.artesania_asociaciones_subtitulo }}</h3>
@@ -1161,19 +1166,25 @@
             </div>
         </div>  
         <div class="col-12 color-blanco text-center text-md-left color-blanco-artesania">
-            <p class="mb-0 subutitulo-general mb-3">Escribenos</p>
+            <div (click)="openDialog ('artesania_contac_escribenos', etiquetas?.artesania_contac_escribenos, 0)">
+                <p *ngIf="etiquetas?.artesania_contac_escribenos" class="mb-0 subutitulo-general mb-3">{{ etiquetas?.artesania_contac_escribenos }}</p>
+                <p *ngIf="!etiquetas?.artesania_contac_escribenos" class="mb-0 subutitulo-general mb-3">artesania_contac_escribenos</p>
+            </div>
         </div>
-        <div class="col-sm-6 pr-md-1 mb-2 mb-sm-0">
-            <input class="color-fondo px-3 py-2 anchura-inpu" type="text" placeholder="¿Cuál es su nombre?">
+        <div class="col-sm-6 pr-md-1 mb-2 mb-sm-0" (click)="openDialog ('artesania_contacto_nombre', etiquetas?.artesania_contacto_nombre, 0)">
+            <input class="color-fondo px-3 py-2 anchura-inpu" type="text" [placeholder]="etiquetas?.artesania_contacto_nombre">
         </div>
-        <div class="col-sm-6 pl-md-1">
-            <input class="color-fondo px-3 py-2 anchura-inpu"  type="text" placeholder="¿Cuál es su correo?">
+        <div class="col-sm-6 pl-md-1" (click)="openDialog ('artesania_contacto_correo', etiquetas?.artesania_contacto_correo, 0)">
+            <input class="color-fondo px-3 py-2 anchura-inpu"  type="text" [placeholder]="etiquetas?.artesania_contacto_correo">
         </div>
-        <div class="col-12 mt-2 anchura-contac-input">
-            <textarea class=" color-fondo px-3 py-2" aria-label="With textarea" placeholder="Escribe su mensaje aqui" style="width: 100%;height: 100%"></textarea>
+        <div class="col-12 mt-2 anchura-contac-input" (click)="openDialog ('artesania_contacto_mensaje', etiquetas?.artesania_contacto_mensaje, 0)">
+            <textarea class=" color-fondo px-3 py-2" aria-label="With textarea" [placeholder]="etiquetas?.artesania_contacto_mensaje" style="width: 100%;height: 100%"></textarea>
         </div>
         <div class="col-12 mt-2">
-            <button class="btn py-2 fondo-rojo-contac">Enviar</button>
+                <div (click)="openDialog ('artesania_contac_btn', etiquetas?.artesania_contac_btn, 0)">
+                    <button *ngIf="etiquetas?.artesania_contac_btn" class="btn py-2 fondo-rojo-contac">{{ etiquetas?.artesania_contac_btn }}</button>
+                    <button *ngIf="!etiquetas?.artesania_contac_btn" class="btn py-2 fondo-rojo-contac">artesania_contac_btn</button>
+                </div>
         </div>
         </div>
     </div>

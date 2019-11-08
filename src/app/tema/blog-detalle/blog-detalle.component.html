@@ -5,7 +5,16 @@
         
       </div>
       <div class="col-sm-7 px-sm-5 pt-1 pt-lg-5 pt-xl-5 text-center text-sm-left pb-5 pb-sm-5 pb-lg-0" id="fondo-azul">
-        <h1 class=" mt-md-3 mt-lg-5 mt-xl-5 pt-sm-5 pl-lg-3" id="titulo-turismo-detalle">Turismo<span id="subtitulo-font"> Blog</span> </h1>
+        <h1 class=" mt-md-3 mt-lg-5 mt-xl-5 pt-sm-5 pl-lg-3" id="titulo-turismo-detalle">
+          <span (click)="openDialog ('blog_detalle_titulo', etiquetas?.blog_detalle_titulo, 0)">
+            <span *ngIf="etiquetas?.blog_detalle_titulo">{{ etiquetas?.blog_detalle_titulo }}</span>
+            <span *ngIf="!etiquetas?.blog_detalle_titulo">blog_detalle_titulo</span>
+          </span>
+          <span (click)="openDialog ('blog_detalle_subtitulo', etiquetas?.blog_detalle_subtitulo, 0)">
+              <span *ngIf="etiquetas?.blog_detalle_subtitulo" id="subtitulo-font">{{ etiquetas?.blog_detalle_subtitulo }}</span> 
+              <span *ngIf="!etiquetas?.blog_detalle_subtitulo" id="subtitulo-font">blog_detalle_subtitulo</span> 
+          </span>
+          </h1>
       </div>
     </div>
   </div>
@@ -15,8 +24,18 @@
     <div class="row m-0">
       <div class="col-12 col-lg-5 px-5 text-center text-lg-left">
         <h2 class="subtitulo-art-detalle">{{detalle?.titulo}}</h2>
-        <p class="public-fecha-text mt-4 mb-0">Publicado por: {{detalle?.autor}}</p>
-        <p class="public-fecha-text">Fecha: {{ formatoFecha1(detalle?.fecha_creado) }}</p>
+        <p class="public-fecha-text mt-4 mb-0">
+          <span (click)="openDialog ('publicado_por', etiquetas?.publicado_por, 0)">
+            <span *ngIf="etiquetas?.publicado_por">{{ etiquetas?.publicado_por }}</span>
+            <span *ngIf="!etiquetas?.publicado_por">publicado_por</span>
+          </span>
+          : {{detalle?.autor}}</p>
+        <p class="public-fecha-text">
+          <span (click)="openDialog ('fecha', etiquetas?.fecha, 0)">
+            <span *ngIf="etiquetas?.fecha">{{ etiquetas?.fecha }}</span>
+            <span *ngIf="!etiquetas?.fecha">fecha</span>
+          </span>
+          : {{ formatoFecha1(detalle?.fecha_creado) }}</p>
       </div>
       <div class="col-12 col-lg-7 px-0">
         <div class="row m-0">

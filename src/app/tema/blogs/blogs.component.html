@@ -1,11 +1,20 @@
 <section>
 <div class="container-fluid px-0">
     <div class="row m-0">
-    <div class="col-sm-5 px-0">
-        <img src="assets/imagenes/blog.png" width="100%">
+    <div class="col-sm-5 px-0" (click)="openDialogImagen ('turismo_blog_img_1', imagenes?.turismo_blog_img_1)">
+        <img [src]="imagenes?.turismo_blog_img_1.img" width="100%">
     </div>
     <div class="col-sm-7 px-sm-5 pt-xl-5 text-center text-sm-left" id="fondo-azul">
-        <h1 class=" mt-md-3 mt-lg-5 mt-xl-5 pt-sm-5 pl-lg-3" id="titulo-turismo">Turismo<span id="subtitulo-font"> Blog</span> </h1>
+        <h1 class=" mt-md-3 mt-lg-5 mt-xl-5 pt-sm-5 pl-lg-3" id="titulo-turismo">
+            <span (click)="openDialog ('turismo_blog_titulo', etiquetas?.turismo_blog_titulo, 0)">
+                <span *ngIf="etiquetas?.turismo_blog_titulo">{{ etiquetas?.turismo_blog_titulo }}</span>
+                <span *ngIf="!etiquetas?.turismo_blog_titulo">turismo_blog_titulo</span>
+            </span>
+            <span (click)="openDialog ('turismo_blog_subtitulo', etiquetas?.turismo_blog_subtitulo, 0)">
+                <span *ngIf="etiquetas?.turismo_blog_subtitulo" id="subtitulo-font"> {{ etiquetas?.turismo_blog_subtitulo }}</span>
+                <span *ngIf="!etiquetas?.turismo_blog_subtitulo" id="subtitulo-font">turismo_blog_subtitulo</span>
+            </span>
+         </h1>
     </div>
     </div>
 </div>
@@ -29,13 +38,28 @@
                 <p class="texto-todo">{{blog.datageneral.resumen}}</p>
                 <div class="row m-0">
                 <div class="col-7 col-sm-6 col-md-5 col-lg-6 px-0">
-                    <p class="publicado-fecha-font">Publicado por: {{blog.datageneral.autor}}</p>
+                    <p class="publicado-fecha-font">
+                            <span (click)="openDialog ('publicado_blog', etiquetas?.publicado_blog, 0)">
+                                    <span *ngIf="etiquetas?.publicado_blog">{{ etiquetas?.publicado_blog }}</span>
+                                    <span *ngIf="!etiquetas?.publicado_blog">publicado_blog</span>
+                            </span>
+                        : {{blog.datageneral.autor}}
+                    </p>
                 </div>
                 <div class="col-5 col-sm-3 col-md-3 col-lg-3 px-0 text-center text-md-left">
-                    <p class="publicado-fecha-font">Fecha: {{ formatoFecha1(blog.datageneral.fecha_creado) }}</p>
+                    <p class="publicado-fecha-font">
+                            <span (click)="openDialog ('fecha_blog', etiquetas?.fecha_blog, 0)">
+                                    <span *ngIf="etiquetas?.fecha_blog">{{ etiquetas?.fecha_blog }}</span>
+                                    <span *ngIf="!etiquetas?.fecha_blog">fecha_blog</span>
+                            </span>
+                        : {{ formatoFecha1(blog.datageneral.fecha_creado) }}
+                    </p>
                 </div>
                 <div class="col-12 col-sm-3 col-md-3 px-0 col-lg-3 text-center text-md-right pb-4 pb-sm-0">
-                    <a class="link-todo" (click)="BlogDetalle(blog.datageneral.id)" style="cursor: pointer;">Leer mas ></a>
+                    <div (click)="openDialog ('blog_link_leer', etiquetas?.blog_link_leer, 0)">
+                        <a *ngIf="etiquetas?.blog_link_leer" class="link-todo"  style="cursor: pointer;">{{ etiquetas?.blog_link_leer }}</a>
+                        <a *ngIf="!etiquetas?.blog_link_leer" class="link-todo"  style="cursor: pointer;">blog_link_leer</a>
+                    </div>
                 </div>
                 </div>
             </div>
@@ -48,13 +72,26 @@
                 <p class="texto-todo">{{blog.resumen}}</p>
                 <div class="row m-0">
                 <div class="col-7 col-sm-6 col-md-5 col-lg-6 px-0">
-                    <p class="publicado-fecha-font">Publicado por: {{blog.autor}}</p>
+                    <p class="publicado-fecha-font">
+                        <span (click)="openDialog ('publicado_blog', etiquetas?.publicado_blog, 0)">
+                            <span *ngIf="etiquetas?.publicado_blog">{{ etiquetas?.publicado_blog }}</span>
+                            <span *ngIf="!etiquetas?.publicado_blog">publicado_blog</span>
+                        </span>
+                        : {{blog.autor}}</p>
                 </div>
                 <div class="col-5 col-sm-3 col-md-3 col-lg-3 px-0 text-center text-md-left">
-                    <p class="publicado-fecha-font">Fecha: {{ formatoFecha1(blog.fecha_creado) }}</p>
+                    <p class="publicado-fecha-font">
+                        <span (click)="openDialog ('fecha_blog', etiquetas?.fecha_blog, 0)">
+                            <span *ngIf="etiquetas?.fecha_blog">{{ etiquetas?.fecha_blog }}</span>
+                            <span *ngIf="!etiquetas?.fecha_blog">fecha_blog</span>
+                        </span>
+                        : {{ formatoFecha1(blog.fecha_creado) }}</p>
                 </div>
                 <div class="col-12 col-sm-3 col-md-3 px-0 col-lg-3 text-center text-md-right pb-4 pb-sm-0">
-                    <a class="link-todo" (click)="BlogDetalle(blog.id)" style="cursor: pointer;">Leer mas ></a>
+                    <div (click)="openDialog ('blog_link_leer', etiquetas?.blog_link_leer, 0)">
+                        <a *ngIf="etiquetas?.blog_link_leer" class="link-todo"  style="cursor: pointer;">{{ etiquetas?.blog_link_leer }}</a>
+                        <a *ngIf="!etiquetas?.blog_link_leer" class="link-todo"  style="cursor: pointer;">blog_link_leer</a>
+                    </div>
                 </div>
                 </div>
             </div>
