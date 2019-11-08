@@ -1,15 +1,26 @@
-
 <section class="titulo-phone">
 <div class="container-fluid px-0">
     <div class="row m-0">
-    <div class="col-lg-4 px-0 order-2 order-lg-0">
-        <img src="assets/imagenes/andres.jpg" width="100%" height="100%">
+    <div class="col-lg-4 px-0 order-2 order-lg-0" (click)="openDialogImagen ('artesania_img_1', imagenes?.artesania_img_1)">
+        <img [src]="imagenes?.artesania_img_1.img" width="100%" height="100%">
     </div>
     <div class="col-12 col-lg-8 fondo-azul-artesania px-0 px-sm-5 py-5 text-center text-lg-left">
         <div class="row m-0">
         <div class="col-12 col-lg-10 color-blanco-artesania py-5 py-lg-0">
-            <h1 class="titulo-artesania mt-5">Dirección<span class="subtitulo-artesania"> Artesania</span></h1>
-            <p class="texto-artesania mt-4">Formular, proponer, ejecutar, evaluar y controlar las políticas en materia de desarrollo de la artesanía, en concordancia con la política general del gobierno, los planes sectoriales y las políticas de desarrollo regional. Planificar concertadamente y ejecutar el desarrollo de la actividad artesanal de la región, mediante el aprovechamiento de las potencialidades regionales. Fomentar, desarrollar y ejecutar proyectos, programas u otros mecanismos para promover la competitividad y productividad de la actividad artesanal en la región, con la participación de entidades públicas y privadas.</p>
+            <h1 class="titulo-artesania mt-5">
+                <span (click)="openDialog ('artsenia_titulo', etiquetas?.artsenia_titulo, 0)">
+                    <span *ngIf="etiquetas?.artsenia_titulo">{{ etiquetas?.artsenia_titulo }}</span>
+                    <span *ngIf="!etiquetas?.artsenia_titulo">artsenia_titulo</span>
+                </span>
+                <span (click)="openDialog ('artsenia_subtitulo', etiquetas?.artsenia_subtitulo, 0)">
+                    <span *ngIf="etiquetas?.artsenia_subtitulo" class="subtitulo-artesania"> {{ etiquetas?.artsenia_subtitulo }}</span>
+                    <span *ngIf="!etiquetas?.artsenia_subtitulo" class="subtitulo-artesania">artsenia_subtitulo</span>
+                </span>
+               </h1>
+               <div (click)="openDialog ('artsenia_texto', etiquetas?.artsenia_texto, 1)">
+                    <div *ngIf="etiquetas?.artsenia_texto" [innerHtml]="etiquetas?.artsenia_texto" class="texto-artesania mt-4"></div>
+                    <div *ngIf="!etiquetas?.artsenia_texto" class="texto-artesania mt-4">artsenia_texto</div>
+               </div>
         </div>
         </div>
     </div>
@@ -20,45 +31,93 @@
 <div class="container-fluid py-5 mb-5 mt-3">
     <div class="row m-0">
     <div class="col-12 text-center color-65-artesania">
-        <h2 class="mb-0 subtitulo-general">Para que</h2>
-        <h3 class="subtitulo-pequeño-general">Inscribirme</h3>
+        <div (click)="openDialog ('artsenia_inscribirno_titulo', etiquetas?.artsenia_inscribirno_titulo, 0)">
+            <h2 *ngIf="etiquetas?.artsenia_inscribirno_titulo" class="mb-0 subtitulo-general">{{ etiquetas?.artsenia_inscribirno_titulo }}</h2>
+            <h2 *ngIf="!etiquetas?.artsenia_inscribirno_titulo" class="mb-0 subtitulo-general">artsenia_inscribirno_titulo</h2>
+        </div>
+        <div  (click)="openDialog ('artsenia_inscribirno_subtitulo', etiquetas?.artsenia_inscribirno_subtitulo, 0)">
+            <h3 *ngIf="etiquetas?.artsenia_inscribirno_subtitulo" class="subtitulo-pequeño-general">{{ etiquetas?.artsenia_inscribirno_subtitulo }}</h3>
+            <h3 *ngIf="!etiquetas?.artsenia_inscribirno_subtitulo" class="subtitulo-pequeño-general">artsenia_inscribirno_subtitulo</h3>
+        </div>
     </div>
     <div class="col-12 color-81-artesania mt-5">
         <div class="row m-0">
         <div class="col-sm-4 col-lg-2 text-center mb-3 mb-lg-0">
             <div class="w-100 px-2">
-            <img class="img-in-altura mb-2" src="assets/imagenes/icono-in-2.png">
-            <h5 class="subtitulo-incribir mb-0"><small>Protección y asesoramiento legal</small></h5>
+                <div (click)="openDialogImagen ('artesania_inscribirno_img_1', imagenes?.artesania_inscribirno_img_1)">
+                    <img class="img-in-altura mb-2" [src]="imagenes?.artesania_inscribirno_img_1.img">
+                </div>
+            <h5 class="subtitulo-incribir mb-0">
+                <small (click)="openDialog ('artesnia_proteccion', etiquetas?.artesnia_proteccion, 0)">
+                    <small *ngIf="etiquetas?.artesnia_proteccion">{{ etiquetas?.artesnia_proteccion }}</small>
+                    <small *ngIf="!etiquetas?.artesnia_proteccion">artesnia_proteccion</small>
+                </small>
+            </h5>
             </div>
         </div>
         <div class="col-sm-4 col-lg-2 text-center mb-3 mb-lg-0">
             <div class="w-100 px-2">
-            <img class="img-in-altura mb-2" src="assets/imagenes/icono-in-5.png">
-            <h5 class="subtitulo-incribir mb-0"><small>Capacitaciones profesionales</small></h5>
+                <div (click)="openDialogImagen ('artesania_inscribirno_img_2', imagenes?.artesania_inscribirno_img_2)">
+                    <img class="img-in-altura mb-2" [src]="imagenes?.artesania_inscribirno_img_2.img">
+                </div>
+            <h5 class="subtitulo-incribir mb-0">
+                <small (click)="openDialog ('artesnia_capacitaciones', etiquetas?.artesnia_capacitaciones, 0)">
+                    <small *ngIf="etiquetas?.artesnia_capacitaciones">{{ etiquetas?.artesnia_capacitaciones }}</small> 
+                    <small *ngIf="!etiquetas?.artesnia_capacitaciones">artesnia_capacitaciones</small> 
+                </small>
+            </h5>
             </div>
         </div>
         <div class="col-sm-4 col-lg-2 text-center mb-3 mb-lg-0">
             <div class="w-100 px-2">
-            <img class="img-in-altura mb-2" src="assets/imagenes/icono-in-1.png">
-            <h5 class="subtitulo-incribir mb-0"><small>Forma parte de la base de datos RNA</small></h5>
+                <div (click)="openDialogImagen ('artesania_inscribirno_img_3', imagenes?.artesania_inscribirno_img_3)">
+                    <img class="img-in-altura mb-2" [src]="imagenes?.artesania_inscribirno_img_3.img">
+                </div>
+            <h5 class="subtitulo-incribir mb-0">
+                <small (click)="openDialog ('artesania_forma', etiquetas?.artesania_forma, 0)">
+                    <small *ngIf="etiquetas?.artesania_forma">{{ etiquetas?.artesania_forma }}</small>
+                    <small *ngIf="!etiquetas?.artesania_forma">artesania_forma</small>
+                </small>
+            </h5>
             </div>
         </div>
         <div class="col-sm-4 col-lg-2 text-center mb-3 mb-lg-0">
             <div class="w-100 px-2">
-            <img class="img-in-altura mb-2" src="assets/imagenes/icono-in-6.png">
-            <h5 class="subtitulo-incribir mb-0"><small>Accede al mercado (ferias, pasantías y mas)</small></h5>
+                <div (click)="openDialogImagen ('artesania_inscribirno_img_4', imagenes?.artesania_inscribirno_img_4)">
+                    <img class="img-in-altura mb-2" [src]="imagenes?.artesania_inscribirno_img_4.img">
+                </div>
+            <h5 class="subtitulo-incribir mb-0">
+                <small (click)="openDialog ('artesania_accede', etiquetas?.artesania_accede, 0)">
+                  <small *ngIf="etiquetas?.artesania_accede">{{ etiquetas?.artesania_accede }}</small>
+                  <small *ngIf="!etiquetas?.artesania_accede">artesania_accede</small> 
+                </small>
+            </h5>
             </div>
         </div>
         <div class="col-sm-4 col-lg-2 text-center mb-3 mb-lg-0">
             <div class="w-100 px-2">
-            <img class="img-in-altura mb-2" src="assets/imagenes/icono-in-4.png">
-            <h5 class="subtitulo-incribir mb-0"><small>Reconocimiento nacional como artesano</small></h5>
+                <div (click)="openDialogImagen ('artesania_inscribirno_img_5', imagenes?.artesania_inscribirno_img_5)">
+                    <img class="img-in-altura mb-2" [src]="imagenes?.artesania_inscribirno_img_5.img">
+                </div>
+            <h5 class="subtitulo-incribir mb-0">
+                <small (click)="openDialog ('artesania_reconocimiento', etiquetas?.sobre_nosotros_subtitulo, 0)">
+                    <small *ngIf="etiquetas?.artesania_reconocimiento">{{ etiquetas?.artesania_reconocimiento }}</small>
+                    <small *ngIf="!etiquetas?.artesania_reconocimiento">artesania_reconocimiento</small>
+                </small>
+            </h5>
             </div>
         </div>
         <div class="col-sm-4 col-lg-2 text-center mb-3 mb-lg-0">
             <div class="w-100 px-2">
-                <img class="img-in-altura mb-2" src="assets/imagenes/icono-in-3.png">
-                <h5 class="subtitulo-incribir mb-0"><small>Información</small></h5>
+                <div (click)="openDialogImagen ('artesania_inscribirno_img_6', imagenes?.artesania_inscribirno_img_6)">
+                    <img class="img-in-altura mb-2" [src]="imagenes?.artesania_inscribirno_img_6.img">
+                </div>
+                <h5 class="subtitulo-incribir mb-0">
+                    <small (click)="openDialog ('artesania_informacion', etiquetas?.artesania_informacion, 0)">
+                        <small *ngIf="etiquetas?.artesania_informacion">{{ etiquetas?.artesania_informacion }}</small>
+                        <small *ngIf="!etiquetas?.artesania_informacion">artesania_informacion</small>
+                    </small>
+                </h5>
             </div>
         </div>
         </div>
@@ -71,34 +130,88 @@
 <div class="container-fluid">
     <div class="row m-0">
     <div class="col-12 color-65-artesania text-center">
-        <h2 class="subtitulo-general mb-0">Servicios</h2>
-        <h3 class="subtitulo-pequeño-general">al agremiado</h3>
+        <div (click)="openDialog ('artesania_servicio_titulo', etiquetas?.artesania_servicio_titulo, 0)">
+            <h2 *ngIf="etiquetas?.artesania_servicio_titulo" class="subtitulo-general mb-0">{{ etiquetas?.artesania_servicio_titulo }}</h2>
+            <h2 *ngIf="!etiquetas?.artesania_servicio_titulo" class="subtitulo-general mb-0">artesania_servicio_titulo</h2>
+        </div>
+        <div (click)="openDialog ('artesania_servicio_subtitulo', etiquetas?.artesania_servicio_subtitulo, 0)">
+            <h3 *ngIf="etiquetas?.artesania_servicio_subtitulo" class="subtitulo-pequeño-general">{{ etiquetas?.artesania_servicio_subtitulo }}</h3>
+            <h3 *ngIf="!etiquetas?.artesania_servicio_subtitulo" class="subtitulo-pequeño-general">artesania_servicio_subtitulo</h3>
+        </div>
     </div>
     <div class="col-12 text-center my-5">
         <div class="row m-0">
         <div class="col-sm-6 col-md-4 mb-4">
-            <h6><small class="subtitulo-azul-artesania color-zul-artesania">CURSOS Y TALLERES DE CAPACITACION</small></h6>
-            <p class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania">Brindar asistencia técnica mediante cursos capacitación para el fortalecimiento de las habilidades y técnicas del artesano.</p>
+            <h6>
+                <span (click)="openDialog ('artesania_curso_titulo', etiquetas?.artesania_curso_titulo, 0)">
+                  <span class="subtitulo-azul-artesania color-zul-artesania" *ngIf="etiquetas?.artesania_curso_titulo">{{ etiquetas?.artesania_curso_titulo }}</span>
+                  <span class="subtitulo-azul-artesania color-zul-artesania" *ngIf="!etiquetas?.artesania_curso_titulo">artesania_curso_titulo</span>
+                </span>
+            </h6>
+            <div (click)="openDialog ('artesania_curso_texto', etiquetas?.artesania_curso_texto, 1)">
+                <div *ngIf="etiquetas?.artesania_curso_texto" [innerHtml]="etiquetas?.artesania_curso_texto" class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania"></div>
+                <div *ngIf="!etiquetas?.artesania_curso_texto" class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania">artesania_curso_texto</div>
+            </div>
         </div>
         <div class="col-sm-6 col-md-4 mb-4">
-            <h6><small class="subtitulo-azul-artesania color-zul-artesania">PASANTIAS</small></h6>
-            <p class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania">Garantizar el intercambio de técnicas conocimientos y experiencias, que faciliten el desarrollo artesanal de manera conjunta con distintas entidades a nivel local y regional.</p>
+            <h6>
+                <span (click)="openDialog ('artesania_pasantia', etiquetas?.artesania_pasantia, 0)">
+                  <span class="subtitulo-azul-artesania color-zul-artesania" *ngIf="etiquetas?.artesania_pasantia">{{ etiquetas?.artesania_pasantia }}</span>
+                  <span class="subtitulo-azul-artesania color-zul-artesania" *ngIf="!etiquetas?.artesania_pasantia">artesania_pasantia</span>
+                </span>
+            </h6>
+            <div (click)="openDialog ('artesania_pasantia_texto', etiquetas?.artesania_pasantia_texto, 1)">
+                <div *ngIf="etiquetas?.artesania_pasantia_texto" [innerHtml]="etiquetas?.artesania_pasantia_texto" class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania"></div>
+                <div *ngIf="!etiquetas?.artesania_pasantia_texto" class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania">artesania_pasantia_texto</div>
+            </div>
         </div>
             <div class="col-sm-6 col-md-4 mb-4">
-            <h6><small class="subtitulo-azul-artesania color-zul-artesania">PROMOCION Y DIFUSION</small></h6>
-            <p class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania">Que comprende la utilización de los medios de comunicación social, impresos, merchandising, para la actividad artesanal.</p>
+            <h6>
+                <span (click)="openDialog ('artesania_promocion', etiquetas?.artesania_promocion, 0)">
+                  <span  class="subtitulo-azul-artesania color-zul-artesania" *ngIf="etiquetas?.artesania_promocion">{{ etiquetas?.artesania_promocion }}</span>
+                  <span  class="subtitulo-azul-artesania color-zul-artesania" *ngIf="!etiquetas?.artesania_promocion">artesania_promocion</span>
+                </span>
+            </h6>
+            <div (click)="openDialog ('artesania_promocion_texto', etiquetas?.artesania_promocion_texto, 1)">
+                <div *ngIf="etiquetas?.artesania_promocion_texto" [innerHtml]="etiquetas?.artesania_promocion_texto" class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania"></div>
+                <div *ngIf="!etiquetas?.artesania_promocion_texto" class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania">artesania_promocion_texto</div>
+            </div>
             </div>
             <div class="col-sm-6 col-md-4 mb-4">
-            <h6><small class="subtitulo-azul-artesania color-zul-artesania">CONCURSOS REGIONALES</small></h6>
-            <p class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania">Reconocimiento de los artesanos de la región del Cusco, reconoce y valora el talento, competitividad y la creatividad del artesano, aporta en la conservación de la tradición artesanal de la Región mediante sus obras hechas a mano.</p>
+            <h6>
+                <span  (click)="openDialog ('artesania_concursos', etiquetas?.artesania_concursos, 0)">
+                   <span class="subtitulo-azul-artesania color-zul-artesania" *ngIf="etiquetas?.artesania_concursos">{{ etiquetas?.sobre_nosotros_subtitulo }}</span>
+                   <span class="subtitulo-azul-artesania color-zul-artesania" *ngIf="!etiquetas?.artesania_concursos">artesania_concursos</span>
+                </span>
+            </h6>
+            <div (click)="openDialog ('artesania_concursos_texto', etiquetas?.artesania_concursos_texto, 1)">
+                <div *ngIf="etiquetas?.artesania_concursos_texto" [innerHtml]="etiquetas?.artesania_concursos_texto" class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania"></div>
+                <div *ngIf="!etiquetas?.artesania_concursos_texto" class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania">artesania_concursos_texto</div>
+            </div>
             </div>
             <div class="col-sm-6 col-md-4 mb-4">
-            <h6><small class="subtitulo-azul-artesania color-zul-artesania">EXPOSICIONES Y FERIAS</small></h6>
-            <p class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania">Gestiona la participación de artesanos y asociaciones de artesanos, en eventos de índole comercial o cultural relacionados al sector artesanal, como una herramienta de articulación comercial.</p>
+            <h6>
+                <span class="subtitulo-azul-artesania color-zul-artesania" (click)="openDialog ('artesania_expociones', etiquetas?.artesania_expociones, 0)">
+                   <span *ngIf="etiquetas?.artesania_expociones">{{ etiquetas?.artesania_expociones }}</span> 
+                   <span *ngIf="etiquetas?.artesania_expociones">artesania_expociones</span> 
+                </span>
+            </h6>
+            <div (click)="openDialog ('artesania_expociones_texto', etiquetas?.artesania_expociones_texto, 1)">
+                <div *ngIf="etiquetas?.artesania_expociones_texto" [innerHtml]="etiquetas?.artesania_expociones_texto" class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania"></div>
+                <div *ngIf="!etiquetas?.artesania_expociones_texto" class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania">artesania_expociones_texto</div>
+            </div>
             </div>
             <div class="col-sm-6 col-md-4 mb-4">
-            <h6><small class="subtitulo-azul-artesania color-zul-artesania">FERIAS Y EVENTOS</small></h6>
-            <p class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania">Organización y realización de ferias, orientado a la exposición venta de los productos de los artesanos, asociaciones y empresas artesanales, con la finalidad de promover el crecimiento y desarrollo económico de los artesanos en la región Cusco.</p>
+            <h6>
+                <span class="subtitulo-azul-artesania color-zul-artesania" (click)="openDialog ('artesania_ferias', etiquetas?.artesania_ferias, 0)">
+                  <span *ngIf="etiquetas?.artesania_ferias">{{ etiquetas?.artesania_ferias }}</span>
+                  <span *ngIf="!etiquetas?.artesania_ferias">artesania_ferias</span>
+                </span>
+            </h6>
+            <div (click)="openDialog ('artesania_ferias_texto', etiquetas?.artesania_ferias_texto, 1)">
+                <div *ngIf="etiquetas?.artesania_ferias_texto" [innerHtml]="etiquetas?.artesania_ferias_texto" class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania"></div>
+                <div *ngIf="!etiquetas?.artesania_ferias_texto" class="px-lg-5 texto-artesania colo-22 entre-espaciados-artesania">artesania_ferias_texto</div>
+            </div>
             </div>
         </div>
         </div>
@@ -109,18 +222,30 @@
 <section>
 <div class="container-fluid px-0">
     <div class="row m-0">
-    <div class="col-12 col-lg-4 px-0 order-2 order-lg-0">
-        <img src="assets/imagenes/requisito.png" width="100%" height="100%">
+    <div class="col-12 col-lg-4 px-0 order-2 order-lg-0" (click)="openDialogImagen ('artesania_img_2', imagenes?.artesania_img_2)">
+        <img [src]="imagenes?.artesania_img_2.img" width="100%" height="100%">
     </div>
     <div class="col-12 col-lg-8 fondo-EF-artesania px-sm-5 pt-5">
         <div class="row m-0">
         <div class="col-12 px-0">
-            <h4 class="color-65-artesania subtitulo-pequeño-general" style="font-weight: 400">Como me inscribo</h4>
-            <p class="color-65-artesania texto-artesania mt-4">A través del Registro Nacional del Artesano (RNA): que es un servicio ofrecido por el Estado Peruano con el fin de brindar a los artesanos, sean personas naturales o jurídicas, un elemento de identificación y reconocimiento de su desempeño en la actividad artesanal, la inscripción es GRATUITA</p>
+            <div (click)="openDialog ('artesania_como_inscribo', etiquetas?.artesania_como_inscribo, 0)">
+                <h4 *ngIf="etiquetas?.artesania_como_inscribo" class="color-65-artesania subtitulo-pequeño-general" style="font-weight: 400">{{ etiquetas?.artesania_como_inscribo }}</h4>
+                <h4 *ngIf="!etiquetas?.artesania_como_inscribo" class="color-65-artesania subtitulo-pequeño-general" style="font-weight: 400">artesania_como_inscribo</h4>
+            </div>
+            <div (click)="openDialog ('artesania_como_inscribo_texto', etiquetas?.artesania_como_inscribo_texto, 1)">
+                <div *ngIf="etiquetas?.artesania_como_inscribo_texto" [innerHtml]="etiquetas?.artesania_como_inscribo_texto" class="color-65-artesania texto-artesania mt-4"></div>
+                <div *ngIf="!etiquetas?.artesania_como_inscribo_texto" class="color-65-artesania texto-artesania mt-4">artesania_como_inscribo_texto</div>
+            </div>
         </div>
         <div class="col-12 px-0 color-65-artesania">
-            <h6><small class="ins-re-artesania">Donde inscribirse</small></h6>
-            <p>En La Dirección de Artesanía – DIRCETUR CUSCO.<br> Plaza Túpac Amaru Mz. Lote 2, Wanchaq, Cusco, Tercer Piso.<br><br>A través del Portal Web <a class="color-65-artesania" href="">http://www.artesaniasdelperu.gob.pe</a></p>
+            <h6 (click)="openDialog ('artesania_donde_inscribo', etiquetas?.artesania_donde_inscribo, 0)">
+                <span *ngIf="etiquetas?.artesania_donde_inscribo" class="ins-re-artesania">{{ etiquetas?.artesania_donde_inscribo }}</span>
+                <span *ngIf="!etiquetas?.artesania_donde_inscribo" class="ins-re-artesania">artesania_donde_inscribo</span>
+            </h6>
+            <div (click)="openDialog ('artesania_donde_inscribo_texto', etiquetas?.artesania_donde_inscribo_texto, 1)">
+                <div *ngIf="etiquetas?.artesania_donde_inscribo_texto" [innerHtml]="etiquetas?.artesania_donde_inscribo_texto"></div>
+                <div *ngIf="!etiquetas?.artesania_donde_inscribo_texto">artesania_donde_inscribo_texto</div>
+            </div>
         </div>
         <div class="col-12 px-0">
             <h6><small class="ins-re-artesania color-65-artesania">Requisto</small></h6>
@@ -149,7 +274,10 @@
             </ul>
         </div>
         <div class="col-12 px-0 text-center text-lg-right my-4">
-            <a class="btn btn-descargar-artesania py-1 text-center px-4" href="#" role="button">Descargar ficha de inscripción ></a>
+            <div (click)="openDialog ('artesania_inscribo_descargar', etiquetas?.artesania_inscribo_descargar, 0)">
+                <a *ngIf="etiquetas?.artesania_inscribo_descargar" class="btn btn-descargar-artesania py-1 text-center px-4" role="button">{{ etiquetas?.artesania_inscribo_descargar }}</a>
+                <a *ngIf="!etiquetas?.artesania_inscribo_descargar" class="btn btn-descargar-artesania py-1 text-center px-4" role="button">artesania_inscribo_descargar</a>
+            </div>
         </div>
         </div>
     </div>
@@ -161,12 +289,24 @@
 <div class="container-fluid px-lg-5 py-4 py-sm-5 my-sm-5">
     <div class="row m-0">
     <div class="col-sm-6 col-lg-7 pl-lg-5 pr-lg-0 order-2 order-sm-0 text-center text-sm-left">
-        <p class="texto-artesania color-81-artesania">El Registro Nacional del Artesano, es un servicio que presta el Estado Peruano con el fin de brindar a los artesanos, sean personas naturales o jurídicas, un elemento de identificación y reconocimiento de su desempeño en la actividad artesanal.</p>
-        <a class="btn btn-ingresar-artesania py-1 text-center px-4" href="#" role="button">Ingresar</a>
+        <div (click)="openDialog ('artesania_registro_nacional_texto', etiquetas?.artesania_registro_nacional_texto, 1)">
+            <div *ngIf="etiquetas?.artesania_registro_nacional_texto" [innerHtml]="etiquetas?.artesania_registro_nacional_texto" class="texto-artesania color-81-artesania"></div>
+            <div *ngIf="!etiquetas?.artesania_registro_nacional_texto" class="texto-artesania color-81-artesania">artesania_registro_nacional_texto</div>
+        </div>
+        <div (click)="openDialog ('artesania_registro_nacional_btn', etiquetas?.artesania_registro_nacional_btn, 0)">
+            <a *ngIf="etiquetas?.artesania_registro_nacional_btn" class="btn btn-ingresar-artesania py-1 text-center px-4" role="button">{{ etiquetas?.artesania_registro_nacional_btn }}</a>
+            <a *ngIf="!etiquetas?.artesania_registro_nacional_btn" class="btn btn-ingresar-artesania py-1 text-center px-4" role="button">artesania_registro_nacional_btn</a>
+        </div>
     </div>
     <div class="col-sm-6 col-lg-4 color-65-artesania pr-lg-5 text-center mb-4 mb-sm-0">
-        <h2 class="subtitulo-general mb-0">Registro Nacional</h2>
-        <h3 class="subtitulo-pequeño-general mb-0">del Artesano (RNA)</h3>
+        <div (click)="openDialog ('artesania_registro_nacional_titulo', etiquetas?.artesania_registro_nacional_titulo, 0)">
+            <h2 *ngIf="etiquetas?.artesania_registro_nacional_titulo" class="subtitulo-general mb-0">{{ etiquetas?.artesania_registro_nacional_titulo }}</h2>
+            <h2 *ngIf="!etiquetas?.artesania_registro_nacional_titulo" class="subtitulo-general mb-0">artesania_registro_nacional_titulo</h2>
+        </div>
+        <div (click)="openDialog ('artesania_registro_nacional_subtitulo', etiquetas?.artesania_registro_nacional_subtitulo, 0)">
+            <h3 *ngIf="etiquetas?.artesania_registro_nacional_subtitulo" class="subtitulo-pequeño-general mb-0">{{ etiquetas?.artesania_registro_nacional_subtitulo }}</h3>
+            <h3 *ngIf="!etiquetas?.artesania_registro_nacional_subtitulo" class="subtitulo-pequeño-general mb-0">artesania_registro_nacional_subtitulo</h3>
+        </div>
         <img src="assets/imagenes/flechaizq.jpg" width="60%">
     </div>
     </div>
@@ -179,12 +319,21 @@
     <div class="col-lg-6 color-blanco-artesania pl-lg-5 mt-lg-5">
     <div class="row m-0">
         <div class="col-lg-5 text-center">
-        <h2 class="subtitulo-general mb-0">Lineas</h2>
-        <h3 class="subtitulo-pequeño-general mb-0">Artesanales</h3>
+            <div (click)="openDialog ('artesania_lineas_titulo', etiquetas?.artesania_lineas_titulo, 0)">
+                <h2 *ngIf="etiquetas?.artesania_lineas_titulo" class="subtitulo-general mb-0">{{ etiquetas?.artesania_lineas_titulo }}</h2>
+                <h2 *ngIf="!etiquetas?.artesania_lineas_titulo" class="subtitulo-general mb-0">artesania_lineas_titulo</h2>
+            </div>
+            <div (click)="openDialog ('artesania_lineas_subtitulo', etiquetas?.artesania_lineas_subtitulo, 0)">
+                <h3 *ngIf="etiquetas?.artesania_lineas_subtitulo" class="subtitulo-pequeño-general mb-0">{{ etiquetas?.artesania_lineas_subtitulo }}</h3>
+                <h3 *ngIf="etiquetas?.artesania_lineas_subtitulo" class="subtitulo-pequeño-general mb-0">artesania_lineas_subtitulo</h3>
+            </div>
         <img src="assets/imagenes/arrow.png" width="100%">
         </div>
         <div class="col-12">
-        <p class="texto-artesania mt-4 mb-5">La artesanía y la utilización de recursos naturales que generosamente brinda la naturaleza, son manejados adecuadamente, tratando de proteger y preservar cada una de las especies por que por ella se sustenta el futuro en la artesanía. Los artesanos con su capacidad creativa ven reflejados nuevos productos originales manifestando culturalmente sus líneas artesanales.</p>
+            <div (click)="openDialog ('artesania_lineas_texto', etiquetas?.artesania_lineas_texto, 1)">
+                <div *ngIf="etiquetas?.artesania_lineas_texto" [innerHtml]="etiquetas?.artesania_lineas_texto" class="texto-artesania mt-4 mb-5"></div>
+                <div *ngIf="!etiquetas?.artesania_lineas_texto" class="texto-artesania mt-4 mb-5">artesania_lineas_texto</div>
+            </div>
         </div>
     </div>
     </div> 
@@ -294,7 +443,10 @@
     <div class="col-12" style="background-color: #EC494B">
         <div class="row m-0">
         <div class="col-sm-6 col-lg-4 offset-sm-3 offset-lg-4">
-            <a class="btn py-0 text-center btn-ver-catalogo py-3 mb-3 mb-sm-5 mt-n2" href="#" role="button">Ver catalogo online ></a>
+            <div (click)="openDialog ('artesania_catalogo_btn', etiquetas?.artesania_catalogo_btn, 0)">
+                <a *ngIf="etiquetas?.artesania_catalogo_btn" class="btn py-0 text-center btn-ver-catalogo py-3 mb-3 mb-sm-5 mt-n2" role="button">{{ etiquetas?.artesania_catalogo_btn }}</a>
+                <a *ngIf="!etiquetas?.artesania_catalogo_btn" class="btn py-0 text-center btn-ver-catalogo py-3 mb-3 mb-sm-5 mt-n2" role="button">artesania_catalogo_btn</a>
+            </div>
         </div>
         </div>
     </div>
@@ -946,14 +1098,26 @@
     <div class="col-sm-6 col-md-7 col-lg-8 ancho-col-artesania align-items-center ancho-col-artesania px-sm-5 py-5 py-sm-4 py-md-5 order-2 order-sm-0" style="background-color: #F8F8F8">
         <div class="row m-0">
         <div class="col-lg-9 py-md-4 py-lg-5 my-md-0 my-lg-5">
-            <p class="texto-artesania color-81-artesania">El Registro Nacional del Artesano, es un servicio que presta el Estado Peruano con el fin de brindar a los artesanos, sean personas naturales o jurídicas, un elemento de identificación y reconocimiento de su desempeño en la actividad artesanal.</p>
-            <a class="btn btn-ingresar-artesania py-1 text-center px-4" href="#" role="button">Ingresar</a>
+            <div (click)="openDialog ('artesania_asociaciones_texto', etiquetas?.artesania_asociaciones_texto, 0)">
+                <div *ngIf="etiquetas?.artesania_asociaciones_texto" [innerHtml]="etiquetas?.artesania_asociaciones_texto" class="texto-artesania color-81-artesania"></div>
+                <div *ngIf="!etiquetas?.artesania_asociaciones_texto" class="texto-artesania color-81-artesania">artesania_asociaciones_texto</div>
+            </div>
+            <div (click)="openDialog ('artesania_asociaciones_link', etiquetas?.artesania_asociaciones_link, 0)">
+                <a *ngIf="etiquetas?.artesania_asociaciones_link" class="btn btn-ingresar-artesania py-1 text-center px-4" role="button">{{ etiquetas?.artesania_asociaciones_link }}</a>
+                <a *ngIf="!etiquetas?.artesania_asociaciones_link" class="btn btn-ingresar-artesania py-1 text-center px-4" role="button">artesania_asociaciones_link</a>
+            </div>
         </div>
         </div>
     </div>
     <div class="col-sm-6 col-md-5 col-lg-4 fondo-azul-artesania color-blanco-artesania  ancho-col-artesania text-center px-4 py-5">
-            <h2 class="subtitulo-general mt-5">DIRECTORIO DE</h2>
-            <h3 class="subtitulo-pequeño-general">ASOCIACIONES ARTESANALES</h3>
+        <div (click)="openDialog ('artesania_asociaciones_titulo', etiquetas?.artesania_asociaciones_titulo, 0)">
+            <h2 *ngIf="etiquetas?.artesania_asociaciones_titulo" class="subtitulo-general mt-5">{{ etiquetas?.artesania_asociaciones_titulo }}</h2>
+            <h2 *ngIf="etiquetas?.artesania_asociaciones_titulo" class="subtitulo-general mt-5">artesania_asociaciones_titulo</h2>
+        </div>  
+        <div (click)="openDialog ('artesania_asociaciones_subtitulo', etiquetas?.artesania_asociaciones_subtitulo, 0)">
+            <h3 *ngIf="etiquetas?.artesania_asociaciones_subtitulo" class="subtitulo-pequeño-general">{{ etiquetas?.artesania_asociaciones_subtitulo }}</h3>
+            <h3 *ngIf="!etiquetas?.artesania_asociaciones_subtitulo" class="subtitulo-pequeño-general">artesania_asociaciones_subtitulo</h3>
+        </div>  
             <img class="mb-5" src="assets/imagenes/arrow.png" width="100%">     
     </div>
     </div>
@@ -964,19 +1128,37 @@
 <div class="container-fluid py-5" style="background-color: #00000070">
     <div class="row m-0">
     <div class="col-sm-6 col-md-5 col-lg-4 offset-sm-3 offset-md-0 px-lg-5 text-center my-5 color-blanco-artesania">
-        <h2 class="color-blanco subutitulo-general mb-0">Contactate</h2>
-        <h3 class="color-blanco subtitulo-delgado mb-0">Artesania</h3>
+       <div (click)="openDialog ('artesania_contac_titulo', etiquetas?.artesania_contac_titulo, 0)">
+            <h2 *ngIf="etiquetas?.artesania_contac_titulo" class="color-blanco subutitulo-general mb-0">{{ etiquetas?.artesania_contac_titulo }}</h2>
+            <h2 *ngIf="!etiquetas?.artesania_contac_titulo" class="color-blanco subutitulo-general mb-0">artesania_contac_titulo</h2> 
+       </div>
+       <div (click)="openDialog ('artesania_contac_subtitulo', etiquetas?.artesania_contac_subtitulo, 0)">
+        <h3 *ngIf="etiquetas?.artesania_contac_subtitulo" class="color-blanco subtitulo-delgado mb-0">{{ etiquetas?.artesania_contac_subtitulo }}</h3>
+        <h3 *ngIf="!etiquetas?.artesania_contac_subtitulo" class="color-blanco subtitulo-delgado mb-0">artesania_contac_subtitulo</h3>
+       </div>
         <img src="assets/imagenes/arrow.png" width="100%" style="transform: rotate(-180deg);">
     </div>
     <div class="col-md-7 col-lg-6 offset-lg-1 my-5">
         <div class="row m-0">
         <div class="col-12 color-blanco text-center text-md-left color-blanco-artesania">
-            <p class="mb-0 subutitulo-general">Ubicación</p>
-            <p class="texto-turismo">Plaza Túpac Amaru Mz. Lote 2 ,<br> Wanchaq, Cusco, Tercer Piso.</p>
+            <div (click)="openDialog ('artesania_contac_ubicacion', etiquetas?.artesania_contac_ubicacion, 0)">
+                <p *ngIf="etiquetas?.artesania_contac_ubicacion" class="mb-0 subutitulo-general">{{ etiquetas?.artesania_contac_ubicacion }}</p>
+                <p *ngIf="!etiquetas?.artesania_contac_ubicacion" class="mb-0 subutitulo-general">artesania_contac_ubicacion</p>
+            </div>
+            <div (click)="openDialog ('artesania_contac_direccion', etiquetas?.artesania_como_inscribo, 1)">
+                <div *ngIf="etiquetas?.artesania_contac_direccion" [innerHtml]="etiquetas?.artesania_contac_direccion" class="texto-turismo"></div>
+                <div *ngIf="!etiquetas?.artesania_contac_direccion" class="texto-turismo">artesania_contac_direccion</div>
+            </div>
         </div>
         <div class="col-12 color-blanco text-center text-md-left color-blanco-artesania">
-            <p class="mb-0 subutitulo-general">Llamanos</p>
-            <p class="texto-turismo">+51 (84) 223761</p>
+            <div (click)="openDialog ('artesania_contac_llamanos', etiquetas?.artesania_contac_llamanos, 0)">
+                <p *ngIf="etiquetas?.artesania_contac_llamanos" class="mb-0 subutitulo-general">{{ etiquetas?.artesania_contac_llamanos }}</p>
+                <p *ngIf="!etiquetas?.artesania_contac_llamanos" class="mb-0 subutitulo-general">artesania_contac_llamanos</p>
+            </div>
+            <div (click)="openDialog ('artesania_contac_numero', etiquetas?.artesania_contac_numero, 0)">
+                <p *ngIf="etiquetas?.artesania_contac_numero" class="texto-turismo">{{ etiquetas?.artesania_contac_numero }}</p>
+                <p *ngIf="!etiquetas?.artesania_contac_numero" class="texto-turismo">artesania_contac_numero</p>
+            </div>
         </div>
         <div class="col-12 color-blanco text-center text-md-left color-blanco-artesania">
             <p class="mb-0 subutitulo-general mb-3">Escribenos</p>

@@ -1,14 +1,26 @@
 <section class="titulo-phone">
 <div class="container-fluid px-0">
   <div class="row m-0">
-    <div class="col-12 col-md-6 col-lg-3 order-2 order-md-0 px-0">
-      <img src="assets/imagenes/andres.jpg" width="100%">
+    <div class="col-12 col-md-6 col-lg-3 order-2 order-md-0 px-0" (click)="openDialogImagen ('circuitos_turisticos_img_1', imagenes?.circuitos_turisticos_img_1)">
+      <img [src]="imagenes?.circuitos_turisticos_img_1.img" width="100%">
     </div>
     <div class="col-12 col-md-6 col-lg-9 color-blanco px-lg-5 pt-5" id="fondo-titulo">
       <div class="row m-0">
         <div class="col-12 col-lg-9 py-4 px-0 px-xl-5 text-center text-lg-left">
-          <h1 class="mb-4" id="titulo-turismo">Circuitos<span id="subtitulo-rural"> turísticos del Cusco</span></h1>
-          <p>La Dirección de Artesanía, es un Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.</p>
+          <h1 class="mb-4" id="titulo-turismo">
+            <span (click)="openDialog ('circuitos_turisticos_titulo', etiquetas?.circuitos_turisticos_titulo, 0)">
+              <span *ngIf="etiquetas?.circuitos_turisticos_titulo">{{ etiquetas?.circuitos_turisticos_titulo }}</span>
+              <span *ngIf="!etiquetas?.circuitos_turisticos_titulo">circuitos_turisticos_titulo</span>
+            </span>
+            <span (click)="openDialog ('circuitos_turisticos_subtitulo', etiquetas?.circuitos_turisticos_subtitulo, 0)">
+              <span *ngIf="etiquetas?.circuitos_turisticos_subtitulo" id="subtitulo-rural"> {{ etiquetas?.circuitos_turisticos_subtitulo }}</span>
+              <span *ngIf="!etiquetas?.circuitos_turisticos_subtitulo" id="subtitulo-rural">circuitos_turisticos_subtitulo</span>
+            </span>
+            </h1>
+            <div (click)="openDialog ('circuitos_turisticos_descripcion', etiquetas?.circuitos_turisticos_descripcion, 1)">
+              <div *ngIf="etiquetas?.circuitos_turisticos_descripcion" [innerHtml]="etiquetas?.circuitos_turisticos_descripcion"></div>
+              <div *ngIf="!etiquetas?.circuitos_turisticos_descripcion">circuitos_turisticos_descripcion</div>
+            </div>
         </div>
       </div>
     </div>
@@ -20,7 +32,10 @@
 <div class="container-fluid px-sm-5 mb-5">
   <div class="row m-0">
     <div class="col-12 mb-5 text-center">
-        <h2 id="subtitulo-circuitos">Circuitos aprobados y supervisados</h2>
+      <div (click)="openDialog ('circuitos_turisticos_circuito_aprobado', etiquetas?.circuitos_turisticos_circuito_aprobado, 0)">
+          <h2 *ngIf="etiquetas?.circuitos_turisticos_circuito_aprobado" id="subtitulo-circuitos">{{ etiquetas?.circuitos_turisticos_circuito_aprobado }}</h2>
+          <h2 *ngIf="!etiquetas?.circuitos_turisticos_circuito_aprobado" id="subtitulo-circuitos">circuitos_turisticos_circuito_aprobado</h2>
+      </div>
     </div>
     <div class="col-12 px-0">
       <div class="row m-0">
@@ -82,7 +97,10 @@
                   
               </div>
               <div class="col-12 text-center mt-3 mb-3">
-                    <button class="btn colot-btn-ruta py-0" (click)="goCircuitoDetalle (viaje.id)">Explorar ></button>
+                <div (click)="openDialog ('circuitos_turisticos_circuito_btn_explorar', etiquetas?.circuitos_turisticos_circuito_btn_explorar, 0)">
+                    <button *ngIf="etiquetas?.circuitos_turisticos_circuito_btn_explorar" class="btn colot-btn-ruta py-0">{{ etiquetas?.circuitos_turisticos_circuito_btn_explorar }}</button>
+                    <button *ngIf="!etiquetas?.circuitos_turisticos_circuito_btn_explorar" class="btn colot-btn-ruta py-0">circuitos_turisticos_circuito_btn_explorar</button>
+                </div>
               </div>
             </div>
             </div>

@@ -110,13 +110,15 @@ export class HomeComponent implements OnInit {
       
       this.TraerCategoriasBlogs();
 
+      //copiar 
+
       let idioma: string;
       idioma = localStorage.getItem("idioma");
 
       if (idioma === undefined || idioma === null) {
         idioma = 'es';
       }
-
+      
       this.db.getPaginaWebEtiquetas ('home_' + idioma).subscribe ((res) => {
         this.etiquetas = res;
       });
