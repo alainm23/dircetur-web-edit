@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../../../services/database.service';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
+
+import { UtilsService } from '../../services/utils.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -11,7 +14,8 @@ export class HeaderComponent implements OnInit {
   menu:string="active";
   Categorias:any;
   constructor(public route: Router,
-    public db:DatabaseService) { }
+              public utils: UtilsService,
+              public db:DatabaseService) { }
 
   ngOnInit() {
     this.TraerCategoriasBlogs();
@@ -79,6 +83,10 @@ export class HeaderComponent implements OnInit {
 
   goArtesania () {
     this.route.navigate (["/artesania"]);
+  }
+
+  cambio_idioma (idioma: any) {
+    this.utils.ElIdioma = idioma;
   }
 /*
   goNoticias () {

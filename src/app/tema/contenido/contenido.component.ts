@@ -5,6 +5,7 @@ import * as $ from 'jquery';
 import { MatDialog, MatDialogConfig } from "@angular/material"
 import { DialogTextComponent } from '../../dialogs/dialog-text/dialog-text.component';
 import { DialogImageComponent } from '../../dialogs/dialog-image/dialog-image.component';
+import { UtilsService } from '../../services/utils.service';
 
 @Component({
   selector: 'app-contenido',
@@ -17,10 +18,11 @@ export class ContenidoComponent implements OnInit {
 
   etiquetas: any;
   imagenes: any;
-  constructor(
-    public db:DatabaseService,
-    private dialog: MatDialog
-  ) { }
+  constructor(public db:DatabaseService,
+              private dialog: MatDialog,
+              public utils: UtilsService) { 
+
+  }
 
   ngOnInit() {
     window.scrollTo(0, 0);
@@ -31,6 +33,8 @@ export class ContenidoComponent implements OnInit {
     
     let idioma: string;
     idioma = localStorage.getItem("idioma");
+
+    console.log ("Idioma: " + idioma);
 
     if (idioma === undefined || idioma === null) {
       idioma = 'es';
@@ -44,6 +48,14 @@ export class ContenidoComponent implements OnInit {
     this.db.getPaginaWebEtiquetas ('sobre_nosotros').subscribe ((res) => {
       this.imagenes = res;
       console.log ("res", res);
+    });
+
+    this.utils.idioma.subscribe((nextValue: string) => {
+      console.log ("Next Idioma", nextValue);
+      /* subscribirme */
+      this.db.getPaginaWebEtiquetas ('sobre_nosotros_' + nextValue).subscribe ((res) => {
+        this.etiquetas = res;
+      });
     });
   }
 

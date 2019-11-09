@@ -1,5 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
 import { DatabaseService } from '../../services/database.service';
+import { UtilsService } from '../services/utils.service';
+
 import * as AOS from 'aos';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
@@ -34,6 +37,7 @@ export class HomeComponent implements OnInit {
 
   constructor(public db:DatabaseService,
               public route: Router,
+              public utils: UtilsService,
               private dialog: MatDialog
             ) { }
 
@@ -127,14 +131,18 @@ export class HomeComponent implements OnInit {
         this.imagenes = res;
         console.log ("res", res);
       });
+
+      this.utils.idioma.subscribe((nextValue: string) => {
+        console.log ("Next Idioma", nextValue);
+        /* subscribirme */
+        this.db.getPaginaWebEtiquetas ('home_' + nextValue).subscribe ((res) => {
+          this.etiquetas = res;
+        });
+      });
     };
 
     cambio_idioma (idioma: string) {
-      localStorage.setItem ("idioma", idioma);
-
-      this.db.getPaginaWebEtiquetas ('home_' + idioma).subscribe ((res) => {
-        this.etiquetas = res;
-      });
+      this.utils.ElIdioma = idioma;
     }
 
     createPlayer () {

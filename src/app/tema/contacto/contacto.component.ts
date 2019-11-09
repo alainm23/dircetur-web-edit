@@ -52,6 +52,8 @@ export class ContactoComponent implements OnInit {
     let idioma: string;
     idioma = localStorage.getItem("idioma");
 
+    console.log ("Idioma: " + idioma);
+
     if (idioma === undefined || idioma === null) {
       idioma = 'es';
     }
