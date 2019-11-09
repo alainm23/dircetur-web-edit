@@ -2,11 +2,21 @@
 <div class="container py-3">
     <div class="row m-0">
     <div class="col-12 text-center mb-4">
-        <h1 class="color-blanco" id="titulo-sobre">Que es <span id="sutitulo-dir">DIRCETUR</span></h1>
+        <h1 class="color-blanco" id="titulo-sobre">
+            <span (click)="openDialog ('sobre_nosotros_titulo', etiquetas?.sobre_nosotros_titulo, 0)">
+              <span *ngIf="etiquetas?.sobre_nosotros_titulo">{{ etiquetas?.sobre_nosotros_titulo }}</span>
+              <span *ngIf="!etiquetas?.sobre_nosotros_titulo">sobre_nosotros_titulo</span>
+            </span>
+            <span (click)="openDialog ('sobre_nosotros_subtitulo', etiquetas?.sobre_nosotros_subtitulo, 0)">
+              <span *ngIf="etiquetas?.sobre_nosotros_subtitulo" id="sutitulo-dir">{{ etiquetas?.sobre_nosotros_subtitulo }}</span>
+              <span *ngIf="!etiquetas?.sobre_nosotros_subtitulo" id="sutitulo-dir">sobre_nosotros_subtitulo</span>
+            </span>
+        </h1>  
     </div>
-    <div class="col-12 col-xl-10 offset-xl-1 text-center px-3">
-        <p class="color-blanco">La Dirección de turismo (DIRCETUR), órgano de línea de segundo nivel organizacional, responsable de proponer y ejecutar la política organizaciónal, responsable de proponer y ejecutar la política regional de la actividad turística, en el marco de la política nacional de turismo; así como calificar y supervisar a los prestadores de servicios turísticos, de conformidad con las normas y reglamentos expedidos por el ministerio de comercio exterior y turismo, así como ejecutar la política regional de turismo sostenible en materia ambiental, dependiente de la dirección regional.<br> 
-        Somos el ente rector, articulado, organizado, eficiente y generador de confianza en los sectores privado y público, que conduce acciones de comercio exterior, turismo y artesanía de la Región Cusco, responsable en materia de promoción para lograr el desarrollo sostenible del Sector. orientado a:</p>
+    <div class="col-12 col-xl-10 offset-xl-1 text-center px-3" (click)="openDialog ('sobre_nosotros_descripcion', etiquetas?.sobre_nosotros_descripcion, 1)">
+        <p *ngIf="!etiquetas?.sobre_nosotros_descripcion" class="color-blanco">sobre_nosotros_descripcion</p>
+        <div *ngIf="etiquetas?.sobre_nosotros_descripcion" [innerHtml]="etiquetas?.sobre_nosotros_descripcion"  class="color-blanco">
+        </div>
     </div>
     </div>
 </div>
@@ -16,27 +26,41 @@
 <div class="container-fluid py-5">
     <div class="row m-0">
     <div class="col-12 text-center mb-5">
-        <h2 class="subtitulo-sobre colo-negro mb-0">Para quien es</h2>
-        <h3 class="subtitulo-sobre-weight colo-negro">DIRCETUR</h3>
+        <div (click)="openDialog ('sobre_nosotros_para_quien_titulo', etiquetas?.sobre_nosotros_para_quien_titulo, 0)">
+          <h2 *ngIf="etiquetas?.sobre_nosotros_para_quien_titulo" class="subtitulo-sobre colo-negro mb-0">{{ etiquetas?.sobre_nosotros_para_quien_titulo }}</h2>
+          <h2 *ngIf="!etiquetas?.sobre_nosotros_para_quien_titulo" class="subtitulo-sobre colo-negro mb-0">sobre_nosotros_para_quien_titulo</h2>
+        </div>
+        <div (click)="openDialog ('sobre_nosotros_dicertur_subtitulo', etiquetas?.sobre_nosotros_dicertur_subtitulo, 0)">
+          <h3 *ngIf="etiquetas?.sobre_nosotros_dicertur_subtitulo" class="subtitulo-sobre-weight colo-negro">{{ etiquetas?.sobre_nosotros_dicertur_subtitulo }}</h3>
+          <h3 *ngIf="!etiquetas?.sobre_nosotros_dicertur_subtitulo" class="subtitulo-sobre-weight colo-negro">sobre_nosotros_dicertur_subtitulo</h3>
+        </div>
     </div>
     <div class="col-12 col-md-7 offset-md-1">
         <div class="row m-0">
         <div class="col-12">
-            <h4 class="titulo-parquien-font colo-negro">Turistas</h4>
-            <p class="texto-subtitulo-font color-texto">
-            Optimizar y aprovechar las condiciones de acceso a los mercados nacionales e internacionales, con capital humano e identidad cultural. Promover la diversificación, competitividad y sostenibilidad de la oferta exportadora, turística y artesanal
-            </p>
+            <div (click)="openDialog ('sobre_nosotros_turista_titulo', etiquetas?.sobre_nosotros_turista_titulo, 0)">
+               <h4 *ngIf="etiquetas?.sobre_nosotros_turista_titulo" class="titulo-parquien-font colo-negro">{{ etiquetas?.sobre_nosotros_turista_titulo }}</h4>
+               <h4 *ngIf="!etiquetas?.sobre_nosotros_turista_titulo" class="titulo-parquien-font colo-negro">sobre_nosotros_turista_titulo</h4>
+            </div>
+            <div (click)="openDialog ('sobre_nosotros_turista_texto', etiquetas?.sobre_nosotros_turista_texto, 1)">
+                <div *ngIf="etiquetas?.sobre_nosotros_turista_texto" [innerHtml]="etiquetas?.sobre_nosotros_turista_texto" class="texto-subtitulo-font color-texto"></div>
+                <div *ngIf="!etiquetas?.sobre_nosotros_turista_texto" class="texto-subtitulo-font color-texto">sobre_nosotros_turista_texto</div>
+            </div>
         </div>
         <div class="col-12">
-            <h4 class="titulo-parquien-font colo-negro">Proveedores turísticos</h4>
-            <p class="texto-subtitulo-font color-texto">
-            Optimizar y aprovechar las condiciones de acceso a los mercados nacionales e internacionales, con capital humano e identidad cultural. Promover la diversificación, competitividad y sostenibilidad de la oferta exportadora, turística y artesanal. 
-            </p>
+            <div (click)="openDialog ('sobre_nosotros_proveedor_turistico_titulo', etiquetas?.sobre_nosotros_proveedor_turistico, 0)">
+               <h4 *ngIf="etiquetas?.sobre_nosotros_proveedor_turistico_titulo" class="titulo-parquien-font colo-negro">{{ etiquetas?.sobre_nosotros_proveedor_turistico_titulo }}</h4>
+               <h4 *ngIf="!etiquetas?.sobre_nosotros_proveedor_turistico_titulo" class="titulo-parquien-font colo-negro">sobre_nosotros_proveedor_turistico_titulo</h4>
+            </div>
+            <div (click)="openDialog ('sobre_nosotros_proveedor_turistico_texto', etiquetas?.sobre_nosotros_proveedor_turistico_texto, 1)">
+                 <div *ngIf="etiquetas?.sobre_nosotros_proveedor_turistico_texto" [innerHtml]="etiquetas?.sobre_nosotros_proveedor_turistico_texto" class="texto-subtitulo-font color-texto"></div>
+                 <div *ngIf="!etiquetas?.sobre_nosotros_proveedor_turistico_texto" class="texto-subtitulo-font color-texto">sobre_nosotros_proveedor_turistico_texto</div>
+            </div>
         </div>
         </div>
     </div>
-    <div class="col-md-4 mt-md-5 mt-lg-0">
-        <img src="assets/imagenes/andres.jpg" width="100%" id="img-para">
+    <div class="col-md-4 mt-md-5 mt-lg-0" (click)="openDialogImagen ('sobre_nosotros_img_1', imagenes?.sobre_nosotros_img_1)">
+        <img [src]="imagenes?.sobre_nosotros_img_1.img" width="100%" id="img-para">
     </div>
     </div>
 </div>
@@ -46,12 +70,20 @@
 <div class="container-fluid pr-lg-0 pb-xl-4">
     <div class="row m-0">
     <div class="col-md-8 col-lg-8 pl-xl-0 py-xl-5 mt-xl-5 offset-lg-1 order-2 order-md-0" id="col-nuestro-padding">
-        <p class="color-blanco texto-subtitulo-font mt-xl-1">Optimizar y aprovechar las condiciones de acceso a los mercados nacionales e internacionales, con capital humano e identidad cultural. Promover la diversificación, competitividad y sostenibilidad de la oferta exportadora, turística y artesanal.<br> Promover el posicionamiento de la imagen de la Región Cusco en los ámbitos de su competencia.<br> La Dirección Regional de Comercio Exterior y Turismo, es la entidad líder, promotora de alianzas público – privadas, que posiciona a Cusco como región exportadora, turística y artesanal que contribuyen a la inclusión social y a mejorar los niveles de vida de la población; sectores que se han convertido en la base del desarrollo sostenible regional.
-        Dirección Regional de Comercio Exterior y Turismo, es la entidad líder, promotora de alianzas público – privadas, que posiciona a Cusco como región exportadora, turística y artesanal que contribuyen a la inclusión social y a mejorar los niveles de vida de la población; sectores que se han convertido en la base del desarrollo sostenible regional.</p>
+        <div (click)="openDialog ('sobre_nosotros_nuestro_euipo_texto', etiquetas?.sobre_nosotros_nuestro_euipo_texto, 1)">
+            <div *ngIf="etiquetas?.sobre_nosotros_nuestro_euipo_texto" [innerHtml]="etiquetas?.sobre_nosotros_nuestro_euipo_texto" class="color-blanco texto-subtitulo-font mt-xl-1"></div> 
+            <div *ngIf="!etiquetas?.sobre_nosotros_nuestro_euipo_texto" class="color-blanco texto-subtitulo-font mt-xl-1">sobre_nosotros_nuestro_euipo_texto</div> 
+        </div>
     </div>
     <div class="col-md-4 col-lg-3 text-center px-md-5 py-lg-4 ml-lg-n5 mb-4 mb-md-0" id="bajar-nuestro">
-        <h2 class="subtitulo-sobre color-blanco mb-0">Nuestro</h2>
-        <h3 class="subtitulo-sobre-weight color-blanco mb-3">Proposito</h3>
+        <div (click)="openDialog ('sobre_nosotros_nuestro_euipo_titulo', etiquetas?.sobre_nosotros_nuestro_euipo_titulo, 0)">
+           <h2 *ngIf="etiquetas?.sobre_nosotros_nuestro_euipo_titulo" class="subtitulo-sobre color-blanco mb-0">{{ etiquetas?.sobre_nosotros_nuestro_euipo_titulo }}</h2>
+           <h2 *ngIf="!etiquetas?.sobre_nosotros_nuestro_euipo_titulo" class="subtitulo-sobre color-blanco mb-0">sobre_nosotros_nuestro_euipo_titulo</h2>
+        </div>
+        <div (click)="openDialog ('sobre_nosotros_nuestro_euipo_subtitulo', etiquetas?.sobre_nosotros_nuestro_euipo_subtitulo, 0)">
+            <h3 *ngIf="etiquetas?.sobre_nosotros_nuestro_euipo_subtitulo" class="subtitulo-sobre-weight color-blanco mb-3">{{ etiquetas?.sobre_nosotros_nuestro_euipo_subtitulo }}</h3>
+            <h3 *ngIf="!etiquetas?.sobre_nosotros_nuestro_euipo_subtitulo" class="subtitulo-sobre-weight color-blanco mb-3">sobre_nosotros_nuestro_euipo_subtitulo</h3>
+        </div>
         <img src="assets/imagenes/arrow.png" width="100%">
     </div>
     </div>
@@ -62,8 +94,14 @@
 <div class="container py-5">
     <div class="row m-0">
         <div class="col-12 text-center">
-            <h2 class="subtitulo-sobre colo-negro mb-0">Funciones</h2>
-            <h3 class="subtitulo-sobre-weight colo-negro">Principales</h3>
+            <div (click)="openDialog ('sobre_nosotros_funciones_principales_titulo_1', etiquetas?.sobre_nosotros_funciones_principales_titulo_1, 0)">
+                <h2 *ngIf="etiquetas?.sobre_nosotros_funciones_principales_titulo_1" class="subtitulo-sobre colo-negro mb-0">{{ etiquetas?.sobre_nosotros_funciones_principales_titulo_1 }}</h2>
+                <h2 *ngIf="!etiquetas?.sobre_nosotros_funciones_principales_titulo_1" class="subtitulo-sobre colo-negro mb-0">sobre_nosotros_funciones_principales_titulo_1</h2>
+            </div>
+            <div (click)="openDialog ('sobre_nosotros_funciones_principales_subtitulo_1', etiquetas?.sobre_nosotros_funciones_principales_subtitulo_1, 0)">
+                <h3 *ngIf="etiquetas?.sobre_nosotros_funciones_principales_subtitulo_1" class="subtitulo-sobre-weight colo-negro">{{ etiquetas?.sobre_nosotros_funciones_principales_subtitulo_1 }}</h3>
+                <h3 *ngIf="!etiquetas?.sobre_nosotros_funciones_principales_subtitulo_1" class="subtitulo-sobre-weight colo-negro">sobre_nosotros_funciones_principales_subtitulo_1</h3>
+            </div>
         </div>
         <div class="col-2 offset-5 px-0 px-xl-5 mb-5">
             <div class="line-sobre"></div>
@@ -86,8 +124,14 @@
 <div class="container mb-5">
     <div class="row m-0">
     <div class="col-12 text-center">
-        <h2 class="subtitulo-sobre colo-negro mb-0">Funciones</h2>
-        <h3 class="subtitulo-sobre-weight colo-negro">Principales</h3>
+        <div (click)="openDialog ('sobre_nosotros_funciones_principales_titulo', etiquetas?.sobre_nosotros_funciones_principales_titulo, 0)">
+           <h2 *ngIf="etiquetas?.sobre_nosotros_funciones_principales_titulo" class="subtitulo-sobre colo-negro mb-0">{{ etiquetas?.sobre_nosotros_funciones_principales_titulo }}</h2>
+           <h2 *ngIf="!etiquetas?.sobre_nosotros_funciones_principales_titulo" class="subtitulo-sobre colo-negro mb-0">sobre_nosotros_funciones_principales_titulo</h2>
+        </div>
+        <div (click)="openDialog ('sobre_nosotros_funciones_principales_subtitulo', etiquetas?.sobre_nosotros_funciones_principales_subtitulo, 0)">
+            <h3 *ngIf="etiquetas?.sobre_nosotros_funciones_principales_subtitulo" class="subtitulo-sobre-weight colo-negro">{{ etiquetas?.sobre_nosotros_funciones_principales_subtitulo }}</h3>
+            <h3 *ngIf="!etiquetas?.sobre_nosotros_funciones_principales_subtitulo" class="subtitulo-sobre-weight colo-negro">sobre_nosotros_funciones_principales_subtitulo</h3>
+        </div>
     </div>
     <div class="col-2 offset-5 px-0 px-xl-5 mb-5">
         <div class="line-sobre"></div>

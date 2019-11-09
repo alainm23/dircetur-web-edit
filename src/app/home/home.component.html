@@ -84,8 +84,8 @@
              </div>
              <div class="col-xl-4 pr-5 ocultar-img-menu">
              <div class="row m-0">
-               <div class="col-6 mt-2">
-                  <img src="assets/imagenes/logo-horizontal.png" width="90%">
+               <div class="col-6 mt-2" (click)="openDialogImagen ('logo_dicertur', imagenes?.logo_dicertur)">
+                  <img [src]="imagenes?.logo_dicertur.img" width="90%" >
                </div>
                <div class="col-6 mt-2">
                   <img src="assets/imagenes/logoportal.png" width="70%">
@@ -191,19 +191,29 @@
        <div class="col-sm-4 pl-0 text-center py-5 py-lg-4 mt-sm-5 mt-md-0">
            <div class="row m-0">
                <div class="col-12">
-                   <h2 class="mb-0 subtitulo-font">Que es</h2>
-                   <h3 class="mb-0 subtitulo-2-font">DIRCETUR</h3>
+                 <div (click)="openDialog ('home_que_es', etiquetas?.home_que_es, 0)">
+                   <h2 *ngIf="etiquetas?.home_que_es" class="mb-0 subtitulo-font">{{ etiquetas?.home_que_es }}</h2>
+                   <h2 *ngIf="!etiquetas?.home_que_es" class="mb-0 subtitulo-font">home_que_es</h2>
+                  </div>
+                 <div (click)="openDialog ('home_dicertur', etiquetas?.home_dicertur, 0)">
+                   <h3 *ngIf="etiquetas?.home_dicertur" class="mb-0 subtitulo-2-font">{{ etiquetas?.home_dicertur }}</h3>
+                   <h3 *ngIf="!etiquetas?.home_dicertur"  class="mb-0 subtitulo-2-font">DIRCETUR</h3>
+                  </div>
                </div>
                <div class="col-12 my-3">
                  <img src="assets/imagenes/flechader.jpg" width="100%">
                </div>
-               <div class="col-12">
-                   <p class="mb-0 sobre-font">Sobre nosotros</p>
+               <div class="col-12" (click)="openDialog ('home_sobre_nosotros', etiquetas?.home_sobre_nosotros, 0)">
+                   <p *ngIf="etiquetas?.home_sobre_nosotros" class="mb-0 sobre-font">{{ etiquetas?.home_sobre_nosotros }}</p>
+                   <p *ngIf="!etiquetas?.home_sobre_nosotros" class="mb-0 sobre-font">home_sobre_nosotros</p>
                </div>
            </div>
        </div>
        <div class="col-sm-8" (click)="openDialog ('home_parrafo_detalle_01', etiquetas?.home_parrafo_detalle_01, 1)">
-          <div [innerHtml]="etiquetas?.home_parrafo_detalle_01">
+          <div *ngIf="etiquetas?.home_parrafo_detalle_01" [innerHtml]="etiquetas?.home_parrafo_detalle_01">
+          </div>
+          <div *ngIf="!etiquetas?.home_parrafo_detalle_01">
+              home_parrafo_detalle_01
           </div>
        </div>
    </div>
@@ -213,7 +223,19 @@
    <div class="container-fluid px-sm-5">
       <div class="row m-0">
         <div class="col-12 text-center">
-            <h2 id="subtitulo-noticia-font">Noticias<span class="ml-1" id="suntitulo-dicertur-font">Dircetur</span></h2>
+          <div>
+              <h2 id="subtitulo-noticia-font">
+                <span (click)="openDialog ('home_noticias', etiquetas?.home_noticias, 0)">
+                  <span *ngIf="etiquetas?.home_noticias">{{ etiquetas?.home_noticias }}</span>
+                  <span *ngIf="!etiquetas?.home_noticias">Noticias</span>
+                </span>
+                <span (click)="openDialog ('home_dicertur_1', etiquetas?.home_dicertur_1, 0)">
+                  <span *ngIf="etiquetas?.home_dicertur_1" class="ml-1" id="suntitulo-dicertur-font">{{ etiquetas?.home_dicertur_1 }}</span>
+                  <span *ngIf="!etiquetas?.home_dicertur_1" class="ml-1" id="suntitulo-dicertur-font">Dicertur</span>
+                </span> 
+                </h2>
+          </div>
+            
         </div>
         <div class="col-sm-6 col-xl-3 mt-5 px-0" *ngFor="let blog of Blogs; let i=index">
             <div class="row m-0" *ngIf="i<5">
@@ -245,7 +267,10 @@
                     {{blog.datageneral.resumen}}
                 </div>
                 <div class="col-12 px-xl-0 my-3">
-                    <a class="btn btn-leer-altura" (click)="BlogDetalle(blog.datageneral.id)" style="cursor: pointer; color: #FFFFFF;">Leer mas > </a>
+                  <div (click)="openDialog ('home_noticias_link_leer', etiquetas?.home_noticias_link_leer, 0)">
+                      <a *ngIf="etiquetas?.home_noticias_link_leer" class="btn btn-leer-altura"  style="cursor: pointer; color: #FFFFFF;">{{ etiquetas?.home_noticias_link_leer }} </a>
+                      <a *ngIf="!etiquetas?.home_noticias_link_leer" class="btn btn-leer-altura" style="cursor: pointer; color: #FFFFFF;">home_noticias_link_leer</a>
+                  </div>
                 </div>
             </div>
         </div>
@@ -256,77 +281,101 @@
 <section class="mt-5" style="position: relative">
    <div class="container-fluid px-0 mt-5">
       <div class="row m-0">
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3 order-2 order-lg-0 px-0 animacion mt-lg-3">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 order-2 order-lg-0 px-0  mt-lg-3">
               <div class="row m-0">
-                  <div class="col-12 px-0">
-                      <img src="assets/imagenes/linea-img1.png" width="100%" class="animacion-img">
-                  </div>
-                  <div class="col-10 offset-2 px-0 mt-n5 text-center animacion-derecha">
-                      <div class="linea-backgraund mt-n4 py-2">
-                          <h3 class="linea-font">Turismo</h3>
-                      </div>
-                  </div>
-                    <div class="row m-0 animacion-linea">
-                     <div class="col-12 text-center mb-5 mb-md-3 mb-lg-3 mb-xl-5">
-                      <h3 class="animacion-titulo-font">Turismo</h3>
-                  </div>
-                  <div class="col-12 col-lg-12  text-center px-xl-5">
-                      <p class="animacion-texto-font">
-                          Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.
-                      </p>
-                  </div>
-                  <div class="col-6 offset-3 mt-xl-2">
-                      <button class="btn btn-line-backgraound" (click)="goTurismo ()">Ver mas</button>
-                  </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3 order-3 order-lg-0 px-0 animacion mt-lg-3">
-              <div class="row m-0">
-                  <div class="col-12 px-0">
-                      <img src="assets/imagenes/linea-img2.png" width="100%" class="animacion-img">
-                  </div>
-                  <div class="col-10 offset-2 px-0 mt-n5 text-center animacion-derecha">
-                      <div class="linea-backgraund mt-n4 py-2">
-                          <h3 class="linea-font">Comercio exterior</h3>
-                      </div>
-                  </div>
-                   <div class="row m-0 animacion-linea">
-                     <div class="col-12 text-center mb-5 mb-md-3 mb-lg-3 mb-xl-5">
-                      <h3 class="animacion-titulo-font">Comercio exterior</h3>
-                  </div>
-                  <div class="col-12 col-lg-12  text-center px-xl-5">
-                      <p class="animacion-texto-font">
-                          Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.
-                      </p>
-                  </div>
-                  <div class="col-6 offset-3 mt-xl-2">
-                      <button class="btn btn-line-backgraound" (click)="goComercioExterior ()">Ver mas</button>
-                  </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3 order-4 order-lg-0 px-0 animacion mt-lg-3">
-              <div class="row m-0">
-                  <div class="col-12 px-0">
-                      <img src="assets/imagenes/artesania.jpg" width="100%" class="animacion-img">
+                  <div class="col-12 px-0" (click)="openDialogImagen ('home_lineas_turismo_img', imagenes?.home_lineas_turismo_img)">
+                      <img [src]="imagenes?.home_lineas_turismo_img.img" width="100%" class="">
                   </div>
                   <div class="col-10 offset-2 px-0 mt-n5 text-center">
-                      <div class="linea-backgraund mt-n4 py-2 animacion-derecha">
-                          <h3 class="linea-font">Artesanía</h3>
+                      <div class="linea-backgraund mt-n4 py-2">
+                        <div (click)="openDialog ('home_lineas_turismo', etiquetas?.home_lineas_turismo, 0)">
+                            <h3 *ngIf="etiquetas?.home_lineas_turismo" class="linea-font">{{ etiquetas?.home_lineas_turismo }}</h3>
+                            <h3 *ngIf="!etiquetas?.home_lineas_turismo" class="linea-font">Turismo</h3>
+                        </div>
                       </div>
                   </div>
-                   <div class="row m-0 animacion-linea">
+                    <div class="row m-0">
                      <div class="col-12 text-center mb-5 mb-md-3 mb-lg-3 mb-xl-5">
-                      <h3 class="animacion-titulo-font">Artesanía</h3>
+                       <div (click)="openDialog ('home_lineas_turismo_1', etiquetas?.home_lineas_turismo_1, 0)">
+                          <h3 *ngIf="etiquetas?.home_lineas_turismo_1" class="">{{ etiquetas?.home_lineas_turismo_1 }}</h3>
+                          <h3 *ngIf="!etiquetas?.home_lineas_turismo_1" class="">Turismo</h3>
+                       </div>
                   </div>
                   <div class="col-12 col-lg-12  text-center px-xl-5">
-                      <p class="animacion-texto-font">
-                          Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.
-                      </p>
+                    <div (click)="openDialog ('home_lineas_turismo_texto', etiquetas?.home_lineas_turismo_texto, 1)">
+                        <div *ngIf="etiquetas?.home_lineas_turismo_texto" [innerHtml]="etiquetas?.home_lineas_turismo_texto"></div>
+                        <div *ngIf="!etiquetas?.home_lineas_turismo_texto">home_lineas_turismo_texto</div>
+                    </div>
                   </div>
                   <div class="col-6 offset-3 mt-xl-2">
-                      <button class="btn btn-line-backgraound" (click)="goArtesania ()">Ver mas</button>
+                    <div  (click)="openDialog ('home_lineas_turismo_btn', etiquetas?.home_lineas_turismo_btn, 0)">
+                        <button *ngIf="etiquetas?.home_lineas_turismo_btn"  class="btn btn-line-backgraound">{{ etiquetas?.home_lineas_turismo_btn }}</button>
+                        <button *ngIf="!etiquetas?.home_lineas_turismo_btn"  class="btn btn-line-backgraound">Ver mas</button>
+                    </div>
+                  </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 order-3 order-lg-0 px-0  mt-lg-3">
+              <div class="row m-0">
+                  <div class="col-12 px-0" (click)="openDialogImagen ('home_lineas_comercioexterior_img', imagenes?.home_lineas_comercioexterior_img)">
+                      <img [src]="imagenes?.home_lineas_comercioexterior_img.img" width="100%" class="">
+                  </div>
+                  <div class="col-10 offset-2 px-0 mt-n5 text-center">
+                      <div class="linea-backgraund mt-n4 py-2">
+                        <div (click)="openDialog ('home_lineas_comercioexterior', etiquetas?.home_lineas_comercioexterior, 0)">
+                            <h3 *ngIf="etiquetas?.home_lineas_comercioexterior" class="linea-font">{{ etiquetas?.home_lineas_comercioexterior }}</h3>
+                            <h3 *ngIf="!etiquetas?.home_lineas_comercioexterior" class="linea-font">Comercio exterior</h3>
+                        </div>
+                      </div>
+                  </div>
+                   <div class="row m-0">
+                     <div class="col-12 text-center mb-5 mb-md-3 mb-lg-3 mb-xl-5">
+                       <div (click)="openDialog ('home_lineas_comercioexterior_1', etiquetas?.home_lineas_comercioexterior_1, 0)">
+                         <h3 *ngIf="etiquetas?.home_lineas_comercioexterior" class="">{{ etiquetas?.home_lineas_comercioexterior_1 }}</h3>
+                         <h3 *ngIf="!etiquetas?.home_lineas_comercioexterior" class="">Comercio exterior</h3>
+                       </div>
+                  </div>
+                  <div class="col-12 col-lg-12  text-center px-xl-5">
+                    <div (click)="openDialog ('home_lineas_comercioexterior_texto', etiquetas?.home_lineas_comercioexterior_texto, 1)"> 
+                     <div *ngIf="etiquetas?.home_lineas_comercioexterior_texto" [innerHtml]="etiquetas?.home_lineas_comercioexterior_texto"></div>
+                     <div *ngIf="!etiquetas?.home_lineas_comercioexterior_texto">home_lineas_comercioexterior_texto</div>
+                  </div>
+                  </div>
+                  <div class="col-6 offset-3 mt-xl-2" (click)="openDialog ('home_lineas_comercioexterior_btn', etiquetas?.home_lineas_comercioexterior_btn, 0)">
+                      <button  *ngIf="etiquetas?.home_lineas_comercioexterior_btn" class="btn btn-line-backgraound" >{{ etiquetas?.home_lineas_comercioexterior_btn }}</button>
+                      <button  *ngIf="!etiquetas?.home_lineas_comercioexterior_btn" class="btn btn-line-backgraound" >Ver mas</button>
+                  </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 order-4 order-lg-0 px-0 mt-lg-3">
+              <div class="row m-0">
+                  <div class="col-12 px-0"  (click)="openDialogImagen ('home_lineas_artesania_img', imagenes?.home_lineas_artesania_img)">
+                      <img [src]="imagenes?.home_lineas_artesania_img.img" width="100%" class="">
+                  </div>
+                  <div class="col-10 offset-2 px-0 mt-n5 text-center">
+                      <div class="linea-backgraund mt-n4 py-2">
+                        <div (click)="openDialog ('home_lineas_artesania', etiquetas?.home_lineas_artesania, 0)">
+                           <h3 *ngIf="etiquetas?.home_lineas_artesania" class="linea-font">{{ etiquetas?.home_lineas_artesania }}</h3>
+                           <h3 *ngIf="!etiquetas?.home_lineas_artesania" class="linea-font">Artesanía</h3>
+                        </div>
+                      </div>
+                  </div>
+                   <div class="row m-0">
+                     <div class="col-12 text-center mb-5 mb-md-3 mb-lg-3 mb-xl-5">
+                       <div (click)="openDialog ('home_lineas_artesania_1', etiquetas?.home_lineas_artesania_1, 0)">
+                         <h3 *ngIf="etiquetas?.home_lineas_artesania_1" class="">{{ etiquetas?.home_lineas_artesania_1 }}</h3>
+                         <h3 *ngIf="!etiquetas?.home_lineas_artesania_1" class="">Artesanía</h3>
+                       </div>
+                  </div>
+                  <div class="col-12 col-lg-12  text-center px-xl-5" (click)="openDialog ('home_lineas_artesania_texto', etiquetas?.home_lineas_artesania_texto, 1)">
+                      <div  *ngIf="etiquetas?.home_lineas_artesania_texto"  [innerHtml]="etiquetas?.home_lineas_artesania_texto"></div>
+                      <div *ngIf="!etiquetas?.home_lineas_artesania_texto">home_lineas_artesania_texto</div>
+                  </div>
+                  <div class="col-6 offset-3 mt-xl-2" (click)="openDialog ('home_lineas_artesania_btn', etiquetas?.home_lineas_artesania_btn, 0)">
+                      <button *ngIf="etiquetas?.home_lineas_artesania_btn" class="btn btn-line-backgraound" >{{ etiquetas?.home_lineas_artesania_btn }}</button>
+                      <button *ngIf="!etiquetas?.home_lineas_artesania_btn" class="btn btn-line-backgraound" >home_lineas_artesania_btn</button>
                   </div>
                   </div>
               </div>
@@ -334,14 +383,21 @@
           <div class="col-12 col-lg-3  px-4 text-center py-4">
            <div class="row m-0">
                <div class="col-12" id="bajar-linea">
-                   <h2 class="mb-0 subtitulo-font" >Lineas de</h2>
-                   <h3 class="mb-0 subtitulo-2-font">DIRCETUR</h3>
+                 <div (click)="openDialog ('home_lineas_titulo', etiquetas?.home_lineas_titulo, 0)">
+                   <h2 *ngIf="etiquetas?.home_lineas_titulo" class="mb-0 subtitulo-font" >{{ etiquetas?.home_lineas_titulo }}</h2>
+                   <h2 *ngIf="!etiquetas?.home_lineas_titulo" class="mb-0 subtitulo-font" >home_lineas_titulo</h2>
+                 </div>
+                 <div (click)="openDialog ('home_lineas_subtitulo', etiquetas?.home_lineas_subtitulo, 0)">
+                   <h3 *ngIf="etiquetas?.home_lineas_subtitulo" class="mb-0 subtitulo-2-font">{{ etiquetas?.home_lineas_subtitulo }}</h3>
+                   <h3 *ngIf="!etiquetas?.home_lineas_subtitulo" class="mb-0 subtitulo-2-font">home_lineas_subtitulo</h3>
+                 </div>  
                </div>
                <div class="col-12 my-3">
                   <img src="assets/imagenes/flechaizq.jpg" width="100%">
                </div>
-               <div class="col-12 mt-1">
-                   <p class="mb-0 sobre-font" id="hacemos-fontsize">¿Qué hacemos?</p>
+               <div class="col-12 mt-1" (click)="openDialog ('home_lineas_que_hacemos', etiquetas?.home_lineas_que_hacemos, 0)">
+                   <p *ngIf="etiquetas?.home_lineas_que_hacemos" class="mb-0 sobre-font" id="hacemos-fontsize">{{ etiquetas?.home_lineas_que_hacemos }}</p>
+                   <p *ngIf="!etiquetas?.home_lineas_que_hacemos" class="mb-0 sobre-font" id="hacemos-fontsize">home_lineas_que_hacemos</p>
                </div>
            </div>
        </div>
@@ -355,27 +411,42 @@
           <div class="espacios-cuadros rojo-fondo">
               <div class="row m-0">
                   <div class="col-12 px-0">
-                      <h3 class="pro-ser-font mb-0">Protección</h3>
-                      <p class="tur-agre-font">para el turista</p>
+                    <div (click)="openDialog ('home_proteccion', etiquetas?.home_proteccion, 0)">
+                      <h3 *ngIf="etiquetas?.home_proteccion" class="pro-ser-font mb-0">{{ etiquetas?.home_proteccion }}</h3>
+                      <h3 *ngIf="!etiquetas?.home_proteccion" class="pro-ser-font mb-0">home_proteccion</h3>
+                    </div>
+                    <div (click)="openDialog ('home_para_el_turista', etiquetas?.home_para_el_turista, 0)">
+                      <p *ngIf="etiquetas?.home_para_el_turista" class="tur-agre-font">{{ etiquetas?.home_para_el_turista }}</p>
+                      <p *ngIf="!etiquetas?.home_para_el_turista" class="tur-agre-font">home_para_el_turista</p>
+                    </div>
                   </div>
                   <div class="col-12 px-0 mt-3">
-                      <p class="text-pro-ser-font">Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.</p>
+                    <div (click)="openDialog ('home_proteccion_turista_texto', etiquetas?.home_proteccion_turista_texto, 1)">
+                      <div *ngIf="etiquetas?.home_proteccion_turista_texto" [innerHtml]="etiquetas?.home_proteccion_turista_texto" class="text-pro-ser-font"></div>
+                      <div *ngIf="!etiquetas?.home_proteccion_turista_texto" class="text-pro-ser-font">home_proteccion_turista_texto</div>
+                    </div>
                   </div>
               </div>
           </div>
        </div>
        <div class="col-12 col-lg-6 px-0 py-0">
           <div class="row m-0">
-              <div class="col-12 col-sm-6 col-xl-5 order-2 order-sm-0 px-0 py-0 ml-lg-n5 ml-xl-0 ocultar-img-home">
-                  <img class="ml-xl-n5 mt-n4" id="altira-app" src="assets/imagenes/manoapp.png">
+              <div class="col-12 col-sm-6 col-xl-5 order-2 order-sm-0 px-0 py-0 ml-lg-n5 ml-xl-0 ocultar-img-home" (click)="openDialogImagen ('home_app_img', imagenes?.home_app_img)">
+                  <img [src]="imagenes?.home_app_img.img" class="ml-xl-n5 mt-n4" id="altira-app">
               </div>
               <div class="col-12 col-sm-6 col-xl-7 px-0 py-0 ml-xl-n3">
                  <div class="row m-0">
                       <div class="col-xl-8 px-0 pt-md-5 pt-lg-3 pt-xl-5 ml-xl-n4 text-center text-lg-left">
                         <div class="row m-0">
                          <div class="col-12 mt-5 mt-xl-0 mt-lg-0">
-                           <h2 class="mb-0 subtitulo-font" >Descarga</h2>
-                           <h3 class="mb-0 subtitulo-2-font">App Dircetur</h3>
+                           <div (click)="openDialog ('home_descarga_titulo', etiquetas?.home_descarga_titulo, 0)">
+                             <h2 *ngIf="etiquetas?.home_descarga_titulo" class="mb-0 subtitulo-font" >{{ etiquetas?.home_descarga_titulo }}</h2>
+                             <h2 *ngIf="!etiquetas?.home_descarga_titulo" class="mb-0 subtitulo-font" >home_descarga_titulo</h2>
+                           </div>
+                           <div (click)="openDialog ('home_descarga_dicertur', etiquetas?.home_descarga_dicertur, 0)">
+                             <h3 *ngIf="etiquetas?.home_descarga_dicertur" class="mb-0 subtitulo-2-font">{{ etiquetas?.home_descarga_dicertur }}</h3>
+                             <h3 *ngIf="!etiquetas?.home_descarga_dicertur" class="mb-0 subtitulo-2-font">home_descarga_dicertur</h3>
+                           </div>
                          </div>
                          <div class="col-12  ml-lg-n5 mt-3 mt-xl-1 mb-4">
                           <img class="" src="assets/imagenes/flechaizq.jpg" width="100%">
@@ -383,8 +454,14 @@
                          </div>
                         </div>
                         <div class="col-12 ml-xl-n4 mb-4 text-center text-sm-left">
-                            <p id="descripcion-font">Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.</p>
-                            <p style="color: #3E729A;font-weight: 700;text-align: center;">Muy pronto</p>
+                          <div (click)="openDialog ('home_descarga_texto', etiquetas?.home_descarga_texto, 1)">
+                            <div *ngIf="etiquetas?.home_descarga_texto" [innerHtml]="etiquetas?.home_descarga_texto" id="descripcion-font"></div>
+                            <div *ngIf="!etiquetas?.home_descarga_texto" id="descripcion-font">home_descarga_texto</div>
+                          </div>
+                          <div  (click)="openDialog ('home_descarga_pronto', etiquetas?.home_descarga_pronto, 0)">
+                            <p *ngIf="etiquetas?.home_descarga_pronto" style="color: #3E729A;font-weight: 700;text-align: center;">{{ etiquetas?.home_descarga_pronto }}</p>
+                            <p *ngIf="!etiquetas?.home_descarga_pronto" style="color: #3E729A;font-weight: 700;text-align: center;">home_descarga_pronto</p>
+                          </div>
                         </div>
                         <!--<div class="col-md-6 col-xl-3 pr-1 ml-xl-n4">
                             <img src="assets/imagenes/app1.png" width="100%">
@@ -400,11 +477,20 @@
            <div class="espacios-cuadros" id="azul-fondo">
                <div class="row m-0">
                    <div class="col-12 px-0">
-                       <h3 class="pro-ser-font mb-0">Servicios</h3>
-                       <p class="tur-agre-font">para el agremiado</p>
+                     <div (click)="openDialog ('home_servicio', etiquetas?.home_servicio, 0)">
+                       <h3 *ngIf="etiquetas?.home_servicio" class="pro-ser-font mb-0">{{ etiquetas?.home_servicio }}</h3>
+                       <h3 *ngIf="!etiquetas?.home_servicio" class="pro-ser-font mb-0">home_servico</h3>
+                     </div>
+                     <div (click)="openDialog ('home_para_egremiado', etiquetas?.home_para_egremiado, 0)">
+                       <p  *ngIf="etiquetas?.home_para_egremiado" class="tur-agre-font">{{ etiquetas?.home_para_egremiado }}</p>
+                       <p  *ngIf="!etiquetas?.home_para_egremiado" class="tur-agre-font">home_para_egremiado</p>
+                     </div>
                    </div>
                    <div class="col-12 px-0 mt-3">
-                       <p class="text-pro-ser-font">Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.</p>
+                     <div (click)="openDialog ('home_servicio_texto', etiquetas?.home_servicio_texto, 1)">
+                        <div *ngIf="etiquetas?.home_servicio_texto" [innerHtml]="etiquetas?.home_servicio_texto" class="text-pro-ser-font"></div>
+                        <div *ngIf="!etiquetas?.home_servicio_texto" class="text-pro-ser-font">home_servicio_texto</div>
+                     </div>
                    </div>
                </div>
            </div>
@@ -422,21 +508,34 @@
              <div class="rojo-fondo p-3 p-lg-3 p-xl-5 my-sm-5">
                  <div class="row m-0">
                      <div class="col-12 text-center text-lg-left">
-                         <h3 class="color-letra-blanco" id="boleto-font">Boleto<span class="ml-1" id="turistico-font">turistico</span></h3>
+                         <h3 class="color-letra-blanco" id="boleto-font">
+                           <span (click)="openDialog ('home_boleto_titulo', etiquetas?.home_boleto_titulo, 0)">
+                              <span *ngIf="etiquetas?.home_boleto_titulo">{{ etiquetas?.home_boleto_titulo }}</span>
+                              <span *ngIf="!etiquetas?.home_boleto_titulo">home_boleto_titulo</span>
+                           </span>
+                           <span (click)="openDialog ('home_boleto_subtitulo', etiquetas?.home_boleto_subtitulo, 0)">
+                             <span *ngIf="etiquetas?.home_boleto_subtitulo" class="ml-1" id="turistico-font">{{ etiquetas?.home_boleto_subtitulo }}</span>
+                             <span *ngIf="!etiquetas?.home_boleto_subtitulo" class="ml-1" id="turistico-font">home_boleto_subtitulo</span>
+                            </span>
+                         </h3>
                      </div>
                      <div class="col-12">
-                         <p class="color-letra-blanco texto-boleta-font">Tu puerta al Cusco. Es un ticket único de entrada para todos los lugares importantes en Cusco. Es obligatorio comprarlo par entrar ya que no venden entradas individuales en cada sitio.</p>
+                       <div (click)="openDialog ('home_boleto_texto', etiquetas?.home_boleto_texto, 1)">
+                         <div *ngIf="etiquetas?.home_boleto_texto" [innerHtml]="etiquetas?.home_boleto_texto" class="color-letra-blanco texto-boleta-font"></div>
+                         <div *ngIf="!etiquetas?.home_boleto_texto" class="color-letra-blanco texto-boleta-font">home_boleto_texto</div>
+                        </div>
                      </div>
                      <div class="col-12">
-                         <ul class="color-letra-blanco p-0 texto-boleta-font" style="list-style-type:none;">
-                           <li>¿Para quién es?</li>
-                           <li>¿Qué incluye?</li>
-                           <li>¿Cuánto cuesta?</li> 
-                           <li>¿Por que lo necesito?</li> 
-                         </ul>
+                         <div (click)="openDialog ('home_boleto_preguntas', etiquetas?.home_boleto_preguntas, 1)">
+                           <div *ngIf="etiquetas?.home_boleto_preguntas" [innerHtml]="etiquetas?.home_boleto_preguntas" class="color-letra-blanco p-0 texto-boleta-font"></div>
+                           <div *ngIf="!etiquetas?.home_boleto_preguntas" class="color-letra-blanco p-0 texto-boleta-font">home_boleto_preguntas</div>
+                         </div>
                      </div>
                      <div class="col-12 col-sm-7 col-lg-7 col-xl-6 offset-sm-5 offset-lg-5 offset-xl-6 text-right text-sm-left">
-                         <a class="color-letra-blanco color-blanco-hover" style="cursor: pointer; color: #FFFFFF;" (click)="goBoletoTuristico ()" id="respuesta-font">Respuestas aqui ></a>
+                       <div (click)="openDialog ('home_boleto_link_respuesta', etiquetas?.home_boleto_link_respuesta, 0)">
+                          <a *ngIf="etiquetas?.home_boleto_link_respuesta" class="color-letra-blanco color-blanco-hover" style="cursor: pointer; color: #FFFFFF;" id="respuesta-font">{{ etiquetas?.home_boleto_link_respuesta }}</a>
+                          <a *ngIf="!etiquetas?.home_boleto_link_respuesta" class="color-letra-blanco color-blanco-hover" style="cursor: pointer; color: #FFFFFF;" id="respuesta-font">home_boleto_link_respuesta</a>
+                       </div>  
                      </div>
                  </div>
              </div>
@@ -451,13 +550,28 @@
                <div class="rojo-fondo text-center px-2" id="borde-rojo">
                    <div class="row m-0">
                        <div class="col-12">
-                           <h3 class="color-letra-blanco" id="rutas-font-home">Rutas<span class="ml-1" id="sugeridas-font-home">Sugeridas</span></h3>
+                            <h3 class="color-letra-blanco" id="rutas-font-home">
+                            <span (click)="openDialog ('home_rutas_titulo', etiquetas?.home_rutas_titulo, 0)">
+                              <span *ngIf="etiquetas?.home_rutas_titulo">{{ etiquetas?.home_rutas_titulo }}</span>
+                              <span *ngIf="!etiquetas?.home_rutas_titulo">home_rutas_titulo</span>
+                            </span>
+                            <span (click)="openDialog ('home_rutas_subtitulo', etiquetas?.home_rutas_subtitulo, 0)">
+                              <span *ngIf="etiquetas?.home_rutas_subtitulo" class="ml-1" id="sugeridas-font-home">{{ etiquetas?.home_rutas_subtitulo }}</span>
+                              <span *ngIf="!etiquetas?.home_rutas_subtitulo" class="ml-1" id="sugeridas-font-home">home_rutas_subtitulo</span>
+                            </span>
+                            </h3>
                        </div>
                        <div class="col-12 mt-2">
-                           <p class="color-letra-blanco" id="texto-sugeridas-font">Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.</p>
+                         <div (click)="openDialog ('home_rutas_texto', etiquetas?.home_rutas_texto, 1)">
+                            <div *ngIf="etiquetas?.home_rutas_texto" [innerHtml]="etiquetas?.home_rutas_texto" class="color-letra-blanco" id="texto-sugeridas-font"></div>
+                            <div *ngIf="!etiquetas?.home_rutas_texto" class="color-letra-blanco" id="texto-sugeridas-font">home_rutas_texto</div>
+                         </div>
                        </div>
                        <div class="col-12 mt-4 mb-3">
-                           <a class="color-letra-blanco" href="" id="ver-rutas-font">Ver todas las rutas ></a>
+                         <div (click)="openDialog ('home_rutas_link_todas', etiquetas?.home_rutas_link_todas, 0)">
+                            <a *ngIf="etiquetas?.home_rutas_link_todas" class="color-letra-blanco" id="ver-rutas-font" style="color: #ffffff;">{{ etiquetas?.home_rutas_link_todas }}</a>
+                            <a *ngIf="!etiquetas?.home_rutas_link_todas" class="color-letra-blanco" id="ver-rutas-font" style="color: #ffffff;">home_rutas_link_todas</a>
+                         </div>
                        </div>
                    </div>
                </div>
@@ -483,7 +597,10 @@
                          </div>
                        </div>
                        <div class="col-4 p-0">
-                         <a class="btn btn-explorar-ruta py-5 color-blanco-hover" style="cursor: pointer; color: #FFFFFF;" (click)="verCircuitoTourDetalle (ruta.id)">Explorar ></a>
+                         <div (click)="openDialog ('home_rutas_link_explorar', etiquetas?.home_rutas_link_explorar, 0)">
+                            <a *ngIf="etiquetas?.home_rutas_link_explorar" class="btn btn-explorar-ruta py-5 color-blanco-hover" style="cursor: pointer; color: #FFFFFF;">{{ etiquetas?.home_rutas_link_explorar }}</a>
+                            <a *ngIf="!etiquetas?.home_rutas_link_explorar" class="btn btn-explorar-ruta py-5 color-blanco-hover" style="cursor: pointer; color: #FFFFFF;">home_rutas_link_explorar</a>
+                         </div>
                        </div>
                      </div>
                  </div>
@@ -499,10 +616,22 @@
                <div class="rojo-fondo px-2 px-sm-5 px-lg-2 px-xl-3 py-2 py-sm-5 text-center text-xl-left" id="rojo-anchura">
                    <div class="row m-0">
                        <div class="col-12">
-                           <h3 class="color-letra-blanco tamaño-calendario" id="calendario-font">Calendario<span class="ml-1" id="cal-turistico-font">turistico</span></h3>
+                           <h3 class="color-letra-blanco tamaño-calendario" id="calendario-font">
+                            <span (click)="openDialog ('home_calendario_titulo', etiquetas?.home_calendario_titulo, 0)">
+                              <span *ngIf="etiquetas?.home_calendario_titulo">{{ etiquetas?.home_calendario_titulo }}</span>
+                              <span *ngIf="!etiquetas?.home_calendario_titulo">home_calendario_titulo</span>
+                            </span>
+                            <span (click)="openDialog ('home_calendario_subtitulo', etiquetas?.home_calendario_subtitulo, 0)">
+                              <span *ngIf="etiquetas?.home_calendario_subtitulo" class="ml-1" id="cal-turistico-font">{{ etiquetas?.home_calendario_subtitulo }}</span>
+                              <span *ngIf="!etiquetas?.home_calendario_subtitulo" class="ml-1" id="cal-turistico-font">home_calendario_subtitulo</span>
+                            </span>
+                            </h3>
                        </div>
                        <div class="col-xl-9 mb-xl-5 pr-0 pb-xl-0">
-                           <p class="color-letra-blanco " id="cal-texto-font">Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.</p>
+                         <div (click)="openDialog ('home_calendario_texto', etiquetas?.home_calendario_texto, 1)">
+                           <div *ngIf="etiquetas?.home_calendario_texto" [innerHtml]="etiquetas?.home_calendario_texto" class="color-letra-blanco " id="cal-texto-font"></div>
+                           <div *ngIf="!etiquetas?.home_calendario_texto" class="color-letra-blanco " id="cal-texto-font">home_calendario_texto</div>
+                         </div>
                        </div>
                    </div>
                </div>
@@ -553,7 +682,10 @@
                                   <p class="cal-subtitulo-font mb-">{{ evento.datageneral.categoria.name }}</p>
                                 </div>
                                 <div class="col-12 text-right pb-2 px-1">
-                                  <a class="calendario-link-font" style="cursor: pointer;" (click)="verDetalleEvento(evento.data.id)" placement="top" [ngbTooltip]="evento.datageneral.titulo" container="body">Ver mas ></a>
+                                  <div (click)="openDialog ('home_calendario_link_ver_mas', etiquetas?.home_calendario_link_completo, 0)">
+                                      <a *ngIf="etiquetas?.home_calendario_link_ver_mas" class="calendario-link-font" style="cursor: pointer;"  placement="top" [ngbTooltip]="evento.datageneral.titulo" container="body">{{ etiquetas?.home_calendario_link_ver_mas }}</a>
+                                      <a *ngIf="!etiquetas?.home_calendario_link_ver_mas" class="calendario-link-font" style="cursor: pointer;"  placement="top" [ngbTooltip]="evento.datageneral.titulo" container="body">home_calendario_link_ver_mas</a>
+                                  </div>
                                 </div>
                               </div>
                           </div> 
@@ -564,7 +696,10 @@
                </div>
            </div>
            <div class="col-12 text-center mt-3 mt-sm-5">
-             <a class="link-ver-negro" (click)="goCalendario ()" style="cursor: pointer;">Ver Calendario completo ></a>
+             <div (click)="openDialog ('home_calendario_link_completo', etiquetas?.home_calendario_link_completo, 0)">
+                <a *ngIf="etiquetas?.home_calendario_link_completo" class="link-ver-negro"  style="cursor: pointer;">{{ etiquetas?.home_calendario_link_completo }}</a>
+                <a *ngIf="!etiquetas?.home_calendario_link_completo" class="link-ver-negro"  style="cursor: pointer;">home_calendario_link_completo</a>
+             </div>
            </div>
        </div>
    </div>
@@ -575,20 +710,44 @@
      <div class="col-sm-6 px-0 py-5" id="verde-fondo-turismo">
        <div class="row m-0">
          <div class="col-lg-7 offset-lg-3">
-           <h3 class="color-letra-blanco titulo-turismo-font mb-0">Turismo</h3>
-           <h4 class="color-letra-blanco subtitulo-tur-rural-font">Social</h4>
-           <p class="color-letra-blanco text-tur-rural-font mt-4">Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.</p>
-           <button class="btn btn-tour-rural-altura mt-4" id="hover-btn-social" (click)="goTurismoSocial ()">Explorar mas</button>
+           <div (click)="openDialog ('home_turismo_titulo', etiquetas?.home_turismo_titulo, 0)">
+              <h3 *ngIf="etiquetas?.home_turismo_titulo" class="color-letra-blanco titulo-turismo-font mb-0">{{ etiquetas?.home_turismo_titulo }}</h3>
+              <h3 *ngIf="!etiquetas?.home_turismo_titulo" class="color-letra-blanco titulo-turismo-font mb-0">home_turismo_titulo</h3>
+           </div>
+           <div (click)="openDialog ('home_turismo_social_titulo', etiquetas?.home_turismo_social_titulo, 0)">
+              <h4 *ngIf="etiquetas?.home_turismo_social_titulo" class="color-letra-blanco subtitulo-tur-rural-font">{{ etiquetas?.home_turismo_social_titulo }}</h4>
+              <h4 *ngIf="!etiquetas?.home_turismo_social_titulo" class="color-letra-blanco subtitulo-tur-rural-font">home_turismo_social_titulo</h4>
+           </div>
+           <div (click)="openDialog ('home_turismo_social_texto', etiquetas?.home_turismo_social_texto, 1)">
+              <div *ngIf="etiquetas?.home_turismo_social_texto" [innerHtml]="etiquetas?.home_turismo_social_texto" class="color-letra-blanco text-tur-rural-font mt-4"></div>
+              <div *ngIf="!etiquetas?.home_turismo_social_texto" class="color-letra-blanco text-tur-rural-font mt-4">home_turismo_social_texto</div>
+           </div>
+           <div (click)="openDialog ('home_turismo_social_btn', etiquetas?.home_turismo_social_btn, 0)">
+              <button *ngIf="etiquetas?.home_turismo_social_btn" class="btn btn-tour-rural-altura mt-4" id="hover-btn-social">{{ etiquetas?.home_turismo_social_btn }}</button>
+              <button *ngIf="!etiquetas?.home_turismo_social_btn" class="btn btn-tour-rural-altura mt-4" id="hover-btn-social">home_turismo_social_btn</button>
+           </div>
          </div>
        </div>
      </div>
      <div class="col-sm-6 px-0 text-right py-5" id="azul-fondo-turismo">
        <div class="row m-0">
          <div class="col-lg-7 offset-lg-2">
-           <h3 class="color-letra-blanco titulo-turismo-font mb-0">Turismo</h3>
-           <h4 class="color-letra-blanco subtitulo-tur-rural-font">rural-comunitario</h4>
-           <p class="color-letra-blanco text-tur-rural-font mt-4">Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.</p>
-           <button class="btn btn-tour-rural-altura mt-4" id="hover-btn-rural" (click)="goTurismoRural ()">Explorar mas</button>
+           <div (click)="openDialog ('home_turismo_1', etiquetas?.home_turismo_1, 0)">
+              <h3 *ngIf="etiquetas?.home_turismo_1" class="color-letra-blanco titulo-turismo-font mb-0">{{ etiquetas?.home_turismo_1 }}</h3>
+              <h3 *ngIf="!etiquetas?.home_turismo_1" class="color-letra-blanco titulo-turismo-font mb-0">home_turismo_1</h3>
+           </div>
+           <div (click)="openDialog ('home_turismo_rural', etiquetas?.home_turismo_rural, 0)">
+              <h4 *ngIf="etiquetas?.home_turismo_rural" class="color-letra-blanco subtitulo-tur-rural-font">{{ etiquetas?.home_turismo_rural }}</h4>
+              <h4 *ngIf="!etiquetas?.home_turismo_rural" class="color-letra-blanco subtitulo-tur-rural-font">home_turismo_rural</h4>
+           </div>
+           <div (click)="openDialog ('home_turismo_rural_texto', etiquetas?.home_turismo_rural_texto, 1)">
+              <div *ngIf="etiquetas?.home_turismo_rural_texto" [innerHtml]="etiquetas?.home_turismo_rural_texto" class="color-letra-blanco text-tur-rural-font mt-4"></div>
+              <div *ngIf="!etiquetas?.home_turismo_rural_texto" class="color-letra-blanco text-tur-rural-font mt-4">home_turismo_rural_texto</div>
+           </div>
+           <div (click)="openDialog ('home_turismo_rural_btn', etiquetas?.home_turismo_rural_btn, 0)">
+              <button *ngIf="etiquetas?.home_turismo_rural_btn" class="btn btn-tour-rural-altura mt-4" id="hover-btn-rural">{{ etiquetas?.home_turismo_rural_btn }}</button>
+              <button *ngIf="!etiquetas?.home_turismo_rural_btn" class="btn btn-tour-rural-altura mt-4" id="hover-btn-rural">home_turismo_rural_btn</button>
+           </div>
          </div>
        </div>
      </div>
@@ -599,34 +758,43 @@
  <div class="container ">
    <div class="row m-0">
      <div class="col-12 text-center p-0 mb-5 mb-sm-0">
-        <h2 class="titulo-dire-pro-font">Direcciones<span class="subtitulo-re-es-font"> Especiales</span></h2>
+        <h2 class="titulo-dire-pro-font">
+          <span (click)="openDialog ('home_direcciones', etiquetas?.home_direcciones, 0)">
+            <span *ngIf="etiquetas?.home_direcciones">{{ etiquetas?.home_direcciones }}</span>
+            <span *ngIf="!etiquetas?.home_direcciones">home_direcciones</span>
+          </span>
+          <span (click)="openDialog ('home_especiales', etiquetas?.home_especiales, 0)">
+              <span *ngIf="etiquetas?.home_especiales" class="subtitulo-re-es-font">{{ etiquetas?.home_especiales }}</span>
+              <span *ngIf="!etiquetas?.home_especiales" class="subtitulo-re-es-font">home_especiales</span>
+          </span>
+          </h2>
      </div>
      
      <div class="col-12 logo-container">
        <div class="row m-0">
-          <div class="col-6 col-sm-4 col-lg-1 mt-sm-5 mb-5 mb-sm-3 my-lg-5 altura-img">
-            <img  src="assets/imagenes/enlace-img1.png" width="100%" >
+          <div class="col-6 col-sm-4 col-lg-1 mt-sm-5 mb-5 mb-sm-3 my-lg-5 altura-img" (click)="openDialogImagen ('home_especiales_enclace_img_1', imagenes?.home_especiales_enclace_img_1)">
+            <img  [src]="imagenes?.home_especiales_enclace_img_1.img" width="100%" >
           </div>
-          <div class="col-6 col-sm-4 col-lg-1 mt-3 mt-sm-5 mb-0 mb-sm-3 my-lg-5 altura-img">
-            <img class="mt-sm-3 mt-lg-2" src="assets/imagenes/enlace-img2.png" width="100%" >
+          <div class="col-6 col-sm-4 col-lg-1 mt-3 mt-sm-5 mb-0 mb-sm-3 my-lg-5 altura-img" (click)="openDialogImagen ('home_especiales_enclace_img_2', imagenes?.home_especiales_enclace_img_2)">
+            <img class="mt-sm-3 mt-lg-2" [src]="imagenes?.home_especiales_enclace_img_2.img" width="100%" >
           </div>
-          <div class="col-6 col-sm-4 col-lg-1 mt-3 mt-sm-5 mb-5 mb-sm-3 my-lg-5 altura-img">
-            <img class="mt-sm-3 mt-lg-2" src="assets/imagenes/enlace-img3.png" width="100%" >
+          <div class="col-6 col-sm-4 col-lg-1 mt-3 mt-sm-5 mb-5 mb-sm-3 my-lg-5 altura-img" (click)="openDialogImagen ('home_especiales_enclace_img_3', imagenes?.home_especiales_enclace_img_3)">
+            <img class="mt-sm-3 mt-lg-2" [src]="imagenes?.home_especiales_enclace_img_3.img" width="100%" >
           </div>
-          <div class="col-6 col-sm-4 col-lg-1 mt-sm-3 mb-5 mb-sm-3 my-lg-5 altura-img">
-            <img src="assets/imagenes/enlace-img4.png" width="100%" >
+          <div class="col-6 col-sm-4 col-lg-1 mt-sm-3 mb-5 mb-sm-3 my-lg-5 altura-img" (click)="openDialogImagen ('home_especiales_enclace_img_4', imagenes?.home_especiales_enclace_img_4)">
+            <img [src]="imagenes?.home_especiales_enclace_img_4.img" width="100%" >
           </div>
-          <div class="col-6 col-sm-4 col-lg-1 mt-sm-3 mb-5 mb-sm-3 my-lg-5 altura-img">
-            <img class="mt-sm-3 mt-lg-2" src="assets/imagenes/enlace-img5.png" width="100%" >
+          <div class="col-6 col-sm-4 col-lg-1 mt-sm-3 mb-5 mb-sm-3 my-lg-5 altura-img" (click)="openDialogImagen ('home_especiales_enclace_img_5', imagenes?.home_especiales_enclace_img_5)">
+            <img class="mt-sm-3 mt-lg-2" [src]="imagenes?.home_especiales_enclace_img_5.img" width="100%" >
           </div>
-          <div class="col-6 col-sm-4 col-lg-1 mt-sm-3 mb-5 mb-sm-3 my-lg-5 altura-img">
-            <img class="mt-lg-2" src="assets/imagenes/enlace-img6.png" width="100%" >
+          <div class="col-6 col-sm-4 col-lg-1 mt-sm-3 mb-5 mb-sm-3 my-lg-5 altura-img" (click)="openDialogImagen ('home_especiales_enclace_img_6', imagenes?.home_especiales_enclace_img_6)">
+            <img class="mt-lg-2" [src]="imagenes?.home_especiales_enclace_img_6.img" width="100%" >
           </div>
-          <div class="col-6 col-sm-4 col-lg-3 mt-sm-3 mb-5 mb-sm-3 my-lg-5 altura-img">
-            <img src="assets/imagenes/enlace-img7.png" width="100%" >
+          <div class="col-6 col-sm-4 col-lg-3 mt-sm-3 mb-5 mb-sm-3 my-lg-5 altura-img" (click)="openDialogImagen ('home_especiales_enclace_img_7', imagenes?.home_especiales_enclace_img_7)">
+            <img [src]="imagenes?.home_especiales_enclace_img_7.img" width="100%" >
           </div>
-          <div class="col-6 col-sm-4 col-lg-3 mt-sm-3 mb-5 mb-sm-3 my-lg-5 altura-img">
-            <img src="assets/imagenes/enlace-img8.png" width="100%" >
+          <div class="col-6 col-sm-4 col-lg-3 mt-sm-3 mb-5 mb-sm-3 my-lg-5 altura-img" (click)="openDialogImagen ('home_especiales_enclace_img_8', imagenes?.home_especiales_enclace_img_8)">
+            <img [src]="imagenes?.home_especiales_enclace_img_8.img" width="100%" >
           </div>
        </div>
      </div>
@@ -637,35 +805,53 @@
   <div class="container pt-5 mb-5">
     <div class="row m-0">
       <div class="col-12 text-center pb-5">
-        <h2 class="titulo-dire-pro-font">Proyectos<span class="subtitulo-re-es-font"> Especiales</span></h2>
+        <h2 class="titulo-dire-pro-font">
+          <span (click)="openDialog ('home_proyecto', etiquetas?.home_proyecto, 0)">
+            <span *ngIf="etiquetas?.home_proyecto">{{ etiquetas?.home_proyecto }}</span>
+            <span *ngIf="!etiquetas?.home_proyecto">home_proyecto</span>
+          </span>
+          <span (click)="openDialog ('home_proyecto_especiales', etiquetas?.home_proyecto_especiales, 0)">
+            <span *ngIf="etiquetas?.home_proyecto_especiales" class="subtitulo-re-es-font">{{ etiquetas?.home_proyecto_especiales }}</span>
+            <span *ngIf="!etiquetas?.home_proyecto_especiales" class="subtitulo-re-es-font"> home_proyecto_especiales</span>
+          </span>
+          </h2>
       </div>
       <div class="col-12 col-lg-4 py-5 py-lg-0">
         <div class="row m-0">
-          <div class="col-6 text-center offset-3">
-            <img src="assets/imagenes/pro-img1.png" width="100%">
+          <div class="col-6 text-center offset-3" (click)="openDialogImagen ('home_proyecto_img_1', imagenes?.home_proyecto_img_1)">
+            <img [src]="imagenes?.home_proyecto_img_1.img" width="100%">
           </div>
           <div class="col-12 text-center mt-4">
-            <p class="texto-proyecto-font">Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.</p>
+            <div (click)="openDialog ('home_proyecto_plan_texto', etiquetas?.home_proyecto_plan_texto, 1)">
+                <div *ngIf="etiquetas?.home_proyecto_plan_texto" [innerHtml]="etiquetas?.home_proyecto_plan_texto" class="texto-proyecto-font"></div>
+                <div *ngIf="!etiquetas?.home_proyecto_plan_texto" class="texto-proyecto-font">home_proyecto_plan_texto</div>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-12 col-lg-4 py-5 py-lg-0">
         <div class="row m-0">
-          <div class="col-6 text-center offset-3">
-            <img src="assets/imagenes/pro-img2.png" width="30%">
+          <div class="col-6 text-center offset-3" (click)="openDialogImagen ('home_proyecto_img_2', imagenes?.home_proyecto_img_2)">
+            <img [src]="imagenes?.home_proyecto_img_2.img" width="30%">
           </div>
           <div class="col-12 text-center mt-4">
-            <p class="texto-proyecto-font">Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.</p>
+              <div (click)="openDialog ('home_proyecto_ima_texto', etiquetas?.home_proyecto_ima_texto, 1)">
+                  <div *ngIf="etiquetas?.home_proyecto_ima_texto" [innerHtml]="etiquetas?.home_proyecto_ima_texto" class="texto-proyecto-font"></div>
+                  <div *ngIf="!etiquetas?.home_proyecto_ima_texto" class="texto-proyecto-font">home_proyecto_ima_texto</div>
+              </div>
           </div>
         </div>
       </div>
       <div class="col-12 col-lg-4 py-5 py-lg-0">
         <div class="row m-0">
-          <div class="col-6 text-center offset-3">
-            <img src="assets/imagenes/pro-img3.png" width="100%">
+          <div class="col-6 text-center offset-3" (click)="openDialogImagen ('home_proyecto_img_3', imagenes?.home_proyecto_img_3)">
+            <img [src]="imagenes?.home_proyecto_img_3.img" width="100%">
           </div>
           <div class="col-12 text-center mt-4">
-            <p class="texto-proyecto-font">Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales, su sigla es DART.</p>
+              <div (click)="openDialog ('home_proyecto_pesc_texto', etiquetas?.home_proyecto_pesc_texto, 1)">
+                  <div *ngIf="etiquetas?.home_proyecto_pesc_texto" [innerHtml]="etiquetas?.home_proyecto_pesc_texto" class="texto-proyecto-font"></div>
+                  <div *ngIf="!etiquetas?.home_proyecto_pesc_texto" class="texto-proyecto-font">home_proyecto_pesc_texto</div>
+              </div>
           </div>
         </div>
       </div>

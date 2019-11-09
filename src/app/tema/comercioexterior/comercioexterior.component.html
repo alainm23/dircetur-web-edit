@@ -1,14 +1,26 @@
 <section class="titulo-phone">
 <div class="container-fluid px-0">
     <div class="row m-0">
-    <div class="col-12 col-md-5 col-lg-4 px-0 order-2 order-md-0">
-    <img src="assets/imagenes/comercio.jpg" width="100%">
+    <div class="col-12 col-md-5 col-lg-4 px-0 order-2 order-md-0" (click)="openDialogImagen ('comercio_exterior_img_1', imagenes?.comercio_exterior_img_1)">
+    <img [src]="imagenes?.comercio_exterior_img_1.img" width="100%">
     </div>
     <div class="col-12 col-md-7 col-lg-8 px-md-2 px-lg-5 pb-3 pb-md-0 pt-3 pt-xl-5" id="fondo-azul-comercio">
     <div class="row m-0">
         <div class="col-12 col-xl-10 pt-md-2 pt-lg-5 color-blanco pr-xl-3 text-center text-lg-left">
-        <h1 class="mb-4 font-size-pequño" id="titulo-dicertur">Dirección<span id="subtitulo-delgado-comer"> Comercio Exterior</span></h1>
-        <p class="texto-font">La Dirección de Comercio Exterior, es un Organo de Línea de segundo nivel organizacional, responsable de ejecutar la política de desarrollo de comercio exterior en la Región; así como promover el desarrollo de una cultura exportadora en coordinación con la Gerencia Regional de Desarrollo Económico del Gobierno Regional del Cusco y con el Ministerio de Comercio Exterior y Turismo, su sigla es DCE.</p>
+        <h1 class="mb-4 font-size-pequño" id="titulo-dicertur">
+            <span (click)="openDialog ('comercio_exterior_titulo', etiquetas?.comercio_exterior_titulo, 0)">
+                <span *ngIf="etiquetas?.comercio_exterior_titulo">{{ etiquetas?.comercio_exterior_titulo }}</span>
+                <span *ngIf="!etiquetas?.comercio_exterior_titulo">comercio_exterior_titulo</span>
+            </span>
+            <span (click)="openDialog ('comercio_exterior_subtitulo', etiquetas?.comercio_exterior_subtitulo, 0)">
+                <span *ngIf="etiquetas?.comercio_exterior_subtitulo" id="subtitulo-delgado-comer">{{ etiquetas?.comercio_exterior_subtitulo }}</span>
+                <span *ngIf="!etiquetas?.comercio_exterior_subtitulo" id="subtitulo-delgado-comer"> comercio_exterior_subtitulo</span>
+            </span>
+            </h1>
+            <div (click)="openDialog ('comercio_exterior_texto', etiquetas?.comercio_exterior_texto, 1)">
+                <div *ngIf="etiquetas?.comercio_exterior_texto" [innerHtml]="etiquetas?.comercio_exterior_texto" class="texto-font"></div>
+                <div *ngIf="!etiquetas?.comercio_exterior_texto" class="texto-font">comercio_exterior_texto</div>
+            </div>
         </div>
     </div>
     </div>
@@ -19,19 +31,34 @@
 <div class="container py-5">
     <div class="row">
     <div class="col-12 color-65 text-center">
-        <h2 class="subtitulos-grueso mb-0">Herramientas</h2>
-        <h3 class="subtitulos-delgado">Logísticas</h3>
+        <div (click)="openDialog ('comercio_exterior_herramientas', etiquetas?.comercio_exterior_herramientas, 0)">
+            <h2 *ngIf="etiquetas?.comercio_exterior_herramientas" class="subtitulos-grueso mb-0">{{ etiquetas?.comercio_exterior_herramientas }}</h2>
+            <h2 *ngIf="!etiquetas?.comercio_exterior_herramientas" class="subtitulos-grueso mb-0">comercio_exterior_herramientas</h2>
+        </div>
+        <div (click)="openDialog ('comercio_exterior_logistica', etiquetas?.comercio_exterior_logistica, 0)">
+            <h3 *ngIf="etiquetas?.comercio_exterior_logistica" class="subtitulos-delgado">{{ etiquetas?.comercio_exterior_logistica }}</h3>
+            <h3 *ngIf="!etiquetas?.comercio_exterior_logistica" class="subtitulos-delgado">comercio_exterior_logistica</h3>
+        </div>
     </div>
     <div class="col-md-8 offset-md-2 text-center">
-        <p class="texto-font mb-5" style="color: #696969;">Conjunto de herramientas y ampliativos sobre logística marítima y aérea, reducción de costos y gestión operativas del comercio exterior</p>
+        <div (click)="openDialog ('comercio_exterior_herramientas_texto', etiquetas?.comercio_exterior_herramientas_texto, 1)">
+            <div *ngIf="etiquetas?.comercio_exterior_herramientas_texto" [innerHtml]="etiquetas?.comercio_exterior_herramientas_texto" class="texto-font mb-5" style="color: #696969;"></div>
+            <div *ngIf="!etiquetas?.comercio_exterior_herramientas_texto" class="texto-font mb-5" style="color: #696969;">comercio_exterior_herramientas_texto</div>
+        </div>
     </div>
     <div class="col-12 col-sm-10 col-md-6 col-lg-4 offset-sm-1 offset-md-3 offset-lg-4">
         <div class="row m-0">
         <div class="col-6 px-1">
-            <a class="btn color-fondo-azul btn-anchura py-0 color-blanco-link" href="#" role="button">Ruta marítima</a>
+            <div (click)="openDialog ('comercio_exterior_maritima', etiquetas?.comercio_exterior_maritima, 0)">
+                <a *ngIf="etiquetas?.comercio_exterior_maritima" class="btn color-fondo-azul btn-anchura py-0 color-blanco-link"  role="button">{{ etiquetas?.comercio_exterior_maritima }}</a>
+                <a *ngIf="!etiquetas?.comercio_exterior_maritima" class="btn color-fondo-azul btn-anchura py-0 color-blanco-link"  role="button">comercio_exterior_maritima</a>
+            </div>
         </div>
         <div class="col-6 px-1">
-            <a class="btn color-fondo-azul btn-anchura py-0 color-blanco-link" href="#" role="button">Ruta aérea</a>
+            <div (click)="openDialog ('comercio_exterior_aerea', etiquetas?.comercio_exterior_aerea, 0)">
+                <a *ngIf="etiquetas?.comercio_exterior_aerea" class="btn color-fondo-azul btn-anchura py-0 color-blanco-link"  role="button">{{ etiquetas?.comercio_exterior_aerea }}</a>
+                <a *ngIf="!etiquetas?.comercio_exterior_aerea" class="btn color-fondo-azul btn-anchura py-0 color-blanco-link" role="button">comercio_exterior_aerea</a>  
+            </div>
         </div>
         </div>
     </div>
@@ -41,14 +68,20 @@
 <section>
 <div class="container-fluid px-0">
     <div class="row m-0">
-    <div class="col-12 col-md-4 px-0 order-2 order-md-0">
-        <img src="assets/imagenes/requisito.png" width="100%" height="100%">
+    <div class="col-12 col-md-4 px-0 order-2 order-md-0" (click)="openDialogImagen ('comercio_exterior_requistio_img_1', imagenes?.comercio_exterior_requistio_img_1)">
+        <img [src]="imagenes?.comercio_exterior_requistio_img_1.img" width="100%" height="100%">
     </div>
     <div class="col-md-8 px-sm-5 py-4" style="background-color: #EFEFEF">
         <div class="row m-0">
         <div class="col-12">
-            <h3 class="subtitulos-delgado color-05 mb-4" style="letter-spacing: 0.75px;">Requisitos de acceso a mercados - RAM</h3>
-            <p class="color-05 texto-font">Cada país al que se dirigen nuestras exportaciones cuenta con una serie de regulaciones y exigencias que deberán ser cumplidos y así evitar detenciones o rechazo delas exportaciones. Es importante conocer a tiempo estas exigencias, ya que en algunos casos puede tomar algún tiempo su implementación.</p>
+            <div (click)="openDialog ('comercio_exterior_requisito_titulo', etiquetas?.comercio_exterior_requisito_titulo, 0)">
+                <h3 *ngIf="etiquetas?.comercio_exterior_requisito_titulo" class="subtitulos-delgado color-05 mb-4" style="letter-spacing: 0.75px;">{{ etiquetas?.comercio_exterior_requisito_titulo }}</h3>
+                <h3 *ngIf="!etiquetas?.comercio_exterior_requisito_titulo" class="subtitulos-delgado color-05 mb-4" style="letter-spacing: 0.75px;">comercio_exterior_requisito_titulo</h3>
+            </div>
+            <div (click)="openDialog ('comercio_exterior_requisito_texto', etiquetas?.comercio_exterior_requisito_texto, 1)">
+                <div *ngIf="etiquetas?.comercio_exterior_requisito_texto" [innerHtml]="etiquetas?.comercio_exterior_requisito_texto" class="color-05 texto-font"></div>
+                <div *ngIf="!etiquetas?.comercio_exterior_requisito_texto" class="color-05 texto-font">comercio_exterior_requisito_texto</div>
+            </div>
         </div>
         <div class="col-12 mt-sm-3 mt-lg-5">
             <div class="row m-0">
@@ -91,7 +124,10 @@
             </div>
         </div>
         <div class="col-12 mt-sm-2 mt-lg-5">
-            <a class="texto-font color-81" href="">Ver tratados de libre comercio ></a>
+            <div (click)="openDialog ('comercio_exterior_requisito_link', etiquetas?.comercio_exterior_requisito_link, 0)">
+                <a *ngIf="etiquetas?.comercio_exterior_requisito_link" class="texto-font color-81">{{ etiquetas?.comercio_exterior_requisito_link }}</a>
+                <a *ngIf="!etiquetas?.comercio_exterior_requisito_link" class="texto-font color-81">comercio_exterior_requisito_link</a>
+            </div>
         </div>
         </div>
     </div>
@@ -103,14 +139,23 @@
 <div class="container-fluid px-xl-5">
     <div class="row m-0">
     <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3 offset-sm-3 offset-md-0 text-center color-65 px-md-2 px-lg-4 my-md-5">
-        <h2 class="subtitulos-grueso mb-0">Finanzas</h2>
-        <h3 class="subtitulos-delgado">Comercio exterior</h3>
+        <div (click)="openDialog ('comercio_exteror_finanzas_titulo', etiquetas?.comercio_exteror_finanzas_titulo, 0)">
+            <h2 *ngIf="etiquetas?.comercio_exteror_finanzas_titulo" class="subtitulos-grueso mb-0">{{ etiquetas?.comercio_exteror_finanzas_titulo }}</h2>
+            <h2 *ngIf="!etiquetas?.comercio_exteror_finanzas_titulo" class="subtitulos-grueso mb-0">comercio_exteror_finanzas_titulo</h2>
+        </div>
+        <div (click)="openDialog ('comercio_exteror_finanzas_subtitulo', etiquetas?.comercio_exteror_finanzas_subtitulo, 0)">
+            <h3 *ngIf="etiquetas?.comercio_exteror_finanzas_subtitulo" class="subtitulos-delgado">{{ etiquetas?.comercio_exteror_finanzas_subtitulo }}</h3>
+            <h3 *ngIf="!etiquetas?.comercio_exteror_finanzas_subtitulo" class="subtitulos-delgado">comercio_exteror_finanzas_subtitulo</h3>
+        </div> 
         <img src="assets/imagenes/flechader.jpg" width="80%">
     </div>
     <div class="col-md-7 col-lg-8 col-xl-9 px-md-2 px-lg-5 my-2 my-md-5">
         <div class="row m-0">
         <div class="col-12 px-0 color-81">
-            <p class="texto-font">Es importante que la empresa exportadora, indistinto de si tamaño, para entender la teoría de las financieras y su función para resolver problemas relacionadosEs importante que la empresa exportadora, indistinto de si tamaño, para entender la teoría de las financieras y su función para resolver problemas relacionados</p>
+            <div (click)="openDialog ('comercio_exteror_finanzas_texto', etiquetas?.comercio_exteror_finanzas_texto, 1)">
+                <div *ngIf="etiquetas?.comercio_exteror_finanzas_texto" [innerHtml]="etiquetas?.comercio_exteror_finanzas_texto" class="texto-font"></div>
+                <div *ngIf="!etiquetas?.comercio_exteror_finanzas_texto" class="texto-font">comercio_exteror_finanzas_texto</div>
+            </div>
         </div>
         <div class="col-12 px-0 mt-2">
             <div class="row m-0 justify-content-sm-center justify-content-lg-start">
@@ -135,28 +180,70 @@
 <div class="container-fluid px-0">
     <div class="row m-0">
     <div class="col-12 col-sm-6 col-lg-3 px-lg-3 px-xl-5 color-blanco text-center py-5 order-1 order-lg-0" id="fondo-rojo">
-        <h2 class="mb-0 suntitulo-grueso-doc">Documentos</h2>
-        <h3 class="subtitulo-delgado-doc">Para exportar</h3>
-        <p class="text-font-doc my-5">Todos los documentos necesarios par aun proceso de exportación correcto y fluido que cumple todos los estándares comerciales para un tramite aduanero éxitoso.</p>
-        <a class="btn btn-doc py-1" id="btn-hover" href="#" role="button">Ver documento</a>
+        <div (click)="openDialog ('comercio_exterior_documento', etiquetas?.comercio_exterior_documento, 0)">
+            <h2 *ngIf="etiquetas?.comercio_exterior_documento" class="mb-0 suntitulo-grueso-doc">{{ etiquetas?.comercio_exterior_documento }}</h2>
+            <h2 *ngIf="!etiquetas?.comercio_exterior_documento" class="mb-0 suntitulo-grueso-doc">comercio_exterior_documento</h2>
+        </div>
+        <div (click)="openDialog ('comercio_exterior_exportar', etiquetas?.comercio_exterior_exportar, 0)">
+            <h3 *ngIf="etiquetas?.comercio_exterior_exportar" class="subtitulo-delgado-doc">{{ etiquetas?.comercio_exterior_exportar }}</h3>
+            <h3 *ngIf="!etiquetas?.comercio_exterior_exportar" class="subtitulo-delgado-doc">comercio_exterior_exportar</h3>
+        </div>
+        <div (click)="openDialog ('comercio_exterior_documento_texto', etiquetas?.comercio_exterior_documento_texto, 1)">
+            <div *ngIf="etiquetas?.comercio_exterior_documento_texto" [innerHtml]="etiquetas?.comercio_exterior_documento_texto" class="text-font-doc my-5"></div>
+            <div *ngIf="!etiquetas?.comercio_exterior_documento_texto" class="text-font-doc my-5">comercio_exterior_documento_texto</div>
+        </div>
+        <div (click)="openDialog ('comercio_exterior_documento_btn', etiquetas?.comercio_exterior_documento_btn, 0)">
+            <a *ngIf="etiquetas?.comercio_exterior_documento_btn" class="btn btn-doc py-1" id="btn-hover" role="button">{{ etiquetas?.comercio_exterior_documento_btn }}</a>
+            <a *ngIf="!etiquetas?.comercio_exterior_documento_btn" class="btn btn-doc py-1" id="btn-hover" role="button">comercio_exterior_documento_btn</a>
+        </div>
     </div>
     <div class="col-12 col-lg-6 px-0 text-center px-5 py-5" style="background-color: #EFEFEF">
         <div class="row m-0">
         <div class="col-12 col-xl-10 offset-xl-1">
-            <h2 class="subtitulos-grueso color-05 mb-0">Directorio De Mesas</h2>
-            <h3 class="subtitulos-delgado color-05">Tecnica De Exportacion:</h3>
-            <p class="text-font my-5">El directorio es un contenedor virtual en el que se almacenan la información de los artesanos y los diferentes asociaciones de artesanales, que se encuentran  activamente operativos y registrados en el sistema de la Dirección de Artesania de la DIRCETUR.</p>
-            <a class="btn py-1 px-5 btm-mesas mt-lg-4 mt-xl-0 btn-hover-ingrear" href="#" role="button">Ingresar</a>
+            <div (click)="openDialog ('comercio_exterior_directorio', etiquetas?.comercio_exterior_directorio, 0)">
+                <h2 *ngIf="etiquetas?.comercio_exterior_directorio" class="subtitulos-grueso color-05 mb-0">{{ etiquetas?.comercio_exterior_directorio }}</h2>
+                <h2 *ngIf="!etiquetas?.comercio_exterior_directorio" class="subtitulos-grueso color-05 mb-0">comercio_exterior_directorio</h2>
+            </div>
+            <div (click)="openDialog ('comercio_exterior_exportacion', etiquetas?.comercio_exterior_exportacion, 0)">
+                <h3 *ngIf="etiquetas?.comercio_exterior_exportacion" class="subtitulos-delgado color-05">{{ etiquetas?.comercio_exterior_exportacion }}</h3>
+                <h3 *ngIf="!etiquetas?.comercio_exterior_exportacion" class="subtitulos-delgado color-05">comercio_exterior_exportacion</h3>
+            </div>
+            <div (click)="openDialog ('comercio_exterior_directorio_texto', etiquetas?.comercio_exterior_directorio_texto, 1)">
+                <div *ngIf="etiquetas?.comercio_exterior_directorio_texto" [innerHtml]="etiquetas?.comercio_exterior_directorio_texto" class="text-font my-5"></div>
+                <div *ngIf="!etiquetas?.comercio_exterior_directorio_texto" class="text-font my-5">comercio_exterior_directorio_texto</div>
+            </div>
+            <div (click)="openDialog ('comercio_exterior_directorio_btn', etiquetas?.comercio_exterior_directorio_btn, 0)">
+                <a *ngIf="etiquetas?.comercio_exterior_directorio_btn" class="btn py-1 px-5 btm-mesas mt-lg-4 mt-xl-0 btn-hover-ingrear"  role="button">{{ etiquetas?.comercio_exterior_directorio_btn }}</a>
+                <a *ngIf="!etiquetas?.comercio_exterior_directorio_btn" class="btn py-1 px-5 btm-mesas mt-lg-4 mt-xl-0 btn-hover-ingrear"  role="button">comercio_exterior_directorio_btn</a>
+            </div>
         </div>
         </div>
     </div>
     <div class="col-12 col-sm-6 col-lg-3 color-fondo-azul py-5 text-center px-lg-3 px-xl-5 color-blanco order-3 order-lg-0">
-        <h2 class="mb-0 suntitulo-grueso-doc">Documentos</h2>
-        <h3 class="subtitulo-delgado-doc">Para exportar</h3>
-        <p class="text-font-doc mt-5">Drawback</p>
-        <a class="btn btn-doc py-1 px-5 color-blanco-link" href="#" role="button">Descargar</a>
-        <p class="text-font-doc my-3">Saldo a favordel exportador (devolución del IGV)</p>
-        <a class="btn btn-doc py-1 px-5 mt-lg-4 mt-xl-1 color-blanco-link" href="#" role="button">Descargar</a>
+        <div (click)="openDialog ('comercio_exterior_documento_1', etiquetas?.sobre_nosotros_subtitulo, 0)">
+            <h2 *ngIf="etiquetas?.comercio_exterior_documento_1" class="mb-0 suntitulo-grueso-doc">{{ etiquetas?.comercio_exterior_documento_1 }}</h2>
+            <h2 *ngIf="!etiquetas?.comercio_exterior_documento_1" class="mb-0 suntitulo-grueso-doc">comercio_exterior_documento_1</h2>
+        </div>
+        <div (click)="openDialog ('comercio_exterior_exportar_1', etiquetas?.comercio_exterior_exportar_1, 0)">
+            <h3 *ngIf="etiquetas?.comercio_exterior_exportar_1" class="subtitulo-delgado-doc">{{ etiquetas?.comercio_exterior_exportar_1 }}</h3>
+            <h3 *ngIf="!etiquetas?.comercio_exterior_exportar_1" class="subtitulo-delgado-doc">comercio_exterior_exportar_1</h3>
+        </div>
+        <div (click)="openDialog ('comercio_exterior_drawback', etiquetas?.comercio_exterior_drawback, 0)">
+            <p *ngIf="etiquetas?.comercio_exterior_drawback" class="text-font-doc mt-5">{{ etiquetas?.comercio_exterior_drawback }}</p>
+            <p *ngIf="!etiquetas?.comercio_exterior_drawback" class="text-font-doc mt-5">comercio_exterior_drawback</p>
+        </div>
+        <div (click)="openDialog ('comercio_exterior_descargar', etiquetas?.comercio_exterior_descargar, 0)">
+            <a *ngIf="etiquetas?.comercio_exterior_descargar" class="btn btn-doc py-1 px-5 color-blanco-link" role="button">{{ etiquetas?.comercio_exterior_descargar }}</a>
+            <a *ngIf="!etiquetas?.comercio_exterior_descargar" class="btn btn-doc py-1 px-5 color-blanco-link" role="button">comercio_exterior_descargar</a>
+        </div>
+        <div (click)="openDialog ('comercio_exterior_igv', etiquetas?.comercio_exterior_igv, 0)">
+             <p *ngIf="etiquetas?.comercio_exterior_igv" class="text-font-doc my-3">{{ etiquetas?.comercio_exterior_igv }}</p>
+            <p *ngIf="!etiquetas?.comercio_exterior_igv" class="text-font-doc my-3">comercio_exterior_igv</p>
+        </div>
+        <div (click)="openDialog ('comercio_exterior_descargar_1', etiquetas?.comercio_exterior_descargar_1, 0)">
+            <a *ngIf="etiquetas?.comercio_exterior_descargar_1" class="btn btn-doc py-1 px-5 mt-lg-4 mt-xl-1 color-blanco-link"  role="button">{{ etiquetas?.comercio_exterior_descargar_1 }}</a>
+            <a *ngIf="!etiquetas?.comercio_exterior_descargar_1" class="btn btn-doc py-1 px-5 mt-lg-4 mt-xl-1 color-blanco-link"  role="button">comercio_exterior_descargar_1</a>
+        </div>
     </div>
     </div>
 </div>
@@ -169,11 +256,23 @@
         <iframe width="100%" src="https://www.youtube.com/embed/0-IKUz_UMV8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="video-comercio"></iframe>
     </div>
     <div class="col-12 col-lg-5 text-center px-0 px-sm-5 py-2">
-        <h2 class="subtitulos-grueso mb-0 color-65">PRIMEROS PASOS</h2>
-        <h3 class="subtitulos-delgado color-65">EXPORTA FACIL</h3>
+        <div (click)="openDialog ('comercio_exterior_primeros_titulo', etiquetas?.comercio_exterior_primeros_titulo, 0)">
+            <h2 *ngIf="etiquetas?.comercio_exterior_primeros_titulo" class="subtitulos-grueso mb-0 color-65">{{ etiquetas?.comercio_exterior_primeros_titulo }}</h2>
+            <h2 *ngIf="!etiquetas?.comercio_exterior_primeros_titulo" class="subtitulos-grueso mb-0 color-65">comercio_exterior_primeros_titulo</h2>
+        </div>
+        <div (click)="openDialog ('comercio_exterior_primeros_subtitulo', etiquetas?.comercio_exterior_primeros_subtitulo, 0)">
+            <h3 *ngIf="etiquetas?.comercio_exterior_primeros_subtitulo" class="subtitulos-delgado color-65">{{ etiquetas?.comercio_exterior_primeros_subtitulo }}</h3>
+            <h3 *ngIf="!etiquetas?.comercio_exterior_primeros_subtitulo" class="subtitulos-delgado color-65">comercio_exterior_primeros_subtitulo</h3>
+        </div>
         <img src="assets/imagenes/flechaizq.jpg" width="50%">
-        <p class="texto-font color-81 my-5">La exportación consiste en enviar mercancías desde el territorio nacional en forma legal para su uso o consumo en el extranjero. Con las exportaciones colocamos nuestros insumos, productos o bienes en el mercado extranjero a fin que sean utilizados allí para su consumo, industria o en los servicios que presten.</p>
-        <a class="btn py-1 px-5 btm-mesas btn-hover-ingrear" href="#" role="button">Ingresar</a>
+        <div (click)="openDialog ('comercio_exterior_primeros_texto', etiquetas?.comercio_exterior_primeros_texto, 1)">
+            <div *ngIf="etiquetas?.comercio_exterior_primeros_texto" [innerHtml]="etiquetas?.comercio_exterior_primeros_texto" class="texto-font color-81 my-5"></div>
+            <div *ngIf="!etiquetas?.comercio_exterior_primeros_texto" class="texto-font color-81 my-5">comercio_exterior_primeros_texto</div>
+        </div>
+        <div (click)="openDialog ('comercio_exterior_primeros_descargar', etiquetas?.comercio_exterior_primeros_descargar, 0)">
+            <a *ngIf="etiquetas?.comercio_exterior_primeros_descargar" class="btn py-1 px-5 btm-mesas btn-hover-ingrear"  role="button">{{ etiquetas?.comercio_exterior_primeros_descargar }}</a>
+            <a *ngIf="!etiquetas?.comercio_exterior_primeros_descargar" class="btn py-1 px-5 btm-mesas btn-hover-ingrear" role="button">comercio_exterior_primeros_descargar</a>
+        </div>
     </div>
     </div>
 </div>
@@ -183,34 +282,58 @@
 <div class="container-fluid py-5" style="background-color: #00000070">
     <div class="row m-0">
     <div class="col-sm-6 col-md-5 col-lg-4 offset-sm-3 offset-md-0 px-lg-5 text-center my-5">
-        <h2 class="color-blanco subutitulo-general mb-0">Contactate</h2>
-        <h3 class="color-blanco subtitulo-delgado mb-0">Comercio exterior</h3>
+        <div (click)="openDialog ('comercio_exterior_contacto_titulo', etiquetas?.comercio_exterior_contacto_titulo, 0)">
+            <h2 *ngIf="etiquetas?.comercio_exterior_contacto_titulo" class="color-blanco subutitulo-general mb-0">{{ etiquetas?.comercio_exterior_contacto_titulo }}</h2>
+            <h2 *ngIf="!etiquetas?.comercio_exterior_contacto_titulo" class="color-blanco subutitulo-general mb-0">comercio_exterior_contacto_titulo</h2>
+        </div>
+        <div (click)="openDialog ('comercio_exterior_contacto_subtitulo', etiquetas?.comercio_exterior_contacto_subtitulo, 0)">
+            <h3 *ngIf="etiquetas?.comercio_exterior_contacto_subtitulo" class="color-blanco subtitulo-delgado mb-0">{{ etiquetas?.comercio_exterior_contacto_subtitulo }}</h3>
+            <h3 *ngIf="!etiquetas?.comercio_exterior_contacto_subtitulo" class="color-blanco subtitulo-delgado mb-0">comercio_exterior_contacto_subtitulo</h3>
+        </div>
         <img src="assets/imagenes/arrow.png" width="100%" style="transform: rotate(-180deg);">
     </div>
     <div class="col-md-7 col-lg-6 offset-lg-1 my-5">
         <div class="row m-0">
         <div class="col-12 color-blanco text-center text-md-left">
-            <p class="mb-0 subutitulo-general">Ubicación</p>
-            <p class="texto-turismo">Plaza Túpac Amaru Mz. Lote 2 ,<br> Wanchaq, Cusco, Tercer Piso.</p>
+            <div (click)="openDialog ('comercio_exterior_contacto_ubicacion', etiquetas?.comercio_exterior_contacto_ubicacion, 0)">
+                <p *ngIf="etiquetas?.comercio_exterior_contacto_ubicacion" class="mb-0 subutitulo-general">{{ etiquetas?.comercio_exterior_contacto_ubicacion }}</p>
+                <p *ngIf="!etiquetas?.comercio_exterior_contacto_ubicacion" class="mb-0 subutitulo-general">comercio_exterior_contacto_ubicacion</p>
+            </div>
+            <div (click)="openDialog ('comercio_exterior_contacto_direccion', etiquetas?.comercio_exterior_contacto_direccion, 1)">
+                <div *ngIf="etiquetas?.comercio_exterior_contacto_direccion" [innerHtml]="etiquetas?.comercio_exterior_contacto_direccion" class="texto-turismo"></div>
+                <div *ngIf="!etiquetas?.comercio_exterior_contacto_direccion" class="texto-turismo">comercio_exterior_contacto_direccion</div>
+            </div>
         </div>
         <div class="col-12 color-blanco text-center text-md-left">
-            <p class="mb-0 subutitulo-general">Llamanos</p>
-            <p class="texto-turismo">+51 (84) 223761</p>
+            <div (click)="openDialog ('comercio_exterior_contacto_llamanos', etiquetas?.comercio_exterior_contacto_llamanos, 0)">
+                <p *ngIf="etiquetas?.comercio_exterior_contacto_llamanos" class="mb-0 subutitulo-general">{{ etiquetas?.comercio_exterior_contacto_llamanos }}</p>
+                <p *ngIf="!etiquetas?.comercio_exterior_contacto_llamanos" class="mb-0 subutitulo-general">comercio_exterior_contacto_llamanos</p>
+            </div>
+            <div (click)="openDialog ('comercio_exterior_contacto_telefono', etiquetas?.comercio_exterior_contacto_telefono, 0)">
+                <p *ngIf="etiquetas?.comercio_exterior_contacto_telefono" class="texto-turismo">{{ etiquetas?.comercio_exterior_contacto_telefono }}</p>
+                <p *ngIf="!etiquetas?.comercio_exterior_contacto_telefono" class="texto-turismo">comercio_exterior_contacto_telefono</p>
+            </div>
         </div>
         <div class="col-12 color-blanco text-center text-md-left">
-            <p class="mb-0 subutitulo-general mb-3">Escribenos</p>
+            <div (click)="openDialog ('comercio_exterior_contacto_escribenos', etiquetas?.comercio_exterior_contacto_escribenos, 0)">
+                <p *ngIf="etiquetas?.comercio_exterior_contacto_escribenos" class="mb-0 subutitulo-general mb-3">{{ etiquetas?.comercio_exterior_contacto_escribenos }}</p>
+                <p *ngIf="!etiquetas?.comercio_exterior_contacto_escribenos" class="mb-0 subutitulo-general mb-3">comercio_exterior_contacto_escribenos</p>
+            </div>
         </div>
-        <div class="col-sm-6 pr-md-1 mb-2 mb-sm-0">
-            <input class="color-fondo px-3 py-2 anchura-inpu" type="text" placeholder="¿Cuál es su nombre?">
+        <div class="col-sm-6 pr-md-1 mb-2 mb-sm-0" (click)="openDialog ('comercio_contacto_nombre', etiquetas?.comercio_contacto_nombre, 0)">
+                <input class="color-fondo px-3 py-2 anchura-inpu" type="text" [placeholder]="etiquetas?.comercio_contacto_nombre">   
         </div>
-        <div class="col-sm-6 pl-md-1">
-            <input class="color-fondo px-3 py-2 anchura-inpu"  type="text" placeholder="¿Cuál es su correo?">
+        <div class="col-sm-6 pl-md-1" (click)="openDialog ('comercio_contacto_correo', etiquetas?.comercio_contacto_correo, 0)">
+            <input class="color-fondo px-3 py-2 anchura-inpu"  type="text" [placeholder]="etiquetas?.comercio_contacto_correo">
         </div>
-        <div class="col-12 mt-2 anchura-contac-input">
-            <textarea class=" color-fondo px-3 py-2" aria-label="With textarea" placeholder="Escribe su mensaje aqui" style="width: 100%;height: 100%"></textarea>
+        <div class="col-12 mt-2 anchura-contac-input" (click)="openDialog ('comercio_contacto_mensaje', etiquetas?.comercio_contacto_mensaje, 0)">
+            <textarea class=" color-fondo px-3 py-2" aria-label="With textarea" [placeholder]="etiquetas?.comercio_contacto_mensaje" style="width: 100%;height: 100%"></textarea>
         </div>
         <div class="col-12 mt-2">
-            <button class="btn py-2 fondo-rojo-contac">Enviar</button>
+                <div (click)="openDialog ('comercio_contac_btn', etiquetas?.comercio_contac_btn, 0)">
+                        <button *ngIf="etiquetas?.comercio_contac_btn" class="btn py-2 fondo-rojo-contac">{{ etiquetas?.comercio_contac_btn }}</button>
+                        <button *ngIf="!etiquetas?.comercio_contac_btn" class="btn py-2 fondo-rojo-contac">comercio_contac_btn</button>
+                </div>
         </div>
         </div>
     </div>

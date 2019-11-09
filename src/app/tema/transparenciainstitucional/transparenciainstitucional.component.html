@@ -1,10 +1,10 @@
 <section class="titulo-phone">
 <div class="container-fluid px-0">
   <div class="row m-0">
-    <div class="col-md-4 px-0">
-      <img src="assets/imagenes/transparencia.png" width="100%">
+    <div class="col-md-4 px-0" (click)="openDialogImagen ('transparencia_institucional_img_1', imagenes?.transparencia_institucional_img_1)">
+      <img [src]="imagenes?.transparencia_institucional_img_1.img" width="100%">
     </div>
-    <div class="col-md-8 px-0">
+    <div class="col-md-8 px-0" >
       <div id="rectangulo-fondo"></div>
     </div>
   </div>
@@ -12,8 +12,20 @@
 <div class="container mt-5 mb-5">
   <div class="row m-0 mb-5">
     <div class="col-12 text-center">
-      <h1 class="color-titulo mb-0" id="titulo-trans">Transparencia<span class="ml-1" id="titulo-insti">Institucional</span></h1>
-      <p id="texto-font-tran">Escoge la categoría de documentos que desea investigar</p>
+      <h1 class="color-titulo mb-0" id="titulo-trans">
+        <span (click)="openDialog ('transparencia_institucional_titulo', etiquetas?.transparencia_institucional_titulo, 0)">
+          <span *ngIf="etiquetas?.transparencia_institucional_titulo">{{ etiquetas?.transparencia_institucional_titulo }}</span>
+          <span *ngIf="!etiquetas?.transparencia_institucional_titulo">transparencia_institucional_titulo</span>
+        </span>
+        <span (click)="openDialog ('transparencia_institucional_subtitulo', etiquetas?.transparencia_institucional_subtitulo, 0)">
+          <span *ngIf="etiquetas?.transparencia_institucional_subtitulo" class="ml-1" id="titulo-insti">{{ etiquetas?.transparencia_institucional_subtitulo }}</span>
+          <span *ngIf="!etiquetas?.transparencia_institucional_subtitulo" class="ml-1" id="titulo-insti">transparencia_institucional_subtitulo</span>
+        </span>
+        </h1>
+        <div (click)="openDialog ('transparencia_institucional_descripcion', etiquetas?.transparencia_institucional_descripcion, 0)">
+            <p *ngIf="etiquetas?.transparencia_institucional_descripcion" id="texto-font-tran">{{ etiquetas?.transparencia_institucional_descripcion }}</p>
+            <p *ngIf="!etiquetas?.transparencia_institucional_descripcion" id="texto-font-tran">transparencia_institucional_descripcion</p>
+        </div>
     </div>
     <div class="col-12 mb-5">
         <div class="cajaselect">
@@ -32,7 +44,10 @@
           <p class="color-letra-descarga-trans">CONFIRMAR los extremos de la Resolución Directoral N° 017-2018-GR CUSCO/DIRCETUR-DT</p>
         </div>
         <div class="col-12 col-md-3 col-lg-2">
-          <button class="btn btn-descargar-fondo py-0">Descargar</button>
+          <div (click)="openDialog ('transparencia_institucional_btn_descarga', etiquetas?.transparencia_institucional_btn_descarga, 0)">
+              <button *ngIf="etiquetas?.transparencia_institucional_btn_descarga" class="btn btn-descargar-fondo py-0">{{ etiquetas?.transparencia_institucional_btn_descarga }}</button>
+              <button *ngIf="!etiquetas?.transparencia_institucional_btn_descarga" class="btn btn-descargar-fondo py-0">transparencia_institucional_btn_descarga</button>
+          </div>
         </div>
       </div>
     </div>

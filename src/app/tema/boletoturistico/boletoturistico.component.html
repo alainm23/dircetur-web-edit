@@ -1,23 +1,38 @@
 <section class="titulo-phone">
 <div class="container-fluid px-0">
     <div class="row m-0">
-        <div class="col-lg-4 order-3 order-lg-0">
-            <img src="assets/imagenes/boleto-2.png" height="100%" id="img-boleto">
+        <div class="col-lg-4 order-3 order-lg-0" (click)="openDialogImagen ('boleto_turistico_img_1', imagenes?.boleto_turistico_img_1)">
+            <img [src]="imagenes?.boleto_turistico_img_1.img" height="100%" id="img-boleto">
         </div>
         <div class="col-lg-8 pr-lg-0 pt-lg-5 pb-5" id="color-azul-borde" style="position: relative;">
             <div class="row m-0 pb-5">
                 <div class="col-12 mb-lg-4 pt-4 pl-lg-5 text-center text-lg-left">
-                        <h1 class="color-blanco" id="titulo-bole">Boleto<span id="subtitulo-font"> Turistico</span> </h1>
+                        <h1 class="color-blanco" id="titulo-bole">
+                            <span (click)="openDialog ('boleto_tursitico_titulo', etiquetas?.boleto_tursitico_titulo, 0)">
+                                <span *ngIf="etiquetas?.boleto_tursitico_titulo">{{ etiquetas?.boleto_tursitico_titulo }}</span>
+                                <span *ngIf="!etiquetas?.boleto_tursitico_titulo">boleto_tursitico_subtitulo</span>
+                            </span>
+                            <span (click)="openDialog ('boleto_tursitico_subtitulo', etiquetas?.boleto_tursitico_subtitulo, 0)">
+                                <span *ngIf="etiquetas?.boleto_tursitico_subtitulo" id="subtitulo-font"> {{ etiquetas?.boleto_tursitico_subtitulo }}</span>
+                                <span *ngIf="!etiquetas?.boleto_tursitico_subtitulo" id="subtitulo-font"> boleto_tursitico_subtitulo</span> 
+                            </span>
+                            </h1>
                 </div>
                 <div class="col-xl-9 pb-lg-5 mb-lg-5 pl-lg-5 text-center text-lg-left">
-                        <p class="color-blanco texto-font mb-lg-5">El boleto turístico es un boleto de ingreso con el cual se tiene acceso a 16 lugares entre sitios arqueológicos, museos y el Centro Qosqo de Arte Nativo. El boleto se puede comprar de forma general y parcial. Los precios se detallas a continuación:</p>
+                    <div (click)="openDialog ('boleto_turistico_descripcion', etiquetas?.boleto_turistico_descripcion, 1)">
+                        <div *ngIf="etiquetas?.boleto_turistico_descripcion" [innerHtml]="etiquetas?.boleto_turistico_descripcion" class="color-blanco texto-font mb-lg-5"></div>
+                        <div *ngIf="!etiquetas?.boleto_turistico_descripcion" class="color-blanco texto-font mb-lg-5">boleto_turistico_descripcion</div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-12 col-lg-6 offset-0 offset-lg-6 mt-n5">
                     <div class="row m-0">
                         <div class="col-12 mb-md-3 mt-n4 text-center text-lg-left">
-                            <h3 class="color-blanco subtitulo-delgado">¿Cuánto cuesta?</h3>
+                            <div (click)="openDialog ('boleto_turistico_cuanto', etiquetas?.boleto_turistico_cuanto, 0)">
+                                <h3 *ngIf="etiquetas?.boleto_turistico_cuanto" class="color-blanco subtitulo-delgado">{{ etiquetas?.boleto_turistico_cuanto }}</h3>
+                                <h3 *ngIf="!etiquetas?.boleto_turistico_cuanto" class="color-blanco subtitulo-delgado">boleto_turistico_cuanto</h3>
+                            </div>
                         </div>
                         <div class="col-md-6 pr-lg-1 pb-2 pb-md-0">
                             <div class="cajaselect" style="padding: 1px 0px; margin-top: 0px;">
@@ -42,7 +57,12 @@
                             </div>
                         </div>
                         <div class="col-12 text-center py-4">
-                            <p class="color-negro mb-0" id="costo-font">Costo por persona: S/. 130.00</p>
+                            <p class="color-negro mb-0" id="costo-font">
+                                <span (click)="openDialog ('boleto_turistico_costo_persona', etiquetas?.boleto_turistico_costo_persona, 0)">
+                                    <span *ngIf="etiquetas?.boleto_turistico_costo_persona">{{ etiquetas?.boleto_turistico_costo_persona }}</span>
+                                    <span *ngIf="!etiquetas?.boleto_turistico_costo_persona">boleto_turistico_costo_persona</span>
+                                </span>
+                                : S/. 130.00</p>
                         </div>
                     </div>
         </div>
@@ -53,23 +73,47 @@
 <div class="container-fluid pt-lg-5">
     <div class="row m-0 mt-lg-5">
         <div class="col-md-4 col-xl-5 color-blanco text-center py-md-5">
-            <h2 class="subtitulo-grueso mb-0 mt-md-5 ml-lg-5">Donde</h2>
-            <h3 class="subtitulo-delgado mb-0 ml-lg-5">Conseguir</h3>
+            <div (click)="openDialog ('boleto_turistico_donde_conseguir_titulo', etiquetas?.boleto_turistico_donde_conseguir_titulo, 0)">
+                <h2 *ngIf="etiquetas?.boleto_turistico_donde_conseguir_titulo" class="subtitulo-grueso mb-0 mt-md-5 ml-lg-5">{{ etiquetas?.boleto_turistico_donde_conseguir_titulo }}</h2>
+                <h2 *ngIf="!etiquetas?.boleto_turistico_donde_conseguir_titulo" class="subtitulo-grueso mb-0 mt-md-5 ml-lg-5">boleto_turistico_donde_conseguir_titulo</h2>
+            </div>
+            <div (click)="openDialog ('boleto_turistico_donde_conseguir_subtitulo', etiquetas?.boleto_turistico_donde_conseguir_subtitulo, 0)">
+                <h3 *ngIf="etiquetas?.boleto_turistico_donde_conseguir_subtitulo" class="subtitulo-delgado mb-0 ml-lg-5">{{ etiquetas?.boleto_turistico_donde_conseguir_subtitulo }}</h3>
+                <h3 *ngIf="!etiquetas?.boleto_turistico_donde_conseguir_subtitulo" class="subtitulo-delgado mb-0 ml-lg-5">boleto_turistico_donde_conseguir_subtitulo</h3>
+            </div>
             <img src="assets/imagenes/arrow.png" width="50%" class="rotar-img ml-xl-5">
         </div>
         <div class="col-md-8 col-xl-7 color-blanco pb-4">
             <div class="row m-0">
                 <div class="col-md-6 ml-lg-n5 pb-5 pb-md-0">
-                    <p class="central-infor-font mb-0">Counter Central</p>
-                    <p class="direccion-font mb-0">Dirección: Av. El Sol 103 Galerías Turísticas</p>
+                    <div (click)="openDialog ('boleto_turistico_counter_central', etiquetas?.boleto_turistico_counter_central, 0)">
+                       <p *ngIf="etiquetas?.boleto_turistico_counter_central" class="central-infor-font mb-0">{{ etiquetas?.boleto_turistico_counter_central }}</p>
+                       <p *ngIf="!etiquetas?.boleto_turistico_counter_central" class="central-infor-font mb-0">boleto_turistico_counter_central</p>
+                    </div>
+                    <div (click)="openDialog ('boleto_turistico_direccion', etiquetas?.boleto_turistico_direccion, 0)">
+                        <p *ngIf="etiquetas?.boleto_turistico_direccion" class="direccion-font mb-0">{{ etiquetas?.boleto_turistico_direccion }}</p>
+                        <p *ngIf="!etiquetas?.boleto_turistico_direccion" class="direccion-font mb-0">boleto_turistico_direccion</p>
+                    </div>
                     <img src="assets/imagenes/mapa.png" width="100%" height="70%" class="border-mapa">
-                    <p class="fecha-font">Lunes a Domingo de 08:00 - 18:00 Hrs.</p>
+                    <div (click)="openDialog ('boleto_turistico_horarios', etiquetas?.sobre_nosotros_subtitulo, 0)">
+                        <p *ngIf="etiquetas?.boleto_turistico_horarios" class="fecha-font">{{ etiquetas?.boleto_turistico_horarios }}</p>
+                        <p *ngIf="!etiquetas?.boleto_turistico_horarios" class="fecha-font">boleto_turistico_horarios</p>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <p class="central-infor-font mb-0">Oficina de Información Turística</p>
-                    <p class="direccion-font mb-0">Dirección: Calle Mantas</p>
+                    <div (click)="openDialog ('boleto_turistico_infor_turistica', etiquetas?.boleto_turistico_infor_turistica, 0)">
+                        <p *ngIf="etiquetas?.boleto_turistico_infor_turistica" class="central-infor-font mb-0">{{ etiquetas?.boleto_turistico_infor_turistica }}</p>
+                        <p *ngIf="!etiquetas?.boleto_turistico_infor_turistica" class="central-infor-font mb-0">boleto_turistico_infor_turistica</p>
+                    </div>
+                    <div (click)="openDialog ('boleto_turistico_direccion_infor', etiquetas?.boleto_turistico_direccion_infor, 0)">
+                        <p *ngIf="etiquetas?.boleto_turistico_direccion_infor" class="direccion-font mb-0">{{ etiquetas?.boleto_turistico_direccion_infor }}</p>
+                        <p *ngIf="!etiquetas?.boleto_turistico_direccion_infor" class="direccion-font mb-0">boleto_turistico_direccion_infor</p>
+                    </div>
                     <img src="assets/imagenes/mapa.png" width="100%" height="70%" class="border-mapa">
-                    <p class="fecha-font">Lunes a Sábado 09:00 - 13:00 Hrs. / 14:00 - 18:00 Hrs.</p>
+                    <div (click)="openDialog ('boleto_turistico_horario_info', etiquetas?.boleto_turistico_horario_info, 0)">
+                        <p *ngIf="etiquetas?.boleto_turistico_horario_info" class="fecha-font">{{ etiquetas?.boleto_turistico_horario_info }}</p>
+                        <p *ngIf="!etiquetas?.boleto_turistico_horario_info" class="fecha-font">boleto_turistico_horario_info</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -81,10 +125,16 @@
 <div class="container py-5">
     <div class="row m-0">
         <div class="col-12 text-center mb-4">
-            <h2 class="color-negro subtitulo-delgado">Condiciones</h2>
+            <div (click)="openDialog ('boleto_turistico_condiones', etiquetas?.boleto_turistico_condiones, 0)">
+                <h2 *ngIf="etiquetas?.boleto_turistico_condiones" class="color-negro subtitulo-delgado">{{ etiquetas?.boleto_turistico_condiones }}</h2>
+                <h2 *ngIf="!etiquetas?.boleto_turistico_condiones" class="color-negro subtitulo-delgado">boleto_turistico_condiones</h2>
+            </div>
         </div>
         <div class="col-xl-8 offset-xl-2 text-center color-negro texto-font">
-            <p class="mb-0">- La Vigencia del boleto turístico completo es de 10 días. <br>- Los niños pagan desde los 10 años de edad, de 10 a 17 años, pueden adquirir el boleto de estudiante previa presentación del documento de identidad (DNI, Pasaporte, etc.) <br>- El Boleto Turístico no incluye servicio de guía y movilidad. <br>- No existen boletos individuales para cada atractivo turístico, se debe adquirir el boleto general o parcial.</p>
+            <div (click)="openDialog ('boleto_turistico_condiones_descripcion', etiquetas?.boleto_turistico_condiones_descripcion, 1)">
+                <div *ngIf="etiquetas?.boleto_turistico_condiones_descripcion" [innerHtml]="etiquetas?.boleto_turistico_condiones_descripcion" class="mb-0"></div>
+                <div *ngIf="!etiquetas?.boleto_turistico_condiones_descripcion" class="mb-0">boleto_turistico_condiones_descripcion</div>
+            </div>
         </div>
     </div>
 </div>
@@ -94,14 +144,24 @@
 <div class="container-fluid px-md-5">
     <div class="row m-0">
         <div class="col-12 text-center">
-            <h2 class="subtitulo-grueso mb-0" style="color: #656565">Boletos</h2>
-            <h3 class="subtitulo-delgado" style="color: #656565">Parciales</h3>
+            <div (click)="openDialog ('boleto_parciales_titulos', etiquetas?.boleto_parciales_titulos, 0)">
+                <h2 *ngIf="etiquetas?.boleto_parciales_titulos" class="subtitulo-grueso mb-0" style="color: #656565">{{ etiquetas?.boleto_parciales_titulos }}</h2>
+                <h2 *ngIf="!etiquetas?.boleto_parciales_titulos" class="subtitulo-grueso mb-0" style="color: #656565">boleto_parciales_titulos</h2>
+            </div>
+            <div (click)="openDialog ('boleto_parciales_subtitulo', etiquetas?.boleto_parciales_subtitulo, 0)">
+                <h3 *ngIf="etiquetas?.boleto_parciales_subtitulo" style="color: #656565">{{ etiquetas?.boleto_parciales_subtitulo }}</h3>
+                <h3 *ngIf="!etiquetas?.boleto_parciales_subtitulo" style="color: #656565">boleto_parciales_subtitulo</h3>
+            </div>
         </div>
         <div class="col-4 col-lg-2 offset-4 offset-lg-5">
             <div style="width: 100%; height: 1px;background-color: #6b6464;"></div>
         </div>
         <div class="col-sm-8 offset-sm-2 color-negro text-center my-4">
-            <p class="texto-font mb-0">El boleto turístico completo tiene una valides de 10 días, sin embargo también existe la posibilidad de comprarlo de forma parcial como se detalla a continuación:</p>
+            <div (click)="openDialog ('boleto_parciales_descripcion', etiquetas?.boleto_parciales_descripcion, 1)">
+                    <div *ngIf="etiquetas?.boleto_parciales_descripcion" [innerHtml]="etiquetas?.boleto_parciales_descripcion" class="texto-font mb-0"></div>
+                    <div *ngIf="!etiquetas?.boleto_parciales_descripcion" class="texto-font mb-0">boleto_parciales_descripcion</div>
+            </div>
+            
         </div>
         <div class="col-12 p-0">
             <div class="row m-0">
@@ -183,7 +243,10 @@
 <div class="container-fluid px-md-5">
     <div class="row m-0">
         <div class="col-12 mt-sm-5 text-center">
-            <h3 class="subtitulo-delgado my-4 my-sm-5">Parques arqueológicos incluidos</h3>
+            <div (click)="openDialog ('boleto_arquelogico_incluidos', etiquetas?.boleto_arquelogico_incluidos, 0)">
+                <h3 *ngIf="etiquetas?.boleto_arquelogico_incluidos" class="subtitulo-delgado my-4 my-sm-5">{{ etiquetas?.boleto_arquelogico_incluidos }}</h3>
+                <h3 *ngIf="!etiquetas?.boleto_arquelogico_incluidos" class="subtitulo-delgado my-4 my-sm-5">boleto_arquelogico_incluidos</h3>
+            </div>
         </div>
         
     </div>
@@ -306,7 +369,10 @@
 <div class="container mb-5">
     <div class="row m-0">
         <div class="col-12 text-center my-5">
-            <h2 class="color-negro subtitulo-delgado">Museos incluidos</h2>
+            <div (click)="openDialog ('boleto_museos_incluidos', etiquetas?.boleto_museos_incluidos, 0)">
+                <h2 *ngIf="etiquetas?.boleto_museos_incluidos" class="color-negro subtitulo-delgado">{{ etiquetas?.boleto_museos_incluidos }}</h2>
+                <h2 *ngIf="!etiquetas?.boleto_museos_incluidos" class="color-negro subtitulo-delgado">boleto_museos_incluidos</h2>
+            </div>
         </div>
         <div class="col-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2 px-0">
             <div class="row m-0">

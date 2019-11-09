@@ -2,14 +2,27 @@
 <section class="titulo-phone">
 <div class="container-fluid px-0">
     <div class="row m-0">
-    <div class="col-12 col-lg-4 px-0 order-2 order-lg-0">
-        <img src="assets/imagenes/andre.jpg" width="100%" height="100%">
+    <div class="col-12 col-lg-4 px-0 order-2 order-lg-0" (click)="openDialogImagen ('turismo_img_1', imagenes?.turismo_img_1)">
+        <img [src]="imagenes?.turismo_img_1.img" width="100%" height="100%">
     </div>
     <div class="col-12 col-lg-8 fondo-azul color-blanco py-5 text-center text-lg-left">
         <div class="row m-0">
         <div class="col-lg-10 offset-lg-1 px-0 my-5">
-            <h1 class="titulo-subtitulo">Dirección<span id="turismo-font"> Turismo</span></h1>
-            <p class="texto-turismo my-3">La Dirección de turismo (DIRCETUR), órgano de línea de segundo nivel organizacional, responsable de proponer y ejecutar la política organizacional, responsable de proponer y ejecutar la política regional de la actividad turística, en el marco de la política nacional de turismo; así como calificar y supervisar a los prestadores de servicios turísticos, de conformidad con las normas y reglamentos expedidos por el ministerio de comercio exterior y turismo, así como ejecutar la política regional de turismo sostenible en materia ambiental, dependiente de la dirección regional.</p>
+            <h1 class="titulo-subtitulo">
+                <span (click)="openDialog ('turismo_titulo', etiquetas?.turismo_titulo, 0)">
+                    <span *ngIf="etiquetas?.turismo_titulo">{{ etiquetas?.turismo_titulo }}</span>
+                    <span *ngIf="!etiquetas?.turismo_titulo">turismo_titulo</span>
+                </span>
+                <span (click)="openDialog ('turismo_subtitulo', etiquetas?.turismo_subtitulo, 0)">
+                    <span *ngIf="etiquetas?.turismo_subtitulo" id="turismo-font">{{ etiquetas?.turismo_subtitulo }}</span>
+                    <span *ngIf="!etiquetas?.turismo_subtitulo" id="turismo-font"> turismo_subtitulo</span>
+                </span>
+                </h1>
+            <div (click)="openDialog ('turismo_texto', etiquetas?.turismo_texto, 1)">
+                <div *ngIf="etiquetas?.turismo_texto" [innerHtml]="etiquetas?.turismo_texto" class="texto-turismo my-3"></div>
+                <div *ngIf="!etiquetas?.turismo_texto" class="texto-turismo my-3">turismo_texto</div>
+            </div>
+            
         </div>
         </div>
     </div>
@@ -21,27 +34,66 @@
 <div class="container py-5">
     <div class="row m-0">
     <div class="col-12 text-center color-65">
-        <h2 class="subutitulo-general mb-0">Lineas de dirección</h2>
-        <h3 class="subtitulo-delgado mb-0">De turismo</h3>
+        <div (click)="openDialog ('turismo_lineas_titulo', etiquetas?.turismo_lineas_titulo, 0)">
+            <h2 *ngIf="etiquetas?.turismo_lineas_titulo" class="subutitulo-general mb-0">{{ etiquetas?.turismo_lineas_titulo }}</h2>
+            <h2 *ngIf="!etiquetas?.turismo_lineas_titulo" class="subutitulo-general mb-0">turismo_lineas_titulo</h2>
+        </div>
+        <div (click)="openDialog ('turismo_lineas_subtitulo', etiquetas?.turismo_lineas_subtitulo, 0)">
+            <h3 *ngIf="etiquetas?.turismo_lineas_subtitulo" class="subtitulo-delgado mb-0">{{ etiquetas?.turismo_lineas_subtitulo }}</h3>
+            <h3 *ngIf="!etiquetas?.turismo_lineas_subtitulo" class="subtitulo-delgado mb-0">turismo_lineas_subtitulo</h3>
+        </div>
         <img src="assets/imagenes/flechader.jpg" width="20%">
     </div>
     <div class="col-lg-4 text-center px-5 my-5">
-        <img src="assets/imagenes/icono1.svg" width="25%">
-        <h5 class="color-rojo-turismo subtitulo-rojo-turismo my-3">Servicios turísticos</h5>
-        <p class="color-2 my-2 texto-lineas-rubros">Los diferentes servicios turísticos ofrecidos en la Región Cusco, documentación relacionada para la formalización de los diferentes.</p>
-        <button class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">Ver</button>
+        <div (click)="openDialogImagen ('turismo_lineas_img_1', imagenes?.turismo_lineas_img_1)">
+            <img [src]="imagenes?.turismo_lineas_img_1.img" width="25%">
+        </div>
+        <div (click)="openDialog ('turismo_lineas_servicio', etiquetas?.turismo_lineas_servicio, 0)">
+            <h5 *ngIf="etiquetas?.turismo_lineas_servicio" class="color-rojo-turismo subtitulo-rojo-turismo my-3">{{ etiquetas?.turismo_lineas_servicio }}</h5>
+            <h5 *ngIf="!etiquetas?.turismo_lineas_servicio" class="color-rojo-turismo subtitulo-rojo-turismo my-3">turismo_lineas_servicio</h5>
+        </div>
+        <div (click)="openDialog ('turismo_lineas_servicio_texto', etiquetas?.turismo_lineas_servicio_texto, 1)">
+            <div *ngIf="etiquetas?.turismo_lineas_servicio_texto" [innerHtml]="etiquetas?.turismo_lineas_servicio_texto" class="color-2 my-2 texto-lineas-rubros"></div>   
+            <div *ngIf="!etiquetas?.turismo_lineas_servicio_texto" class="color-2 my-2 texto-lineas-rubros">turismo_lineas_servicio_texto</div>  
+        </div>
+        <div (click)="openDialog ('turismo_lineas_servicio_btn', etiquetas?.turismo_lineas_servicio_btn, 0)">
+            <button *ngIf="etiquetas?.turismo_lineas_servicio_btn" class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">{{ etiquetas?.turismo_lineas_servicio_btn }}</button>
+            <button *ngIf="!etiquetas?.turismo_lineas_servicio_btn" class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">turismo_lineas_servicio_btn</button> 
+        </div>
     </div>
     <div class="col-lg-4 text-center px-5 my-5">
-        <img src="assets/imagenes/icono3.svg" width="25%">
-        <h5 class="color-rojo-turismo subtitulo-rojo-turismo my-3">Promoción turistica</h5>
-        <p class="color-2 my-2 texto-lineas-rubros">Atractivos turísticos que posee la Región Cusco, así como fechas festivas celebradas en la región y datos de importancia para el turista</p>
-        <button class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">Ver</button>
+        <div (click)="openDialogImagen ('turismo_lineas_img_2', imagenes?.turismo_lineas_img_2)">
+            <img [src]="imagenes?.turismo_lineas_img_2.img"  width="25%">
+        </div>
+        <div (click)="openDialog ('turismo_lineas_promocion', etiquetas?.turismo_lineas_promocion, 0)">
+            <h5 *ngIf="etiquetas?.turismo_lineas_promocion" class="color-rojo-turismo subtitulo-rojo-turismo my-3">{{ etiquetas?.turismo_lineas_promocion }}</h5>
+            <h5 *ngIf="!etiquetas?.turismo_lineas_promocion" class="color-rojo-turismo subtitulo-rojo-turismo my-3">turismo_lineas_promocion</h5>
+        </div>
+        <div (click)="openDialog ('turismo_lineas_promocion_texto', etiquetas?.turismo_lineas_promocion_texto, 1)">
+            <div *ngIf="etiquetas?.turismo_lineas_promocion_texto" [innerHtml]="etiquetas?.turismo_lineas_promocion_texto" class="color-2 my-2 texto-lineas-rubros"></div>
+            <div *ngIf="!etiquetas?.turismo_lineas_promocion_texto" class="color-2 my-2 texto-lineas-rubros">turismo_lineas_promocion_texto</div>
+        </div>
+        <div (click)="openDialog ('turismo_lineas_promocion_btn', etiquetas?.turismo_lineas_promocion_btn, 0)">
+           <button *ngIf="etiquetas?.turismo_lineas_promocion_btn" class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">{{ etiquetas?.turismo_lineas_promocion_btn }}</button>
+           <button *ngIf="!etiquetas?.turismo_lineas_promocion_btn" class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">turismo_lineas_promocion_btn</button>
+        </div>
     </div>
     <div class="col-lg-4 text-center px-5 my-5">
-        <img src="assets/imagenes/icono2.svg" width="25%">
-        <h5 class="color-rojo-turismo subtitulo-rojo-turismo my-4">Desarrollo turistico</h5>
-        <p class="color-2 my-2 texto-lineas-rubros">Desarrollo turístico de la región Cusco, así como información de inventario turístico, turismo social , Turismo rural y supervisión ambiental.</p>
-        <button class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">Ver</button>
+        <div (click)="openDialogImagen ('turismo_lineas_img_3', imagenes?.turismo_lineas_img_3)">
+            <img [src]="imagenes?.turismo_lineas_img_3.img" width="25%">
+        </div>
+        <div (click)="openDialog ('turismo_lineas_desarrollo', etiquetas?.turismo_lineas_desarrollo, 0)">
+           <h5 *ngIf="etiquetas?.turismo_lineas_desarrollo" class="color-rojo-turismo subtitulo-rojo-turismo my-4">{{ etiquetas?.turismo_lineas_desarrollo }}</h5>
+           <h5 *ngIf="!etiquetas?.turismo_lineas_desarrollo" class="color-rojo-turismo subtitulo-rojo-turismo my-4">turismo_lineas_desarrollo</h5>
+        </div>
+        <div (click)="openDialog ('turismo_lineas_desarrollo_texto', etiquetas?.turismo_lineas_desarrollo_texto, 1)">
+            <div *ngIf="etiquetas?.turismo_lineas_desarrollo_texto" [innerHtml]="etiquetas?.turismo_lineas_desarrollo_texto" class="color-2 my-2 texto-lineas-rubros"></div>
+            <div *ngIf="!etiquetas?.turismo_lineas_desarrollo_texto" class="color-2 my-2 texto-lineas-rubros">turismo_lineas_desarrollo_texto</div>
+        </div>
+        <div (click)="openDialog ('turismo_lineas_desarrollo_btn', etiquetas?.turismo_lineas_desarrollo_btn, 0)">
+            <button *ngIf="etiquetas?.turismo_lineas_desarrollo_btn" class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">{{ etiquetas?.turismo_lineas_desarrollo_btn }}</button>
+            <button *ngIf="!etiquetas?.turismo_lineas_desarrollo_btn" class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">turismo_lineas_desarrollo_btn</button>
+        </div>
     </div>
     </div>
 </div>
@@ -55,42 +107,65 @@
         <div class="col-12 col-lg-9">
             <div class="row">
             <div class="col-sm-6 offset-sm-3 offset-lg-0 color-blanco text-center px-4">
-                <h2 class="subutitulo-general mb-0">FUNCIONES</h2>
-                <h3 class="subtitulo-delgado mb-0">Y NORMATIVA</h3>
+                <div (click)="openDialog ('turismo_funciones_titulo', etiquetas?.turismo_funciones_titulo, 0)">
+                    <h2 *ngIf="etiquetas?.turismo_funciones_titulo" class="subutitulo-general mb-0">{{ etiquetas?.turismo_funciones_titulo }}</h2>
+                    <h2 *ngIf="!etiquetas?.turismo_funciones_titulo" class="subutitulo-general mb-0">turismo_funciones_titulo</h2>
+                </div>
+                <div (click)="openDialog ('turismo_funciones_subtitulo', etiquetas?.turismo_funciones_subtitulo, 0)">
+                    <h3 *ngIf="etiquetas?.turismo_funciones_subtitulo" class="subtitulo-delgado mb-0">{{ etiquetas?.turismo_funciones_subtitulo }}</h3>
+                    <h3 *ngIf="!etiquetas?.turismo_funciones_subtitulo" class="subtitulo-delgado mb-0">turismo_funciones_subtitulo</h3>
+                </div>
                 <img src="assets/imagenes/arrow.png" width="100%" style="transform: rotate(-180deg);">
             </div>
             <div class="col-12 col-lg-10 color-blanco text-center text-lg-left">
-                <p class="texto-turismo my-4">La Dirección de Comercio Exterior y Turismo a través de la Dirección de Turismo pone a disposición de los usuarios información para el sector turismo y de todos aquellos programas y acciones que se vienen realizando para alcanzar un turismo sostenible en el tiempo, lograr que el ejercicio turístico se convierta en una fuente que genere inversiones y deje recursos en la Región Cusco
-                </p>
-                <button class="btn btn-funciones px-4 py-1 btn-fondo-letra-rojo">Ver normatividad</button>
+                <div (click)="openDialog ('turismo_funciones_texto', etiquetas?.turismo_funciones_texto, 1)">
+                    <div *ngIf="etiquetas?.turismo_funciones_texto" [innerHtml]="etiquetas?.turismo_funciones_texto" class="texto-turismo my-4"></div>
+                    <div *ngIf="!etiquetas?.turismo_funciones_texto"  class="texto-turismo my-4">turismo_funciones_texto</div>
+                </div>
+                <div (click)="openDialog ('turismo_funciones_btn', etiquetas?.turismo_funciones_btn, 0)">
+                    <button *ngIf="etiquetas?.turismo_funciones_btn" class="btn btn-funciones px-4 py-1 btn-fondo-letra-rojo">{{ etiquetas?.turismo_funciones_btn }}</button>
+                    <button *ngIf="!etiquetas?.turismo_funciones_btn" class="btn btn-funciones px-4 py-1 btn-fondo-letra-rojo">turismo_funciones_btn</button>
+                </div>
             </div>
             </div>
         </div>
-        <div class="col-3 px-0">
-            <img class="mt-n5 ml-lg-5 ml-xl-5" src="assets/imagenes/manoapp.png" id="img-app-turi">
+        <div class="col-3 px-0" (click)="openDialogImagen ('turismo_funciones_app_img', imagenes?.turismo_funciones_app_img)">
+            <img class="mt-n5 ml-lg-5 ml-xl-5" [src]="imagenes?.turismo_funciones_app_img.img" id="img-app-turi">
         </div>
     </div>
     </div>
     <div class="col-lg-4 py-3">
     <div class="row m-0">
         <div class="col-12 text-center">
-            <h2 class="color-65 mb-0" id="app-font">App móvil</h2>
-            <h3 class="color-65 mb-0" id="turi-font">Turistica</h3>
+            <div (click)="openDialog ('turismo_app_titulo', etiquetas?.turismo_app_titulo, 0)">
+                <h2 *ngIf="etiquetas?.turismo_app_titulo" class="color-65 mb-0" id="app-font">{{ etiquetas?.turismo_app_titulo }}</h2>
+                <h2 *ngIf="!etiquetas?.turismo_app_titulo" class="color-65 mb-0" id="app-font">turismo_app_titulo</h2>
+            </div>
+            <div (click)="openDialog ('turismo_app_subtitulo', etiquetas?.turismo_app_titulo, 0)">
+                <h3 *ngIf="etiquetas?.turismo_app_subtitulo" class="color-65 mb-0" id="turi-font">{{ etiquetas?.turismo_app_subtitulo }}</h3>
+                <h3 *ngIf="!etiquetas?.turismo_app_subtitulo" class="color-65 mb-0" id="turi-font">turismo_app_subtitulo</h3>
+            </div>
             <img src="assets/imagenes/flechaizq.jpg" width="50%">
         </div>
         <div class="col-12 pl-lg-3 pl-xl-5 text-center text-lg-left">
-            <p class="color-2 ml-lg-5 my-2">Órgano de Línea de segundo nivel organizacional, responsable de proponer y ejecutar la política regional de desarrollo y promoción de la artesanía; así como fomentar las exportaciones de los productos artesanales.</p>
+            <div (click)="openDialog ('turismo_app_texto', etiquetas?.turismo_app_texto, 1)">
+                <div *ngIf="etiquetas?.turismo_app_texto" [innerHtml]="etiquetas?.turismo_app_texto" class="color-2 ml-lg-5 my-2"></div>
+                <div *ngIf="!etiquetas?.turismo_app_texto" class="color-2 ml-lg-5 my-2">turismo_app_texto</div>
+            </div>
         </div>
         <div class="col-12 col-lg-8 px-5 text-center offset-lg-3">
-            <h5 class="color-65 my-3" id="muy-font">MUY PRONTO</h5>
+            <div (click)="openDialog ('turismo_app_pronto', etiquetas?.turismo_app_pronto, 0)">
+                <h5 *ngIf="etiquetas?.turismo_app_pronto" class="color-65 my-3" id="muy-font">{{ etiquetas?.turismo_app_pronto }}</h5>
+                <h5 *ngIf="!etiquetas?.turismo_app_pronto" class="color-65 my-3" id="muy-font">turismo_app_pronto</h5>
+            </div>
         </div>
         <div class="col-12 col-lg-8 px-5 text-center offset-lg-3">
             <div class="row justify-content-md-center">
-            <div class="col-6 pr-1 pl-0">
-                <img class="img-app-turismo" src="assets/imagenes/app1.png" width="100%">
+            <div class="col-6 pr-1 pl-0" (click)="openDialogImagen ('turismo_app_1_img', imagenes?.turismo_app_1_img)">
+                <img class="img-app-turismo" [src]="imagenes?.turismo_app_1_img.img" width="100%">
             </div>
-            <div class="col-6 pl-1 pr-0">
-                <img class="img-app-turismo" src="assets/imagenes/app2.png" width="100%">
+            <div class="col-6 pl-1 pr-0" (click)="openDialogImagen ('turismo_app_2_img', imagenes?.turismo_app_2_img)">
+                <img class="img-app-turismo" [src]="imagenes?.turismo_app_2_img.img" width="100%">
             </div>
             </div>
         </div>
@@ -104,79 +179,133 @@
 <div class="container-fluid py-5">
     <div class="row m-0">
     <div class="col-12 text-center color-65 mb-5">
-        <h2 class="subutitulo-general mb-0">Rubros</h2>
-        <h3 class="subtitulo-delgado mb-0">Turísticos</h3>
+        <div (click)="openDialog ('turismo_rubros_titulo', etiquetas?.turismo_rubros_titulo, 0)">
+            <h2 *ngIf="etiquetas?.turismo_rubros_titulo" class="subutitulo-general mb-0">{{ etiquetas?.turismo_rubros_titulo }}</h2>
+            <h2 *ngIf="!etiquetas?.turismo_rubros_titulo" class="subutitulo-general mb-0">turismo_rubros_titulo</h2>
+        </div>
+        <div (click)="openDialog ('turismo_rubros_subtitulo', etiquetas?.sobre_nosotros_subtitulo, 0)">
+            <h3 *ngIf="etiquetas?.turismo_rubros_subtitulo" class="subtitulo-delgado mb-0">{{ etiquetas?.turismo_rubros_subtitulo }}</h3>
+            <h3 *ngIf="!etiquetas?.turismo_rubros_subtitulo" class="subtitulo-delgado mb-0">turismo_rubros_subtitulo</h3>
+        </div>
         <img src="assets/imagenes/flechader.jpg" width="20%">
     </div>
     <div class="col-12 col-md-6 col-xl-3 text-center mb-5 mb-md-3 mb-xl-0">
         <div class="row m-0">
-        <div class="col-12">
-            <img class="" src="assets/imagenes/icono6.svg" width="25%" height="77.17">
+        <div class="col-12" (click)="openDialogImagen ('turismo_rubros_img_1', imagenes?.turismo_rubros_img_1)">
+            <img class="" [src]="imagenes?.turismo_rubros_img_1.img" width="25%" height="77.17">
         </div>
         <div class="col-12">
-            <h5 class="color-rojo-turismo subtitulo-rojo-turismo my-3">Alojamiento</h5>
+            <div (click)="openDialog ('turismo_rubros_alojamiento', etiquetas?.turismo_rubros_alojamiento, 0)">
+                <h5 *ngIf="etiquetas?.turismo_rubros_alojamiento" class="color-rojo-turismo subtitulo-rojo-turismo my-3">{{ etiquetas?.turismo_rubros_alojamiento }}</h5>
+                <h5 *ngIf="!etiquetas?.turismo_rubros_alojamiento" class="color-rojo-turismo subtitulo-rojo-turismo my-3">turismo_rubros_alojamiento</h5>
+            </div>
             <h5 class="color-azul numero-font mb-0">4,094</h5>
-            <h6 class="subtitulo-deslgado-font">Establecimientos formales</h6>
+            <div (click)="openDialog ('turismo_rubros_alojamiento_subtitulo', etiquetas?.turismo_rubros_alojamiento_subtitulo, 0)">
+                <h6 *ngIf="etiquetas?.turismo_rubros_alojamiento_subtitulo" class="subtitulo-deslgado-font">{{ etiquetas?.turismo_rubros_alojamiento_subtitulo }}</h6>
+                <h6 *ngIf="!etiquetas?.turismo_rubros_alojamiento_subtitulo" class="subtitulo-deslgado-font">turismo_rubros_alojamiento_subtitulo</h6>
+            </div>
         </div>
         <div class="col-12">
-            <p class="color-2 texto-lineas-rubros">Un hospedaje es un lugar destinado a prestar habitualmente servicio de alojamiento no permanente, para que sus huéspedes pernocten en el local, con la posibilidad de incluir otros servicios complementarios.</p>
+            <div (click)="openDialog ('turismo_rubros_alojamiento_texto', etiquetas?.turismo_rubros_alojamiento_texto, 1)">
+                <div *ngIf="etiquetas?.turismo_rubros_alojamiento_texto" [innerHtml]="etiquetas?.turismo_rubros_texto" class="color-2 texto-lineas-rubros"></div>
+                <div *ngIf="!etiquetas?.turismo_rubros_alojamiento_texto" class="color-2 texto-lineas-rubros">turismo_rubros_alojamiento_texto</div>
+            </div>
         </div>
         <div class="col-12">
-            <button class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul" (click)="goAlojamiento ()">Ver</button>
+            <div (click)="openDialog ('turismo_rubros_btn', etiquetas?.turismo_rubros_btn, 0)">
+                <button *ngIf="etiquetas?.turismo_rubros_btn" class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">{{ etiquetas?.turismo_rubros_btn }}</button>
+                <button *ngIf="!etiquetas?.turismo_rubros_btn" class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">turismo_rubros_btn</button>
+            </div>
         </div>
         </div>
     </div>
     <div class="col-12 col-md-6 col-xl-3 text-center mb-5 mb-md-3 mb-xl-0">
         <div class="row m-0">
-        <div class="col-12">
-            <img src="assets/imagenes/icono5.svg" width="25%" height="77.17">
+        <div class="col-12" (click)="openDialogImagen ('turismo_rubros_img_2', imagenes?.turismo_rubros_img_2)">
+            <img [src]="imagenes?.turismo_rubros_img_2.img" width="25%" height="77.17">
         </div>
         <div class="col-12">
-            <h5 class="color-rojo-turismo subtitulo-rojo-turismo my-3">Restaurantes</h5>
+            <div (click)="openDialog ('turismo_rubros_restuarante', etiquetas?.turismo_rubros_restuarante, 0)">
+                <h5 *ngIf="etiquetas?.turismo_rubros_restuarante" class="color-rojo-turismo subtitulo-rojo-turismo my-3">{{ etiquetas?.turismo_rubros_restuarante }}</h5>
+                <h5 *ngIf="!etiquetas?.turismo_rubros_restuarante" class="color-rojo-turismo subtitulo-rojo-turismo my-3">turismo_rubros_restuarante</h5>  
+            </div>
             <h5 class="color-azul numero-font mb-0">3,684</h5>
-            <h6 class="subtitulo-deslgado-font">Restaurantes autorizados</h6>
+            <div (click)="openDialog ('turismo_rubros_restuarante_subtitulo', etiquetas?.turismo_rubros_restuarante_subtitulo, 0)">
+                <h6 *ngIf="etiquetas?.turismo_rubros_restuarante_subtitulo" class="subtitulo-deslgado-font">{{ etiquetas?.turismo_rubros_restuarante_subtitulo }}</h6>
+                <h6 *ngIf="!etiquetas?.turismo_rubros_restuarante_subtitulo" class="subtitulo-deslgado-font">turismo_rubros_restuarante_subtitulo</h6>
+            </div>
         </div>
         <div class="col-12">
-            <p class="color-2 texto-lineas-rubros">Establecimiento que expende comidas y bebidas al público, preparadas en el mismo local, prestando el servicio en las condiciones que señala el presente Reglamento y de acuerdo a las normas sanitarias correspondientes.</p>
+            <div (click)="openDialog ('turismo_rubros_restuarante_texto', etiquetas?.turismo_rubros_restuarante_texto, 1)">
+                <div *ngIf="etiquetas?.turismo_rubros_restuarante_texto" [innerHtml]="etiquetas?.turismo_rubros_restuarante_texto" class="color-2 texto-lineas-rubros"></div>
+                <div *ngIf="!etiquetas?.turismo_rubros_restuarante_texto" class="color-2 texto-lineas-rubros">turismo_rubros_restuarante_texto</div>
+            </div>
         </div>
         <div class="col-12">
-            <button class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul" (click)="goRestaurante ()">Ver</button>
+            <div (click)="openDialog ('turismo_rubros_btn', etiquetas?.turismo_rubros_btn, 0)">
+                    <button *ngIf="etiquetas?.turismo_rubros_btn" class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">{{ etiquetas?.turismo_rubros_btn }}</button>
+                    <button *ngIf="!etiquetas?.turismo_rubros_btn" class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">turismo_rubros_btn</button>
+            </div>
         </div>
         </div>
     </div>
     <div class="col-12 col-md-6 col-xl-3 text-center mb-5 mb-md-3 mb-xl-0">
         <div class="row m-0">
-        <div class="col-12">
-            <img class="" src="assets/imagenes/icono4.svg" width="25%" height="77.17">
+        <div class="col-12" (click)="openDialogImagen ('turismo_rubros_img_3', imagenes?.turismo_rubros_img_3)">
+            <img class="" [src]="imagenes?.turismo_rubros_img_3.img" width="25%" height="77.17">
         </div>
         <div class="col-12">
-            <h5 class="color-rojo-turismo subtitulo-rojo-turismo my-3">Agencias de turismo</h5>
+            <div (click)="openDialog ('turismo_rubros_agencia', etiquetas?.turismo_rubros_agencia, 0)">
+                <h5 *ngIf="etiquetas?.turismo_rubros_agencia" class="color-rojo-turismo subtitulo-rojo-turismo my-3">{{ etiquetas?.turismo_rubros_agencia }}</h5>
+                <h5 *ngIf="!etiquetas?.turismo_rubros_agencia" class="color-rojo-turismo subtitulo-rojo-turismo my-3">turismo_rubros_agencia</h5>
+            </div>
             <h5 class="color-azul numero-font mb-0">724</h5>
-            <h6 class="subtitulo-deslgado-font">Agencias en supervisadas</h6>
+            <div (click)="openDialog ('turismo_rubros_agencia_subtitulo', etiquetas?.turismo_rubros_agencia_subtitulo, 0)">
+                <h6 *ngIf="etiquetas?.turismo_rubros_agencia_subtitulo" class="subtitulo-deslgado-font">{{ etiquetas?.turismo_rubros_agencia_subtitulo }}</h6>
+                <h6 *ngIf="!etiquetas?.turismo_rubros_agencia_subtitulo" class="subtitulo-deslgado-font">turismo_rubros_agencia_subtitulo</h6>
+            </div>
         </div>
         <div class="col-12">
-            <p class="color-2 texto-lineas-rubros">Persona natural o jurídica que se dedica al ejercicio de actividades de organización, mediación, coordinación, promoción, asesoría y venta de servicios turísticos, de acuerdo a su clasificación, pudiendo utilizar medios propios o contratados para la prestación de los mismos.</p>
+            <div (click)="openDialog ('turismo_rubros_agencia_texto', etiquetas?.turismo_rubros_agencia_texto, 1)">
+                <div *ngIf="etiquetas?.turismo_rubros_agencia_texto" [innerHtml]="etiquetas?.turismo_rubros_agencia_texto" class="color-2 texto-lineas-rubros"></div>
+                <div *ngIf="!etiquetas?.turismo_rubros_agencia_texto" class="color-2 texto-lineas-rubros">turismo_rubros_agencia_texto</div>
+            </div>
         </div>
         <div class="col-12">
-            <button class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul" (click)="goAgencia ()">Ver</button>
+            <div (click)="openDialog ('turismo_rubros_btn', etiquetas?.turismo_rubros_btn, 0)">
+                <button *ngIf="etiquetas?.turismo_rubros_btn" class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">{{ etiquetas?.turismo_rubros_btn }}</button>
+                <button *ngIf="!etiquetas?.turismo_rubros_btn" class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">turismo_rubros_btn</button>
+            </div>
         </div>
         </div>
     </div>
     <div class="col-12 col-md-6 col-xl-3 text-center mb-5 mb-md-3 mb-xl-0">
         <div class="row m-0">
-        <div class="col-12">
-            <img class="" src="assets/imagenes/icono7.svg" width="25%" height="77.17">
+        <div class="col-12" (click)="openDialogImagen ('turismo_rubros_img_4', imagenes?.turismo_rubros_img_4)">
+            <img class="" [src]="imagenes?.turismo_rubros_img_4.img" width="25%" height="77.17">
         </div>
         <div class="col-12">
-            <h5 class="color-rojo-turismo subtitulo-rojo-turismo my-3">Guias de turismo</h5>
+            <div (click)="openDialog ('turismo_rubros_guias', etiquetas?.turismo_rubros_guias, 0)">
+                <h5 *ngIf="etiquetas?.turismo_rubros_guias" class="color-rojo-turismo subtitulo-rojo-turismo my-3">{{ etiquetas?.turismo_rubros_guias }}</h5>
+                <h5 *ngIf="!etiquetas?.turismo_rubros_guias" class="color-rojo-turismo subtitulo-rojo-turismo my-3">turismo_rubros_guias</h5>
+            </div>
             <h5 class="color-azul numero-font mb-0">7,233</h5>
-            <h6 class="subtitulo-deslgado-font">Guias en habilitados</h6>
+            <div (click)="openDialog ('turismo_rubros_guias_subtitulo', etiquetas?.turismo_rubros_guias_subtitulo, 0)">
+                <h6 *ngIf="etiquetas?.turismo_rubros_guias_subtitulo" class="subtitulo-deslgado-font">{{ etiquetas?.turismo_rubros_guias_subtitulo }}</h6>
+                <h6 *ngIf="!etiquetas?.turismo_rubros_guias_subtitulo" class="subtitulo-deslgado-font">turismo_rubros_guias_subtitulo</h6>
+            </div>
         </div>
         <div class="col-12">
-            <p class="color-2 texto-lineas-rubros">Un hospedaje es un lugar destinado a prestar habitualmente servicio de alojamiento no permanente, para que sus huéspedes pernocten en el local, con la posibilidad de incluir otros servicios complementarios.</p>
+            <div (click)="openDialog ('turismo_rubros_guias_texto', etiquetas?.turismo_rubros_guias_texto, 1)">
+                <div *ngIf="etiquetas?.turismo_rubros_guias_texto" [innerHtml]="etiquetas?.turismo_rubros_guias_texto" class="color-2 texto-lineas-rubros"></div>
+                <div *ngIf="!etiquetas?.turismo_rubros_guias_texto" class="color-2 texto-lineas-rubros">turismo_rubros_guias_texto</div>
+            </div>
         </div>
         <div class="col-12">
-            <button class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul" (click)="goGuia ()">Ver</button>
+            <div (click)="openDialog ('turismo_rubros_btn', etiquetas?.turismo_rubros_btn, 0)">
+                <button *ngIf="etiquetas?.turismo_rubros_btn" class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">{{ etiquetas?.turismo_rubros_btn }}</button>
+                <button *ngIf="!etiquetas?.turismo_rubros_btn" class="btn btn-lineas fondo-azul color-blanco px-5 py-0 my-2 btn-fondo-letra-azul">turismo_rubros_btn</button>
+            </div>
         </div>
         </div>
     </div>
@@ -188,8 +317,14 @@
 <div class="container-fluid my-5 px-0 px-xl-5">
     <div class="row m-0">
     <div class="col-12  text-center color-65 mb-5">
-        <h2 class="subutitulo-general mb-0">Cusco</h2>
-        <h3 class="subtitulo-delgado mb-0">en 360</h3>
+        <div (click)="openDialog ('turismo_cusco_video_titulo', etiquetas?.turismo_cusco_video_titulo, 0)">
+            <h2 *ngIf="etiquetas?.turismo_cusco_video_titulo" class="subutitulo-general mb-0">{{ etiquetas?.turismo_cusco_video_titulo }}</h2>
+            <h2 *ngIf="!etiquetas?.turismo_cusco_video_titulo" class="subutitulo-general mb-0">turismo_cusco_video_titulo</h2>
+        </div>
+        <div (click)="openDialog ('turismo_cusco_video_subtitulo', etiquetas?.turismo_cusco_video_subtitulo, 0)">
+            <h3 *ngIf="etiquetas?.turismo_cusco_video_subtitulo" class="subtitulo-delgado mb-0">{{ etiquetas?.turismo_cusco_video_subtitulo }}</h3>
+            <h3 *ngIf="!etiquetas?.turismo_cusco_video_subtitulo" class="subtitulo-delgado mb-0">turismo_cusco_video_subtitulo</h3>
+        </div>
         <img src="assets/imagenes/flechader.jpg" width="20%">
     </div>
     <div class="col-lg-6 px-lg-1">
@@ -209,19 +344,33 @@
 <section>
 <div class="container-fluid px-0 py-5">
     <div class="row m-0">
-    <div class="col-12 col-lg-4 px-0 order-2 order-lg-0">
-        <img src="assets/imagenes/social.png" width="100%" height="100%">
+    <div class="col-12 col-lg-4 px-0 order-2 order-lg-0" (click)="openDialogImagen ('turismo_social_img', imagenes?.turismo_social_img)">
+        <img [src]="imagenes?.turismo_social_img.img" width="100%" height="100%">
     </div>
     <div class="col-12 col-lg-8 fondo-azul color-blanco py-5 px-sm-5">
         <div class="row m-0">
         <div class="col-lg-4 text-center mt-4">
-            <h2 class="subutitulo-general mb-0">Turismo</h2>
-            <h3 class="subtitulo-delgado">Social</h3>
+            <div (click)="openDialog ('turismo_social_titulo', etiquetas?.turismo_social_titulo, 0)">
+                <h2 *ngIf="etiquetas?.turismo_social_titulo" class="subutitulo-general mb-0">{{ etiquetas?.turismo_social_titulo }}</h2>
+                <h2 *ngIf="!etiquetas?.turismo_social_titulo" class="subutitulo-general mb-0">turismo_social_titulo</h2>
+            </div>
+            <div (click)="openDialog ('turismo_social_subtitulo', etiquetas?.turismo_social_subtitulo, 0)">
+                <h3 *ngIf="etiquetas?.turismo_social_subtitulo" class="subtitulo-delgado">{{ etiquetas?.turismo_social_subtitulo }}</h3>
+                <h3 *ngIf="!etiquetas?.turismo_social_subtitulo" class="subtitulo-delgado">turismo_social_subtitulo</h3>
+            </div>
             <img src="assets/imagenes/arrow.png" width="70%" style="transform: rotate(-180deg);">
         </div>
         <div class="col-12 col-lg-10 text-center text-lg-left">
-            <p class="texto-turismo my-4">La Dirección de Comercio Exterior y Turismo a través de la Dirección de Turismo pone a disposición de los usuarios información para el sector turismo y de todos aquellos programas y acciones que se vienen realizando para alcanzar un turismo sostenible en el tiempo, lograr que el ejercicio turístico se convierta en una fuente que genere inversiones y deje recursos en la Región Cusco</p>
-            <button class="btn btn-funciones px-5 mt-2 py-1 btn-fondo-letra-azul">Explorar</button>
+            <div (click)="openDialog ('turismo_social_texto', etiquetas?.turismo_social_texto, 1)">
+                <div *ngIf="etiquetas?.turismo_social_texto" [innerHtml]="etiquetas?.turismo_social_texto" class="texto-turismo my-4"></div>
+                <div *ngIf="!etiquetas?.turismo_social_texto" class="texto-turismo my-4">turismo_social_texto</div>
+            </div>
+            <div (click)="openDialog ('turismo_social_btn', etiquetas?.turismo_social_btn, 0)">
+                <button *ngIf="etiquetas?.turismo_social_btn" class="btn btn-funciones px-5 mt-2 py-1 btn-fondo-letra-azul">
+                        {{ etiquetas?.turismo_social_btn }}</button>
+                <button *ngIf="!etiquetas?.turismo_social_btn" class="btn btn-funciones px-5 mt-2 py-1 btn-fondo-letra-azul">
+                        turismo_social_btn</button>
+            </div>
         </div>
         </div>
     </div>
@@ -233,8 +382,14 @@
 <div class="container-fluid">
     <div class="row m-0">
     <div class="col-12 text-center color-65">
-        <h2 class="mb-0 subutitulo-general">Cusco</h2>
-        <h3 class="subtitulo-delgado mb-0">En numeros</h3>
+        <div (click)="openDialog ('turismo_cusco_titulo', etiquetas?.turismo_cusco_titulo, 0)">
+            <h2 *ngIf="etiquetas?.turismo_cusco_titulo" class="mb-0 subutitulo-general">{{ etiquetas?.turismo_cusco_titulo }}</h2>
+            <h2 *ngIf="!etiquetas?.turismo_cusco_titulo" class="mb-0 subutitulo-general">turismo_cusco_titulo</h2>
+        </div>
+        <div (click)="openDialog ('turismo_cusco_subtitulo', etiquetas?.turismo_cusco_subtitulo, 0)">
+            <h3 *ngIf="etiquetas?.turismo_cusco_subtitulo" class="subtitulo-delgado mb-0">{{ etiquetas?.turismo_cusco_subtitulo }}</h3>
+            <h3 *ngIf="!etiquetas?.turismo_cusco_subtitulo" class="subtitulo-delgado mb-0">turismo_cusco_subtitulo</h3>
+        </div>
         <img src="assets/imagenes/flechader.jpg" width="20%">
     </div>
     <div class="col-md-6 col-xl-3 color-azul text-center px-4 my-5">
@@ -243,7 +398,10 @@
             <h3 class="number-cusco-altura counter">0</h3>
         </div>
         <div class="col-12 px-5">
-            <p class="texto-turismo interliniado-numer">Prestadores de servicios turísticos</p>
+            <div (click)="openDialog ('turismo_cusco_prestadores', etiquetas?.turismo_cusco_prestadores, 0)">
+                <p *ngIf="etiquetas?.turismo_cusco_prestadores" class="texto-turismo interliniado-numer">{{ etiquetas?.turismo_cusco_prestadores }}</p>
+                <p *ngIf="!etiquetas?.turismo_cusco_prestadores" class="texto-turismo interliniado-numer">turismo_cusco_prestadores</p>
+            </div>
         </div>
         </div>
     </div>
@@ -253,7 +411,10 @@
             <h3 class="number-cusco-altura counter">0</h3>
         </div>
         <div class="col-12 px-5">
-            <p class="texto-turismo interliniado-numer">Turistas visitaron a Cusco este año</p>
+            <div (click)="openDialog ('turismo_cusco_turistas', etiquetas?.turismo_cusco_turistas, 0)">
+                <p *ngIf="etiquetas?.turismo_cusco_turistas" class="texto-turismo interliniado-numer">{{ etiquetas?.turismo_cusco_turistas }}</p>
+                <p *ngIf="!etiquetas?.turismo_cusco_turistas" class="texto-turismo interliniado-numer">turismo_cusco_turistas</p>
+            </div>
         </div>
         </div>
     </div>
@@ -263,7 +424,10 @@
             <h3 class="number-cusco-altura counter">0</h3>
         </div>
         <div class="col-12 px-5">
-            <p class="texto-turismo interliniado-numer">Prestadores de servicios turísticos</p>
+            <div (click)="openDialog ('turismo_cusco_servicios', etiquetas?.turismo_cusco_servicios, 0)">
+                 <p *ngIf="etiquetas?.turismo_cusco_servicios" class="texto-turismo interliniado-numer">{{ etiquetas?.turismo_cusco_servicios }}</p>
+                 <p *ngIf="!etiquetas?.turismo_cusco_servicios" class="texto-turismo interliniado-numer">turismo_cusco_servicios</p>
+            </div>
         </div>
         </div>
     </div>
@@ -273,7 +437,10 @@
             <h3 class="number-cusco-altura counter">0</h3>
         </div>
         <div class="col-12 px-5">
-            <p class="texto-turismo interliniado-numer">Prestadores de servicios turísticos</p>
+            <div (click)="openDialog ('turismo_cusco_servicios_turisticos', etiquetas?.turismo_cusco_servicios_turisticos, 0)">
+                <p *ngIf="etiquetas?.turismo_cusco_servicios_turisticos" class="texto-turismo interliniado-numer">{{ etiquetas?.turismo_cusco_servicios_turisticos }}</p>
+                <p *ngIf="!etiquetas?.turismo_cusco_servicios_turisticos" class="texto-turismo interliniado-numer">turismo_cusco_servicios_turisticos</p>
+            </div>
         </div>
         </div>
     </div>
@@ -285,10 +452,19 @@
 <div class="container-fluid px-0 py-5">
     <div class="row m-0">
     <div class="col-12 text-center px-0">
-        <h2 class="subutitulo-general mb-0 color-65">IMAGENES</h2>
-        <h3 class="subtitulo-delgado mb-0 color-65">TURISTICAS</h3>
+        <div (click)="openDialog ('turismo_imagenes_titulo', etiquetas?.turismo_imagenes_titulo, 0)">
+            <h2 *ngIf="etiquetas?.turismo_imagenes_titulo" class="subutitulo-general mb-0 color-65">{{ etiquetas?.turismo_imagenes_titulo }}</h2>
+            <h2 *ngIf="!etiquetas?.turismo_imagenes_titulo" class="subutitulo-general mb-0 color-65">turismo_imagenes_titulo</h2>
+        </div>
+        <div (click)="openDialog ('turismo_imagenes_subtitulo', etiquetas?.turismo_imagenes_subtitulo, 0)">
+            <h3 *ngIf="etiquetas?.turismo_imagenes_subtitulo" class="subtitulo-delgado mb-0 color-65">{{ etiquetas?.turismo_imagenes_subtitulo }}</h3>
+            <h3 *ngIf="!etiquetas?.turismo_imagenes_subtitulo" class="subtitulo-delgado mb-0 color-65">turismo_imagenes_subtitulo</h3>
+        </div>
         <img src="assets/imagenes/flechader.jpg" width="20%">
-        <p class="texto-turismo color-81">Cusco lo tiene todo, vive experiencias únicas en nuestra maravillosa tierra.</p>
+        <div (click)="openDialog ('turismo_imagenes_descripcion', etiquetas?.turismo_imagenes_descripcion, 0)">
+            <p *ngIf="etiquetas?.turismo_imagenes_descripcion" class="texto-turismo color-81">{{ etiquetas?.turismo_imagenes_descripcion }}</p>
+            <p *ngIf="!etiquetas?.turismo_imagenes_descripcion" class="texto-turismo color-81">turismo_imagenes_descripcion</p>
+        </div>
     </div>
     <div class="col-12 px-0 my-1">
         <div class="carousel-home">
@@ -347,18 +523,30 @@
     <div class="col-12 col-lg-8 fondo-rojo color-blanco py-5 px-sm-5">
         <div class="row m-0">
         <div class="col-lg-6 col-xl-5 text-center mt-4">
-            <h2 class="subutitulo-general mb-0">Turismo</h2>
-            <h3 class="subtitulo-delgado">Rural comunitario</h3>
+            <div (click)="openDialog ('turismo_rural_comunitario_titulo', etiquetas?.turismo_rural_comunitario_titulo, 0)">
+                <h2 *ngIf="etiquetas?.turismo_rural_comunitario_titulo" class="subutitulo-general mb-0">{{ etiquetas?.turismo_rural_comunitario_titulo }}</h2>
+                <h2 *ngIf="!etiquetas?.turismo_rural_comunitario_titulo" class="subutitulo-general mb-0">turismo_rural_comunitario_titulo</h2>
+            </div>
+            <div (click)="openDialog ('turismo_rural_comunitario_subtitulo', etiquetas?.turismo_rural_comunitario_subtitulo, 0)">
+                <h3 *ngIf="etiquetas?.turismo_rural_comunitario_subtitulo" class="subtitulo-delgado">{{ etiquetas?.turismo_rural_comunitario_subtitulo }}</h3>
+                <h3 *ngIf="!etiquetas?.turismo_rural_comunitario_subtitulo" class="subtitulo-delgado">turismo_rural_comunitario_subtitulo</h3>
+            </div>
             <img src="assets/imagenes/arrow.png" width="70%" style="transform: rotate(-180deg);">
         </div>
         <div class="col-12 col-lg-10 text-center text-lg-left">
-            <p class="texto-turismo my-4">La Dirección de Comercio Exterior y Turismo a través de la Dirección de Turismo pone a disposición de los usuarios información para el sector turismo y de todos aquellos programas y acciones que se vienen realizando para alcanzar un turismo sostenible en el tiempo, lograr que el ejercicio turístico se convierta en una fuente que genere inversiones y deje recursos en la Región Cusco</p>
-            <button class="btn btn-funciones px-5 mt-2 py-1 btn-fondo-letra-rojo">Explorar</button>
+            <div (click)="openDialog ('turismo_rural_comunitario_texto', etiquetas?.turismo_rural_comunitario_texto, 1)">
+                <div *ngIf="etiquetas?.turismo_rural_comunitario_texto" [innerHtml]="etiquetas?.turismo_rural_comunitario_texto" class="texto-turismo my-4"></div>
+                <div *ngIf="!etiquetas?.turismo_rural_comunitario_texto" class="texto-turismo my-4">turismo_rural_comunitario_texto</div>
+            </div>
+            <div (click)="openDialog ('turismo_rural_comunitario_btn', etiquetas?.turismo_rural_comunitario_btn, 0)">
+                <button *ngIf="etiquetas?.turismo_rural_comunitario_btn" class="btn btn-funciones px-5 mt-2 py-1 btn-fondo-letra-rojo">{{ etiquetas?.turismo_rural_comunitario_btn }}</button>
+                <button *ngIf="!etiquetas?.turismo_rural_comunitario_btn" class="btn btn-funciones px-5 mt-2 py-1 btn-fondo-letra-rojo">turismo_rural_comunitario_btn</button>
+            </div>
         </div>
         </div>
     </div>
-    <div class="col-lg-4 px-0">
-        <img src="assets/imagenes/carousel14.png" width="100%" height="100%">
+    <div class="col-lg-4 px-0" (click)="openDialogImagen ('turismo_rural_img', imagenes?.turismo_rural_img)">
+        <img [src]="imagenes?.turismo_rural_img.img" width="100%" height="100%">
     </div>
     </div>
 </div>
@@ -368,34 +556,58 @@
 <div class="container-fluid py-5" style="background-color: #00000070;">
     <div class="row m-0">
     <div class="col-sm-6 col-md-5 col-lg-4 offset-sm-3 offset-md-0 px-lg-5 text-center my-5">
-        <h2 class="color-blanco subutitulo-general mb-0">Contactate</h2>
-        <h3 class="color-blanco subtitulo-delgado mb-0">Turismo</h3>
+        <div (click)="openDialog ('turismo_contacto_titulo', etiquetas?.turismo_contacto_titulo, 0)">
+            <h2 *ngIf="etiquetas?.turismo_contacto_titulo" class="color-blanco subutitulo-general mb-0">{{ etiquetas?.turismo_contacto_titulo }}</h2>
+            <h2 *ngIf="!etiquetas?.turismo_contacto_titulo" class="color-blanco subutitulo-general mb-0">turismo_contacto_titulo</h2>
+        </div>
+        <div (click)="openDialog ('turismo_contacto_subtitulo', etiquetas?.turismo_contacto_subtitulo, 0)">
+            <h3 *ngIf="etiquetas?.turismo_contacto_subtitulo" class="color-blanco subtitulo-delgado mb-0">{{ etiquetas?.turismo_contacto_subtitulo }}</h3>
+            <h3 *ngIf="!etiquetas?.turismo_contacto_subtitulo" class="color-blanco subtitulo-delgado mb-0">turismo_contacto_subtitulo</h3>
+        </div>
         <img src="assets/imagenes/arrow.png" width="100%" style="transform: rotate(-180deg);">
     </div>
     <div class="col-md-7 col-lg-6 offset-lg-1 my-5">
         <div class="row m-0">
         <div class="col-12 color-blanco text-center text-md-left">
-            <p class="mb-0 subutitulo-general">Ubicación</p>
-            <p class="texto-turismo">Plaza Túpac Amaru Mz. Lote 2 ,<br> Wanchaq, Cusco, Tercer Piso.</p>
+            <div (click)="openDialog ('turismo_ubicacion', etiquetas?.turismo_ubicacion, 0)">
+                <p *ngIf="etiquetas?.turismo_ubicacion" class="mb-0 subutitulo-general">{{ etiquetas?.turismo_ubicacion }}</p>
+                <p *ngIf="!etiquetas?.turismo_ubicacion" class="mb-0 subutitulo-general">turismo_ubicacion</p>
+            </div>
+            <div (click)="openDialog ('turismo_ubicacion_1', etiquetas?.turismo_ubicacion_1, 1)">
+                <div *ngIf="etiquetas?.turismo_ubicacion_1" [innerHtml]="etiquetas?.turismo_ubicacion_1" class="texto-turismo"></div>
+                <div *ngIf="!etiquetas?.turismo_ubicacion_1" class="texto-turismo">turismo_ubicacion_1</div>
+            </div>
         </div>
         <div class="col-12 color-blanco text-center text-md-left">
-            <p class="mb-0 subutitulo-general">Llamanos</p>
-            <p class="texto-turismo">+51 (84) 223761</p>
+            <div (click)="openDialog ('turismo_telefono', etiquetas?.turismo_telefono, 0)">
+                <p *ngIf="etiquetas?.turismo_telefono" class="mb-0 subutitulo-general">{{ etiquetas?.turismo_telefono }}</p>
+                <p *ngIf="!etiquetas?.turismo_telefono" class="mb-0 subutitulo-general">turismo_telefono</p>
+            </div>
+            <div (click)="openDialog ('turismo_telefono_numero', etiquetas?.turismo_telefono_numero, 0)">
+                <p *ngIf="etiquetas?.turismo_telefono_numero" class="texto-turismo">{{ etiquetas?.turismo_telefono_numero }}</p>
+                <p *ngIf="!etiquetas?.turismo_telefono_numero" class="texto-turismo">turismo_telefono_numero</p>
+            </div>
         </div>
         <div class="col-12 color-blanco text-center text-md-left">
-            <p class="mb-0 subutitulo-general mb-3">Escribenos</p>
+            <div (click)="openDialog ('turismo_escribir', etiquetas?.turismo_escribir, 0)">
+                <p *ngIf="etiquetas?.turismo_escribir" class="mb-0 subutitulo-general mb-3">{{ etiquetas?.turismo_escribir }}</p>
+                <p *ngIf="!etiquetas?.turismo_escribir" class="mb-0 subutitulo-general mb-3">turismo_escribir</p>
+            </div>
         </div>
-        <div class="col-sm-6 pr-md-1 mb-2 mb-sm-0">
-            <input class="color-fondo px-3 py-2 anchura-inpu" type="text" placeholder="¿Cuál es su nombre?">
+        <div class="col-sm-6 pr-md-1 mb-2 mb-sm-0" (click)="openDialog ('turismo_contacto_nombre', etiquetas?.turismo_contacto_nombre, 0)">
+            <input class="color-fondo px-3 py-2 anchura-inpu" type="text" [placeholder]="etiquetas?.turismo_contacto_nombre">
         </div>
-        <div class="col-sm-6 pl-md-1">
-            <input class="color-fondo px-3 py-2 anchura-inpu"  type="text" placeholder="¿Cuál es su correo?">
+        <div class="col-sm-6 pl-md-1" (click)="openDialog ('turismo_contacto_correo', etiquetas?.turismo_contacto_correo, 0)">
+            <input class="color-fondo px-3 py-2 anchura-inpu"  type="text" [placeholder]="etiquetas?.turismo_contacto_correo">
         </div>
-        <div class="col-12 mt-2 anchura-contac-input">
-            <textarea class=" color-fondo px-3 py-2" aria-label="With textarea" placeholder="Escribe su mensaje aqui" style="width: 100%;height: 100%"></textarea>
+        <div class="col-12 mt-2 anchura-contac-input" (click)="openDialog ('turismo_contacto_mensaje', etiquetas?.turismo_contacto_mensaje, 0)">
+            <textarea class=" color-fondo px-3 py-2" aria-label="With textarea" [placeholder]="etiquetas?.turismo_contacto_mensaje" style="width: 100%;height: 100%"></textarea>
         </div>
         <div class="col-12 mt-2">
-            <button class="btn py-2 fondo-rojo-contac">Enviar</button>
+            <div (click)="openDialog ('turismo_contac_btn', etiquetas?.turismo_contac_btn, 0)">
+                <button *ngIf="etiquetas?.turismo_contac_btn" class="btn py-2 fondo-rojo-contac">{{ etiquetas?.turismo_contac_btn }}</button>
+                <button *ngIf="!etiquetas?.turismo_contac_btn" class="btn py-2 fondo-rojo-contac">turismo_contac_btn</button>
+            </div>
         </div>
         </div>
     </div>

@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { DatabaseService } from '../../../services/database.service';
 import { Router } from '@angular/router';
+import { DialogTextComponent } from '../../dialogs/dialog-text/dialog-text.component';
+import { DialogImageComponent } from '../../dialogs/dialog-image/dialog-image.component';
+import { MatDialog, MatDialogConfig } from "@angular/material"
+
 @Component({
   selector: 'app-turismoruralcomunitario',
   templateUrl: './turismoruralcomunitario.component.html',
@@ -9,13 +13,33 @@ import { Router } from '@angular/router';
 })
 export class TurismoruralcomunitarioComponent implements OnInit {
   Viajes:any;
+  etiquetas: any;
+  imagenes: any;
   constructor(
     public db:DatabaseService,
     public route: Router,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
     window.scrollTo(0, 0);
+
+    let idioma: string;
+    idioma = localStorage.getItem("idioma");
+
+    if (idioma === undefined || idioma === null) {
+      idioma = 'es';
+    }
+
+    this.db.getPaginaWebEtiquetas ('turismo_rural_comunitario_' + idioma).subscribe ((res) => {
+      this.etiquetas = res;
+    });
+
+    this.db.getPaginaWebEtiquetas ('turismo_rural_comunitario').subscribe ((res) => {
+      this.imagenes = res;
+      console.log ("res", res);
+    });
+
     $(document).ready(function() {
       function clickcaja(e) {
         var lista = $(this).find("ul"),
@@ -46,6 +70,43 @@ export class TurismoruralcomunitarioComponent implements OnInit {
     }); 
     
     this.TodoslosTourRural ();
+  }
+
+  openDialog (etiqueta_key: string, etiqueta_valor: string, tipo_entry: number) {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.height = '500px';
+    dialogConfig.width = '600px';
+
+    let idioma: string;
+    idioma = localStorage.getItem ("idioma");
+
+    if (idioma === undefined || idioma === null) {
+      idioma = 'es';
+    }
+
+    dialogConfig.data = {
+      etiqueta_key: etiqueta_key,
+      etiqueta_valor: etiqueta_valor,
+      tipo_entry: tipo_entry,
+      doc: 'turismo_rural_comunitario',
+      idioma: idioma
+    };
+
+    this.dialog.open (DialogTextComponent, dialogConfig);
+  }
+
+  openDialogImagen (etiqueta_key: string, etiqueta_valor: any) {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.data = {
+      etiqueta_key: etiqueta_key,
+      etiqueta_valor: etiqueta_valor
+    };
+
+    this.dialog.open (DialogImageComponent, dialogConfig);
   }
 
   TodoslosTourRural () {
