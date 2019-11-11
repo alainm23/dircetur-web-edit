@@ -7,6 +7,7 @@ import {Subject} from 'rxjs/Subject';
 })
 export class UtilsService {
   header_visible: boolean = false;
+  footer_visible: boolean = true;
   idioma:any = new Subject();
 
   constructor() { }
