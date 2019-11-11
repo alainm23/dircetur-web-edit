@@ -4,7 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { DialogTextComponent } from '../../dialogs/dialog-text/dialog-text.component';
 import { DialogImageComponent } from '../../dialogs/dialog-image/dialog-image.component';
-import { MatDialog, MatDialogConfig } from "@angular/material"
+import { MatDialog, MatDialogConfig } from "@angular/material";
+import { UtilsService } from '../../services/utils.service'; 
 
 @Component({
   selector: 'app-blogs',
@@ -23,7 +24,8 @@ export class BlogsComponent implements OnInit {
     public db:DatabaseService,
     public route: Router,
     private activatedRoute: ActivatedRoute,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    public utils: UtilsService
   ) { }
 
   ngOnInit() {
@@ -65,6 +67,14 @@ export class BlogsComponent implements OnInit {
     this.db.getPaginaWebEtiquetas ('turismo_blog').subscribe ((res) => {
       this.imagenes = res;
       console.log ("res", res);
+    });
+
+    this.utils.idioma.subscribe((nextValue: string) => {
+      console.log ("Next Idioma", nextValue);
+      /* subscribirme */
+      this.db.getPaginaWebEtiquetas ('turismo_blog_' + nextValue).subscribe ((res) => {
+        this.etiquetas = res;
+      });
     });
     
   }

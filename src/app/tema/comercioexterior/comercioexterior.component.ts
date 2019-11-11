@@ -3,6 +3,7 @@ import { DialogTextComponent } from '../../dialogs/dialog-text/dialog-text.compo
 import { DialogImageComponent } from '../../dialogs/dialog-image/dialog-image.component';
 import { MatDialog, MatDialogConfig } from "@angular/material"
 import { DatabaseService } from '../../../services/database.service';
+import { UtilsService } from '../../services/utils.service'; 
 
 @Component({
   selector: 'app-comercioexterior',
@@ -15,7 +16,8 @@ export class ComercioexteriorComponent implements OnInit {
   imagenes: any;
   constructor(
     public db:DatabaseService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    public utils: UtilsService
   ) { }
 
   ngOnInit() {
@@ -34,6 +36,14 @@ export class ComercioexteriorComponent implements OnInit {
     this.db.getPaginaWebEtiquetas ('comercio_exterior').subscribe ((res) => {
       this.imagenes = res;
       console.log ("res", res);
+    });
+
+    this.utils.idioma.subscribe((nextValue: string) => {
+      console.log ("Next Idioma", nextValue);
+      /* subscribirme */
+      this.db.getPaginaWebEtiquetas ('comercio_exterior_' + nextValue).subscribe ((res) => {
+        this.etiquetas = res;
+      });
     });
 
   }

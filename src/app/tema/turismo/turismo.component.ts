@@ -21,7 +21,7 @@ export class TurismoComponent implements OnInit {
     public db:DatabaseService,
     public route: Router,
     public utils: UtilsService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
   ) { }
   init() {
     var tag = document.createElement('script');
@@ -75,6 +75,14 @@ export class TurismoComponent implements OnInit {
     this.db.getPaginaWebEtiquetas ('turismo').subscribe ((res) => {
       this.imagenes = res;
       console.log ("res", res);
+    });
+
+    this.utils.idioma.subscribe((nextValue: string) => {
+      console.log ("Next Idioma", nextValue);
+      /* subscribirme */
+      this.db.getPaginaWebEtiquetas ('turismo_' + nextValue).subscribe ((res) => {
+        this.etiquetas = res;
+      });
     });
 
   }

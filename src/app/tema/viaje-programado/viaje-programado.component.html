@@ -12,7 +12,10 @@
         <div class="col-12 px-0 mt-sm-4">
             <div class="row m-0">
                 <div class="col-4 col-sm-2 offset-sm-2 offset-lg-0 col-lg-3">
-                    <p class="altitu-texto weight-grueso letra-font">Donde</p>
+                        <div (click)="openDialog ('viaje_programador_donde', etiquetas?.viaje_programador_donde, 0)">
+                                <p *ngIf="etiquetas?.viaje_programador_donde" class="altitu-texto weight-grueso letra-font">{{ etiquetas?.viaje_programador_donde }}</p>
+                                <p *ngIf="!etiquetas?.viaje_programador_donde" class="altitu-texto weight-grueso letra-font">viaje_programador_donde</p>
+                        </div>
                 </div>
                 <div class="col-8 col-sm-6 col-lg-9 px-0">
                     <p class="altitu-texto weight-delgado interloineado">
@@ -20,7 +23,10 @@
                     </p>
                 </div>
                 <div class="col-4 col-sm-2 col-lg-3 offset-sm-2 offset-lg-0">
-                    <p class="altitu-texto weight-grueso letra-font">Altitud</p>
+                        <div (click)="openDialog ('viaje_programador_altitud', etiquetas?.viaje_programador_altitud, 0)">
+                                <p *ngIf="etiquetas?.viaje_programador_altitud" class="altitu-texto weight-grueso letra-font">{{ etiquetas?.viaje_programador_altitud }}</p>
+                                <p *ngIf="!etiquetas?.viaje_programador_altitud" class="altitu-texto weight-grueso letra-font">viaje_programador_altitud</p>
+                        </div>
                 </div>
                 <div class="col-8 col-sm-6 col-lg-9 px-0">
                     <p class="altitu-texto weight-delgado">
@@ -28,7 +34,10 @@
                     </p>
                 </div>
                 <div class="col-4 col-sm-2 col-lg-3 offset-sm-2 offset-lg-0">
-                    <p class="altitu-texto weight-grueso letra-font">Tags</p>
+                        <div (click)="openDialog ('viaje_programador_tags', etiquetas?.viaje_programador_tags, 0)">
+                                <p *ngIf="etiquetas?.viaje_programador_tags" class="altitu-texto weight-grueso letra-font">{{ etiquetas?.viaje_programador_tags }}</p>
+                                <p *ngIf="!etiquetas?.viaje_programador_tags" class="altitu-texto weight-grueso letra-font">viaje_programador_tags</p>
+                        </div>
                 </div>
                 <div class="col-8 col-sm-6 col-lg-9 px-0">
                     <div class="row m-0">
@@ -94,39 +103,66 @@
     <div class="col-12 col-md-8 col-lg-9 px-0 mt-5 mt-xl-0">
         <div class="row m-0">
         <div class="col-12 px-sm-5 text-center text-md-left">
-            <h2 class="subtitulo-intenerario">Itinerario</h2>
+                <div (click)="openDialog ('viaje_programador_itenerario', etiquetas?.viaje_programador_itenerario, 0)">
+                        <h2 *ngIf="etiquetas?.viaje_programador_itenerario" class="subtitulo-intenerario">{{ etiquetas?.viaje_programador_itenerario }}</h2>
+                        <h2 *ngIf="!etiquetas?.viaje_programador_itenerario" class="subtitulo-intenerario">viaje_programador_itenerario</h2>
+                </div>
             <p class="color-81 texto-general my-4">
                 {{detalle.itinerario}}
             </p>
         </div>
         <div class="col-12 col-lg-6 fondo-rojo color-blanco text-center px-3 px-sm-5 py-5 my-lg-5">
-            <h2 class="titulo-subtitulo-viaje mb-0">Protección</h2>
-            <h3 class="subtitulo-turi-ruta">para el turista</h3>
+            <div (click)="openDialog ('viaje_programador_proteccion_titulo', etiquetas?.viaje_programador_proteccion_titulo, 0)">
+                <h2 *ngIf="etiquetas?.viaje_programador_proteccion_titulo" class="titulo-subtitulo-viaje mb-0">{{ etiquetas?.viaje_programador_proteccion_titulo }}</h2>
+                <h2 *ngIf="!etiquetas?.viaje_programador_proteccion_titulo" class="titulo-subtitulo-viaje mb-0">viaje_programador_proteccion_titulo</h2>
+            </div>
+            <div (click)="openDialog ('viaje_programador_proteccion_subtitulo', etiquetas?.viaje_programador_proteccion_subtitulo, 0)">
+                <h3 *ngIf="etiquetas?.viaje_programador_proteccion_subtitulo" class="subtitulo-turi-ruta">{{ etiquetas?.viaje_programador_proteccion_subtitulo }}</h3>
+                <h3 *ngIf="!etiquetas?.viaje_programador_proteccion_subtitulo" class="subtitulo-turi-ruta">viaje_programador_proteccion_subtitulo</h3>
+            </div>
             <p class="texto-ruta-turi mt-5 px-3">
                 {{detalle.proteccion_turista}}    
             </p>
         </div>
         <div class="col-12 col-lg-6 fondo-azul color-blanco px-3 px-sm-5 py-5 my-lg-5 text-center text-lg-left" >
-            <h2 class="titulo-subtitulo-viaje mb-0">Dificultad</h2>
-            <h3 class="subtitulo-turi-ruta">De ruta</h3>
+            <div (click)="openDialog ('viaje_programador_dificultad_titulo', etiquetas?.viaje_programador_dificultad_titulo, 0)">
+                <h2 *ngIf="etiquetas?.viaje_programador_dificultad_titulo" class="titulo-subtitulo-viaje mb-0">{{ etiquetas?.viaje_programador_dificultad_titulo }}</h2>
+                <h2 *ngIf="!etiquetas?.viaje_programador_dificultad_titulo" class="titulo-subtitulo-viaje mb-0">viaje_programador_dificultad_titulo</h2>
+            </div>
+            <div (click)="openDialog ('viaje_programador_dificultad_subtitulo', etiquetas?.viaje_programador_dificultad_subtitulo, 0)">
+                <h3 *ngIf="etiquetas?.viaje_programador_dificultad_subtitulo" class="subtitulo-turi-ruta">{{ etiquetas?.viaje_programador_dificultad_subtitulo }}</h3>
+                <h3 *ngIf="!etiquetas?.viaje_programador_dificultad_subtitulo" class="subtitulo-turi-ruta">viaje_programador_dificultad_subtitulo</h3>
+            </div>
             <p class="texto-ruta-turi mt-5">
                 {{detalle.dificultad_ruta}}
             </p>
         </div>
         <div class="col-12 px-sm-5 mt-5 mt-lg-0 list-unstyled texto-general color-81 mb-0">
-            <h2 class="color-05 titulo-subtitulo-viaje text-center text-md-left">Restricciones y requisitos</h2>
+            <div (click)="openDialog ('viaje_programador_restricciones', etiquetas?.viaje_programador_restricciones, 0)">
+                <h2 *ngIf="etiquetas?.viaje_programador_restricciones" class="color-05 titulo-subtitulo-viaje text-center text-md-left">{{ etiquetas?.viaje_programador_restricciones }}</h2>
+                <h2 *ngIf="!etiquetas?.viaje_programador_restricciones" class="color-05 titulo-subtitulo-viaje text-center text-md-left">viaje_programador_restricciones</h2>
+            </div>
             {{detalle.restricciones_requisitos}}
         </div>
         <div class="col-12 px-sm-5 my-3 list-unstyled texto-general color-81 mb-0">
-            <h2 class="color-05 titulo-subtitulo-viaje text-center text-md-left">Incluye</h2>
+            <div (click)="openDialog ('viaje_programador_incluye', etiquetas?.viaje_programador_incluye, 0)">
+                <h2 *ngIf="etiquetas?.viaje_programador_incluye" class="color-05 titulo-subtitulo-viaje text-center text-md-left">{{ etiquetas?.viaje_programador_incluye }}</h2>
+                <h2 *ngIf="!etiquetas?.viaje_programador_incluye" class="color-05 titulo-subtitulo-viaje text-center text-md-left">viaje_programador_incluye</h2>
+            </div>
             {{detalle.incluye}}
         </div>
         <div class="col-12 px-sm-5 my-3 list-unstyled texto-general color-81 mb-0">
-            <h2 class="color-05 titulo-subtitulo-viaje text-center text-md-left">No incluye</h2>
+            <div (click)="openDialog ('viaje_programador_no_incluye', etiquetas?.viaje_programador_no_incluye, 0)">
+                <h2 *ngIf="etiquetas?.viaje_programador_no_incluye" class="color-05 titulo-subtitulo-viaje text-center text-md-left">{{ etiquetas?.viaje_programador_no_incluye }}</h2>
+                <h2 *ngIf="!etiquetas?.viaje_programador_no_incluye" class="color-05 titulo-subtitulo-viaje text-center text-md-left">viaje_programador_no_incluye</h2>
+            </div>
             {{detalle.no_incluye}}
         </div>
         <div class="col-12 px-sm-5 my-3">
-            <h2 class="color-05 titulo-subtitulo-viaje text-center text-md-left">Preguntas frecuentes</h2>
+            <div (click)="openDialog ('viaje_programador_preguntas_frecuente', etiquetas?.viaje_programador_preguntas_frecuente, 0)">
+                <h2 *ngIf="etiquetas?.viaje_programador_preguntas_frecuente" class="color-05 titulo-subtitulo-viaje text-center text-md-left">{{ etiquetas?.viaje_programador_preguntas_frecuente }}</h2>
+                <h2 *ngIf="!etiquetas?.viaje_programador_preguntas_frecuente" class="color-05 titulo-subtitulo-viaje text-center text-md-left">viaje_programador_preguntas_frecuente</h2>
+            </div>
             <div class="accordion-container mt-3">
                 <div *ngFor="let pregunta of preguntas">
                     <button class="accordion-titulo py-2 px-4 my-2 text-capitalize text-left">{{pregunta.data.pregunta}}<span class="toggle-icon mt-n1"></span></button>
@@ -141,10 +177,22 @@
         </div>
     </div>
     <div class="col-12 col-md-4 col-lg-3 text-center px-5 px-md-3 py-5 cuadro-derecha mt-md-5 mt-xl-0 sticky-top" style="background-color: #fff;">
-        <h5 class="color-05 my-3" id="verificar-text">Verifique si califica</h5>
-        <input class="py-2 my-3 text-center" id="input-number" type="number" name="number" placeholder="Ingrese du n de DNI aqui"><br>
-        <button class="btn fondo-azul color-blanco texto-ruta-turi px-4 btn-radius my-3">Verificar</button>
-        <h5 class="subtitulo-intenerario color-05 mt-5">Proximas salidas</h5>
+        <div (click)="openDialog ('viaje_programador_verifique', etiquetas?.viaje_programador_verifique, 0)">
+            <h5 *ngIf="etiquetas?.viaje_programador_verifique" class="color-05 my-3" id="verificar-text">{{ etiquetas?.viaje_programador_verifique }}</h5>
+            <h5 *ngIf="!etiquetas?.viaje_programador_verifique" class="color-05 my-3" id="verificar-text">viaje_programador_verifique</h5>
+        </div>
+        <div (click)="openDialog ('viaje_programador_ingrese_dni', etiquetas?.viaje_programador_ingrese_dni, 0)">
+            <input class="py-2 my-3 text-center" id="input-number" type="number" name="number" [placeholder]="etiquetas?.viaje_programador_ingrese_dni">
+        </div>
+        <br>
+        <div (click)="openDialog ('viaje_programador_verificar', etiquetas?.viaje_programador_verificar, 0)">
+            <button *ngIf="etiquetas?.viaje_programador_verificar" class="btn fondo-azul color-blanco texto-ruta-turi px-4 btn-radius my-3">{{ etiquetas?.viaje_programador_verificar }}</button>
+            <button *ngIf="!etiquetas?.viaje_programador_verificar" class="btn fondo-azul color-blanco texto-ruta-turi px-4 btn-radius my-3">viaje_programador_verificar</button>
+        </div>
+        <div (click)="openDialog ('viaje_programador_salidas', etiquetas?.viaje_programador_salidas, 0)">
+            <h5 *ngIf="etiquetas?.viaje_programador_salidas" class="subtitulo-intenerario color-05 mt-5">{{ etiquetas?.viaje_programador_salidas }}</h5>
+            <h5 *ngIf="!etiquetas?.viaje_programador_salidas" class="subtitulo-intenerario color-05 mt-5">viaje_programador_salidas</h5>
+        </div>
         <p class="text-center my-3" style="color: #3E729A">Viernes<span class="px-1">-</span>23.09.9019<a class="ml-3" href=""><i class="fa fa-angle-right"></i></a></p>
         <p class="text-center my-3" style="color: #3E729A">Viernes<span class="px-1">-</span>23.09.9019<a class="ml-3" href=""><i class="fa fa-angle-right"></i></a></p>
         <p class="text-center my-3" style="color: #3E729A">Viernes<span class="px-1">-</span>23.09.9019<a class="ml-3" href=""><i class="fa fa-angle-right"></i></a></p>

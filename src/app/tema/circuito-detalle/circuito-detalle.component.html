@@ -12,19 +12,28 @@
         <div class="col-12 px-0 mt-sm-4">
             <div class="row m-0">
                 <div class="col-4 col-sm-2 offset-sm-2 offset-lg-0 col-lg-3">
-                    <p class="altitu-texto weight-grueso letra-font">Donde</p>
+                    <div (click)="openDialog ('circuito_detalle_donde', etiquetas?.circuito_detalle_donde, 0)">
+                        <p *ngIf="etiquetas?.circuito_detalle_donde" class="altitu-texto weight-grueso letra-font">{{ etiquetas?.circuito_detalle_donde }}</p>
+                        <p *ngIf="!etiquetas?.circuito_detalle_donde" class="altitu-texto weight-grueso letra-font">circuito_detalle_donde</p>
+                    </div>
                 </div>
                 <div class="col-8 col-sm-6 col-lg-9 px-0">
                     <p class="altitu-texto weight-delgado interloineado">{{detalle?.donde}}</p>
                 </div>
                 <div class="col-4 col-sm-2 col-lg-3 offset-sm-2 offset-lg-0">
-                    <p class="altitu-texto weight-grueso letra-font">Altitud</p>
+                    <div (click)="openDialog ('circuito_detalle_altitud', etiquetas?.circuito_detalle_altitud, 0)">
+                        <p *ngIf="etiquetas?.circuito_detalle_altitud" class="altitu-texto weight-grueso letra-font">{{ etiquetas?.circuito_detalle_altitud }}</p>
+                        <p *ngIf="!etiquetas?.circuito_detalle_altitud" class="altitu-texto weight-grueso letra-font">circuito_detalle_altitud</p>
+                    </div>
                 </div>
                 <div class="col-8 col-sm-6 col-lg-9 px-0">
                     <p class="altitu-texto weight-delgado">{{detalle?.altitud}}</p>
                 </div>
                 <div class="col-4 col-sm-2 col-lg-3 offset-sm-2 offset-lg-0">
-                    <p class="altitu-texto weight-grueso letra-font">Tags</p>
+                    <div (click)="openDialog ('circuito_detalle_tags', etiquetas?.circuito_detalle_tags, 0)">
+                        <p *ngIf="etiquetas?.circuito_detalle_tags" class="altitu-texto weight-grueso letra-font">{{ etiquetas?.circuito_detalle_tags }}</p>
+                        <p *ngIf="!etiquetas?.circuito_detalle_tags" class="altitu-texto weight-grueso letra-font">circuito_detalle_tags</p>
+                    </div>
                 </div>
                 <div class="col-8 col-sm-6 col-lg-9 px-0">
                     <div class="row m-0">
@@ -77,13 +86,19 @@
     <div class="col-lg-4 px-3 py-3 altura-bajar">
         <div class="row m-0">
         <div class="col-12">
-            <h2 class="subtitulo-intenerario">Incluye</h2>
+            <div (click)="openDialog ('circuito_detalle_incluye', etiquetas?.circuito_detalle_incluye, 0)">
+                <h2 *ngIf="etiquetas?.circuito_detalle_incluye" class="subtitulo-intenerario">{{ etiquetas?.circuito_detalle_incluye }}</h2>
+                <h2 *ngIf="!etiquetas?.circuito_detalle_incluye" class="subtitulo-intenerario">circuito_detalle_incluye</h2>
+            </div>
             <div class="texto-general color-81" [innerHtml]="detalle?.incluye">
                     
             </div>
         </div>
         <div class="col-12 mt-3">
-            <h2 class="subtitulo-intenerario">No Incluye</h2>
+            <div (click)="openDialog ('circuito_detalle_no_incluye', etiquetas?.circuito_detalle_no_incluye, 0)">
+                <h2 *ngIf="etiquetas?.circuito_detalle_no_incluye" class="subtitulo-intenerario">{{ etiquetas?.circuito_detalle_no_incluye }}</h2>
+                <h2 *ngIf="!etiquetas?.circuito_detalle_no_incluye" class="subtitulo-intenerario">circuito_detalle_no_incluye</h2>
+            </div>
             <div class="texto-general color-81" [innerHtml]="detalle?.no_incluye">
                 
             </div>
@@ -91,7 +106,10 @@
         </div>
     </div>
     <div class="col-lg-8 mt-5 mt-xl-0">
-        <h2 class="subtitulo-intenerario" style="color: #3E729A">Itinerario</h2>
+        <div (click)="openDialog ('circuito_detalle_itenerario', etiquetas?.circuito_detalle_itenerario, 0)">
+            <h2 *ngIf="etiquetas?.circuito_detalle_itenerario" class="subtitulo-intenerario" style="color: #3E729A">{{ etiquetas?.circuito_detalle_itenerario }}</h2>
+            <h2 *ngIf="!etiquetas?.circuito_detalle_itenerario" class="subtitulo-intenerario" style="color: #3E729A">circuito_detalle_itenerario</h2>
+        </div>
         <div class="row m-0">
             <div class="col-12 px-0 my-2" *ngFor="let dia of dias">
                 <h4 class="texto-general color-81">{{dia.data.nombre}}</h4>

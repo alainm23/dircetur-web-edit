@@ -9,13 +9,26 @@
              <div class="col-12 col-lg-3 pl-1 pr-0 text-center text-lg-left py-1 py-lg-0">
               <div class="row m-0">
                 <div class="col-12">
-                  <p class="titulo-footer">Contacto</p>
+                  <div (click)="openDialog ('footer_contacto', etiquetas?.evento_detalle_calendario_link, 0)">
+                    <p *ngIf="etiquetas?.footer_contacto"  class="titulo-footer">{{ etiquetas?.footer_contacto }}</p>
+                    <p *ngIf="!etiquetas?.footer_contacto"  class="titulo-footer">footer_contacto</p>
+                  </div>
                 </div>
                 <div class="col-12 color-letra-footer mt-0">
-                  <span><i class="fa fa-phone"></i> +51 (84) 223 761</span>
+                  <span><i class="fa fa-phone"></i>
+                    <span (click)="openDialog ('footer_numero', etiquetas?.footer_numero, 0)">
+                      <span *ngIf="etiquetas?.footer_numero">{{ etiquetas?.footer_numero }}</span>
+                      <span *ngIf="!etiquetas?.footer_numero">footer_numero</span>
+                    </span>
+                    </span>
                 </div>
                 <div class="col-12 color-letra-footer">
-                  <span><i class="fa fa-map-marker"></i> Plaza Tupac Amaru Mz. Lot 2</span>
+                  <span><i class="fa fa-map-marker"></i>
+                    <span (click)="openDialog ('footer_direccion', etiquetas?.footer_direccion, 0)">
+                      <span *ngIf="etiquetas?.footer_direccion">{{ etiquetas?.footer_direccion }}</span>
+                      <span *ngIf="!etiquetas?.footer_direccion">footer_direccion</span>
+                    </span> 
+                  </span>
                 </div>
                 <div class="col-12 my-3 my-0">
                   <img src="assets/imagenes/mapa.png" width="100%" height="105%">
@@ -25,7 +38,10 @@
              <div class="col-12 col-lg-6 pl-xl-3 text-center text-lg-left py-0 py-lg-0">
                <div class="row m-0">
                  <div class="col-12 pl-xl-5">
-                   <p class="titulo-footer">Vínculos importantes</p>
+                   <div (click)="openDialog ('footer_vinculos', etiquetas?.footer_vinculos, 0)">
+                      <p *ngIf="etiquetas?.footer_vinculos" class="titulo-footer">{{ etiquetas?.footer_vinculos }}</p>
+                      <p *ngIf="!etiquetas?.footer_vinculos" class="titulo-footer">footer_vinculos</p>
+                   </div>
                  </div>
                  <div class="col-md-6 pl-lg-3 pl-xl-5 pr-xl-2">
                    <ul class="list-unstyled" style="color: #BCBCBC;">
@@ -55,7 +71,10 @@
                </div>
              </div>
              <div class="col-12 col-lg-3 py-5 py-lg-0 text-center text-lg-left">
-               <p class="titulo-footer">Redes sociales</p>
+               <div (click)="openDialog ('footer_redes', etiquetas?.footer_redes, 0)">
+                  <p *ngIf="etiquetas?.footer_redes" class="titulo-footer">{{ etiquetas?.footer_redes }}</p>
+                  <p *ngIf="!etiquetas?.footer_redes" class="titulo-footer">footer_redes</p>
+               </div>
                <img class="mt-3" src="assets/imagenes/fb.jpg" width="100%" height="80%">
                
              </div>
@@ -63,10 +82,18 @@
               <div id="linea-footer"></div>
                <div class="row m-0">
                  <div class="col-12 col-md-4 col-lg-4 col-xl-3 pl-0 px-0 text-center text-md-left">
-                   <p style="font: Heavy 20px/27px Avenir;letter-spacing: 0;color: #959595;opacity: 1;font-weight: 700;">DIRCETUR CUSCO - 2019.</p>
+                   <div (click)="openDialog ('footer_dicertur', etiquetas?.footer_dicertur, 0)">
+                      <p *ngIf="etiquetas?.footer_dicertur" style="font: Heavy 20px/27px Avenir;letter-spacing: 0;color: #959595;opacity: 1;font-weight: 700;">{{ etiquetas?.footer_dicertur }}</p>
+                      <p *ngIf="!etiquetas?.footer_dicertur" style="font: Heavy 20px/27px Avenir;letter-spacing: 0;color: #959595;opacity: 1;font-weight: 700;">footer_dicertur</p>
+                   </div>
                  </div>
                  <div  class="col-12 col-md-5 col-lg-4 col-xl-3 offset-md-3 offset-lg-4 offset-xl-6 pl-0 pr-0 text-center text-md-right ">
-                   <p style="font: Heavy 19px/26px Avenir;letter-spacing: 0;color: #959595;opacity: 1;font-weight: 700;">Desarrollado por<span style="color: #BCBCBC"> PuntoPro</span></p>
+                   <p style="font: Heavy 19px/26px Avenir;letter-spacing: 0;color: #959595;opacity: 1;font-weight: 700;">
+                    <span (click)="openDialog ('footer_desarrollado', etiquetas?.footer_desarrollado, 0)">
+                      <span *ngIf="etiquetas?.footer_desarrollado">{{ etiquetas?.footer_desarrollado }}</span>
+                      <span *ngIf="!etiquetas?.footer_desarrollado">footer_desarrollado</span>
+                    </span>
+                    <span style="color: #BCBCBC"> PuntoPro</span></p>
                  </div>
                </div>
              </div>

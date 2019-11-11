@@ -5,6 +5,7 @@ import * as $ from 'jquery';
 import { MatDialog, MatDialogConfig } from "@angular/material"
 import { DialogTextComponent } from '../../dialogs/dialog-text/dialog-text.component';
 import { DialogImageComponent } from '../../dialogs/dialog-image/dialog-image.component';
+
 import { UtilsService } from '../../services/utils.service';
 
 @Component({
