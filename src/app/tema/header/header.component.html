@@ -12,39 +12,39 @@
          <div class="col-12 col-lg-10 col-xl-10 px-0">
             <div class="collapse navbar-collapse  justify-content-end mostrar-menu px-3 py-3 py-lg-0" id="navcol-1" style="height: 100%">
               <ul class="nav navbar-nav ocultar-menu dercha-list-externa-menu" >
-                <li class="nav-item" role="presentation"><a class="nav-link color-letra-menu-exterio" href="#" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dircetur</a>
+                <li class="nav-item" role="presentation"><a class="nav-link color-letra-menu-exterio" href="#" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ etiquetas?.header_dicertur }}</a>&nbsp;<small (click)="openDialog ('header_dicertur', etiquetas?.header_dicertur, 0)">(Editar)</small>
                   <div class="dropdown-menu pt-0 bajar-submenu-interior desplique-dicertur-exterior" aria-labelledby="dropdownMenu2">
                     <div class="color-axul-menu"></div>
-                    <a class="dropdown-item despliagable-font my-1" (click)="goSobreDIR ()">Sobre DIRCETUR</a>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goSobreDIR ()">{{ etiquetas?.header_sobre }}</a>&nbsp;<small (click)="openDialog ('header_sobre', etiquetas?.header_sobre, 0)">(Editar)</small>
                     <div class="color-megro-menu ml-4"></div>
-                    <a class="dropdown-item despliagable-font my-1" (click)="goTransparenciaInst ()">Trasparencia institucional</a>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goTransparenciaInst ()">{{ etiquetas?.header_transparencia }}</a>&nbsp;<small (click)="openDialog ('header_transparencia', etiquetas?.header_transparencia, 0)">(Editar)</small>
                     <div class="color-megro-menu ml-4"></div>
-                    <a class="dropdown-item despliagable-font my-1" href="http://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=13895#.XXwtq5MzaYU" target="_blank">Portal de transparencia</a>
+                    <a class="dropdown-item despliagable-font my-1" href="http://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=13895#.XXwtq5MzaYU" target="_blank">{{ etiquetas?.header_portal }}</a>&nbsp;<small (click)="openDialog ('header_portal', etiquetas?.header_portal, 0)">(Editar)</small>
                   </div>
                 </li>
-                <li class="nav-item ml-lg-2 ml-xl-4" role="presentation"><a class="nav-link color-letra-menu-exterio" href="#" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Servicios turísticos</a>
+                <li class="nav-item ml-lg-2 ml-xl-4" role="presentation"><a class="nav-link color-letra-menu-exterio" href="#" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ etiquetas?.header_servicio }}</a>&nbsp;<small (click)="openDialog ('header_servicio', etiquetas?.header_servicio, 0)">(Editar)</small>
                   <div class="dropdown-menu pt-0 desplaigable-servicios-exterior bajar-submenu-interior" aria-labelledby="dropdownMenu2">
                     <div class="color-axul-menu"></div>
-                    <a class="dropdown-item despliagable-font my-1" (click)="goBoletoTuristico ()">Boleto turistico</a>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goBoletoTuristico ()">{{ etiquetas?.header_boleto }}</a>&nbsp;<small (click)="openDialog ('header_boleto', etiquetas?.header_boleto, 0)">(Editar)</small>
                     <div class="color-megro-menu ml-4"></div>
-                    <a class="dropdown-item despliagable-font my-1" (click)="goTurismoSocial ()">Turismo social</a>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goTurismoSocial ()">{{ etiquetas?.header_turismo_social }}</a>&nbsp;<small (click)="openDialog ('header_turismo_social', etiquetas?.header_turismo_social, 0)">(Editar)</small>
                     <div class="color-megro-menu ml-4"></div>
-                    <a class="dropdown-item despliagable-font my-1" (click)="goCircuitosTuristicos ()">Circuitos turísticos</a>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goCircuitosTuristicos ()">{{ etiquetas?.header_circuito }}</a>&nbsp;<small (click)="openDialog ('header_circuito', etiquetas?.header_circuito, 0)">(Editar)</small>
                     <div class="color-megro-menu ml-4"></div>
-                    <a class="dropdown-item despliagable-font my-1" (click)="goTurismoRural ()">Turismo rural-comunitario</a>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goTurismoRural ()">{{ etiquetas?.header_turismo_rural }}</a>&nbsp;<small (click)="openDialog ('header_turismo_rural', etiquetas?.header_turismo_rural, 0)">(Editar)</small>
                   </div>
                 </li>
-                <li class="nav-item ml-lg-2 ml-xl-4" role="presentation"><a class="nav-link color-letra-menu-exterio" href="#" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lineas de dirección</a>
+                <li class="nav-item ml-lg-2 ml-xl-4" role="presentation"><a class="nav-link color-letra-menu-exterio" href="#" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ etiquetas?.header_lineas }}</a>&nbsp;<small (click)="openDialog ('header_lineas', etiquetas?.header_lineas, 0)">(Editar)</small>
                   <div class="dropdown-menu pt-0 desplaigable-lineas-exterio bajar-submenu-interior" aria-labelledby="dropdownMenu2">
                     <div class="color-axul-menu"></div>
-                    <a class="dropdown-item despliagable-font my-1" (click)="goTurismo ()">Turismo</a>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goTurismo ()">{{ etiquetas?.header_turismo }}</a>&nbsp;<small (click)="openDialog ('header_turismo', etiquetas?.header_turismo, 0)">(Editar)</small>
                     <div class="color-megro-menu ml-4"></div>
-                    <a class="dropdown-item despliagable-font my-1" (click)="goComercioExterior ()">Comercio exterior</a>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goComercioExterior ()">{{ etiquetas?.header_comercio }}</a>&nbsp;<small (click)="openDialog ('header_comercio', etiquetas?.header_comercio, 0)">(Editar)</small>
                     <div class="color-megro-menu ml-4"></div>
-                    <a class="dropdown-item despliagable-font my-1" (click)="goArtesania ()">Artesania</a>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goArtesania ()">{{ etiquetas?.header_artesania }}</a>&nbsp;<small (click)="openDialog ('header_artesania', etiquetas?.header_artesania, 0)">(Editar)</small>
                   </div>
                 </li>
-                <li class="nav-item ml-lg-2 ml-xl-4" role="presentation"><a class="nav-link color-letra-menu-exterio" href="#"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Comunicacion</a>
+                <li class="nav-item ml-lg-2 ml-xl-4" role="presentation"><a class="nav-link color-letra-menu-exterio" href="#"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ etiquetas?.header_comunicaciones }}</a>&nbsp;<small (click)="openDialog ('header_comunicaciones', etiquetas?.header_comunicaciones, 0)">(Editar)</small>
                   <div class="dropdown-menu pt-0 desplaigable-comunicacion-exterio bajar-submenu-interior" aria-labelledby="dropdownMenu2">
                     <div class="color-axul-menu"></div>
                     <div *ngFor="let categoria of Categorias; let i=index; let longitud=count">
@@ -55,13 +55,13 @@
                     <div class="color-megro-menu ml-4"></div>
                     <a class="dropdown-item despliagable-font my-1" (click)="goProyectosEspeciales ()">Proyectos especiales</a-->
                   </div></li>
-                <li class="nav-item ml-lg-2 ml-xl-4" role="presentation"><a class="nav-link color-letra-menu-exterio" (click)="goContacto ()" style="cursor: pointer;">Contacto</a></li>
-                <li class="nav-item ml-lg-2 ml-xl-4" role="presentation"><a class="nav-link color-letra-menu-exterio" href="#"id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ingresar</a>
+                <li class="nav-item ml-lg-2 ml-xl-4" role="presentation"><a class="nav-link color-letra-menu-exterio" (click)="goContacto ()" style="cursor: pointer;">{{ etiquetas?.header_contacto}}</a>&nbsp;<small (click)="openDialog ('header_contacto', etiquetas?.header_contacto, 0)">(Editar)</small></li>
+                <li class="nav-item ml-lg-2 ml-xl-4" role="presentation"><a class="nav-link color-letra-menu-exterio" href="#"id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ etiquetas?.header_ingresar }}</a>&nbsp;<small (click)="openDialog ('header_ingresar', etiquetas?.header_ingresar, 0)">(Editar)</small>
                   <div class="dropdown-menu pt-0 desplaigable-ingresar-exterio bajar-submenu-interior" aria-labelledby="dropdownMenu2">
                     <div class="color-axul-menu"></div>
-                    <a class="dropdown-item despliagable-font my-1" href="">Proveedores</a>
+                    <a class="dropdown-item despliagable-font my-1" href="">{{ etiquetas?.header_proveedores }}</a>&nbsp;<small (click)="openDialog ('header_proveedores', etiquetas?.header_proveedores, 0)">(Editar)</small>
                     <div class="color-megro-menu ml-4"></div>
-                    <a class="dropdown-item despliagable-font my-1" href="">Municipalidades</a>
+                    <a class="dropdown-item despliagable-font my-1" href="">{{ etiquetas?.header_municipales }}</a>&nbsp;<small (click)="openDialog ('header_municipales', etiquetas?.header_municipales, 0)">(Editar)</small>
                   </div>
                 </li>
 

@@ -46,11 +46,11 @@
                  <div class="col-md-6 pl-lg-3 pl-xl-5 pr-xl-2">
                    <ul class="list-unstyled" style="color: #BCBCBC;">
                      <li><a class="color-letra-footer" (click)="goSobreDIR ()" style="cursor: pointer;">{{ etiquetas?.footer_menu_dircetur }}</a>&nbsp;<small (click)="openDialog ('footer_menu_dircetur', etiquetas?.footer_menu_dircetur, 0)">(Editar)</small></li>
-                     <li><a class="color-letra-footer">Servicios turísticos</a></li>
-                     <li><a class="color-letra-footer" (click)="goTurismo ()" style="cursor: pointer;">Turismo</a></li>
-                     <li><a class="color-letra-footer" (click)="goComercioExterior ()" style="cursor: pointer;">Comercio exterior</a></li>
-                     <li><a class="color-letra-footer" (click)="goArtesania ()" style="cursor: pointer;">Artesanía</a></li>
-                     <li><a class="color-letra-footer" (click)="goBoletoTuristico ()" style="cursor: pointer;">Boleto turistico</a></li>
+                     <li><a class="color-letra-footer">{{ etiquetas?.footer_menu_servicios_turisticos }}</a>&nbsp;<small (click)="openDialog ('footer_menu_servicios_turisticos', etiquetas?.footer_menu_servicios_turisticos, 0)">(Editar)</small></li>
+                     <li><a class="color-letra-footer" (click)="goTurismo ()" style="cursor: pointer;">{{ etiquetas?.footer_menu_turismo }}</a>&nbsp;<small (click)="openDialog ('footer_menu_turismo', etiquetas?.footer_menu_turismo, 0)">(Editar)</small></li>
+                     <li><a class="color-letra-footer" (click)="goComercioExterior ()" style="cursor: pointer;">{{ etiquetas?.footer_menu_comercio }}</a>&nbsp;<small (click)="openDialog ('footer_menu_comercio', etiquetas?.footer_menu_comercio, 0)">(Editar)</small></li>
+                     <li><a class="color-letra-footer" (click)="goArtesania ()" style="cursor: pointer;">{{ etiquetas?.footer_menu_artesania }}</a>&nbsp;<small (click)="openDialog ('footer_menu_artesania', etiquetas?.footer_menu_artesania, 0)">(Editar)</small></li>
+                     <li><a class="color-letra-footer" (click)="goBoletoTuristico ()" style="cursor: pointer;">{{ etiquetas?.footer_menu_boleto }}</a>&nbsp;<small (click)="openDialog ('footer_menu_boleto', etiquetas?.footer_menu_boleto, 0)">(Editar)</small></li>
                      <li *ngFor="let categoria of Categorias">
                        <a class="color-letra-footer" (click)="goBlogs (categoria.id)" style="cursor: pointer;">
                          {{categoria.nombre}}
@@ -60,12 +60,12 @@
                  </div>
                  <div class="col-md-6 mt-0 pl-xl-2">
                   <ul class="list-unstyled" style="color: #BCBCBC;">
-                     <li ><a class="color-letra-footer">Rutas sugeridas</a></li>
-                     <li ><a class="color-letra-footer" (click)="goCalendario ()" style="cursor: pointer;">Calendario</a></li>
-                     <li ><a class="color-letra-footer" >Ingreso de agremiados</a></li>
+                     <li ><a class="color-letra-footer">{{ etiquetas?.footer_menu_rutas }}</a>&nbsp;<small (click)="openDialog ('footer_menu_rutas', etiquetas?.footer_menu_rutas, 0)">(Editar)</small></li>
+                     <li ><a class="color-letra-footer" (click)="goCalendario ()" style="cursor: pointer;">{{ etiquetas?.footer_menu_calendario }}</a>&nbsp;<small (click)="openDialog ('footer_menu_calendario', etiquetas?.footer_menu_calendario, 0)">(Editar)</small></li>
+                     <li ><a class="color-letra-footer" >{{ etiquetas?.footer_menu_ingreso }}</a>&nbsp;<small (click)="openDialog ('footer_menu_ingreso', etiquetas?.footer_menu_ingreso, 0)">(Editar)</small></li>
                      <!--li><a class="color-letra-footer" href="">Comunicacion</a></li-->
-                     <li ><a class="color-letra-footer">Vijes programados</a></li>
-                     <li ><a class="color-letra-footer" (click)="goContacto ()" style="cursor: pointer;">Contacto</a></li>
+                     <li ><a class="color-letra-footer">{{ etiquetas?.footer_menu_viajes }}</a>&nbsp;<small (click)="openDialog ('footer_menu_viajes', etiquetas?.footer_menu_viajes, 0)">(Editar)</small></li>
+                     <li ><a class="color-letra-footer" (click)="goContacto ()" style="cursor: pointer;">{{ etiquetas?.footer_menu_contacto }}</a>&nbsp;<small (click)="openDialog ('footer_menu_contacto', etiquetas?.footer_menu_contacto, 0)">(Editar)</small></li>
                    </ul>
                  </div>
                </div>
