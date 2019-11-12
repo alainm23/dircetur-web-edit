@@ -5,6 +5,8 @@ import { DialogImageComponent } from '../../dialogs/dialog-image/dialog-image.co
 import { DatabaseService } from '../../../services/database.service';
 import { MatDialog, MatDialogConfig } from "@angular/material"
 
+import { UtilsService } from '../../services/utils.service'; 
+
 @Component({
   selector: 'app-boletoturistico',
   templateUrl: './boletoturistico.component.html',
@@ -17,7 +19,8 @@ export class BoletoturisticoComponent implements OnInit {
   imagenes: any;
   constructor(
     public db:DatabaseService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    public utils: UtilsService
   ) { }
 
   ngOnInit() {
@@ -66,6 +69,14 @@ export class BoletoturisticoComponent implements OnInit {
     this.db.getPaginaWebEtiquetas ('boleto_turistico').subscribe ((res) => {
       this.imagenes = res;
       console.log ("res", res);
+    });
+
+    this.utils.idioma.subscribe((nextValue: string) => {
+      console.log ("Next Idioma", nextValue);
+      /* subscribirme */
+      this.db.getPaginaWebEtiquetas ('boleto_turistico_' + nextValue).subscribe ((res) => {
+        this.etiquetas = res;
+      });
     });
     
   }

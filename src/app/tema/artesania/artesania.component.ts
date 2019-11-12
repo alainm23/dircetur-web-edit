@@ -3,6 +3,7 @@ import { DialogTextComponent } from '../../dialogs/dialog-text/dialog-text.compo
 import { DialogImageComponent } from '../../dialogs/dialog-image/dialog-image.component';
 import { MatDialog, MatDialogConfig } from "@angular/material"
 import { DatabaseService } from '../../../services/database.service';
+import { UtilsService } from '../../services/utils.service'; 
 
 @Component({
   selector: 'app-artesania',
@@ -15,7 +16,8 @@ export class ArtesaniaComponent implements OnInit {
   imagenes: any;
   constructor(
     public db:DatabaseService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    public utils: UtilsService
   ) { }
 
   ngOnInit() {
@@ -36,6 +38,15 @@ export class ArtesaniaComponent implements OnInit {
       this.imagenes = res;
       console.log ("res", res);
     });
+
+    this.utils.idioma.subscribe((nextValue: string) => {
+      console.log ("Next Idioma", nextValue);
+      /* subscribirme */
+      this.db.getPaginaWebEtiquetas ('artesania_' + nextValue).subscribe ((res) => {
+        this.etiquetas = res;
+      });
+    });
+
   }
 
   openDialog (etiqueta_key: string, etiqueta_valor: string, tipo_entry: number) {

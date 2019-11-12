@@ -4,7 +4,8 @@ import { DatabaseService } from '../../../services/database.service';
 import { Router } from '@angular/router';
 import { DialogTextComponent } from '../../dialogs/dialog-text/dialog-text.component';
 import { DialogImageComponent } from '../../dialogs/dialog-image/dialog-image.component';
-import { MatDialog, MatDialogConfig } from "@angular/material"
+import { MatDialog, MatDialogConfig } from "@angular/material";
+import { UtilsService } from '../../services/utils.service'; 
 
 @Component({
   selector: 'app-turismoruralcomunitario',
@@ -18,7 +19,8 @@ export class TurismoruralcomunitarioComponent implements OnInit {
   constructor(
     public db:DatabaseService,
     public route: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    public utils: UtilsService
   ) { }
 
   ngOnInit() {
@@ -38,6 +40,14 @@ export class TurismoruralcomunitarioComponent implements OnInit {
     this.db.getPaginaWebEtiquetas ('turismo_rural_comunitario').subscribe ((res) => {
       this.imagenes = res;
       console.log ("res", res);
+    });
+
+    this.utils.idioma.subscribe((nextValue: string) => {
+      console.log ("Next Idioma", nextValue);
+      /* subscribirme */
+      this.db.getPaginaWebEtiquetas ('turismo_rural_comunitario_' + nextValue).subscribe ((res) => {
+        this.etiquetas = res;
+      });
     });
 
     $(document).ready(function() {
@@ -70,6 +80,7 @@ export class TurismoruralcomunitarioComponent implements OnInit {
     }); 
     
     this.TodoslosTourRural ();
+
   }
 
   openDialog (etiqueta_key: string, etiqueta_valor: string, tipo_entry: number) {

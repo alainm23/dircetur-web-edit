@@ -12,19 +12,28 @@
         <div class="col-12 px-0 mt-sm-4">
             <div class="row m-0">
                 <div class="col-4 col-sm-2 offset-sm-2 offset-lg-0 col-lg-3">
-                    <p class="altitu-texto weight-grueso letra-font">Donde</p>
+                        <div (click)="openDialog ('viaje_rural_donde', etiquetas?.viaje_rural_donde, 0)">
+                                <p *ngIf="etiquetas?.viaje_rural_donde" class="altitu-texto weight-grueso letra-font">{{ etiquetas?.viaje_rural_donde }}</p>
+                                <p *ngIf="!etiquetas?.viaje_rural_donde" class="altitu-texto weight-grueso letra-font">viaje_rural_donde</p>
+                        </div>
                 </div>
                 <div class="col-8 col-sm-6 col-lg-9 px-0">
                     <p class="altitu-texto weight-delgado interloineado">{{detalle.donde}}</p>
                 </div>
                 <div class="col-4 col-sm-2 col-lg-3 offset-sm-2 offset-lg-0">
-                    <p class="altitu-texto weight-grueso letra-font">Altitud</p>
+                        <div (click)="openDialog ('viaje_rural_altitud', etiquetas?.viaje_rural_altitud, 0)">
+                                <p *ngIf="etiquetas?.viaje_rural_altitud" class="altitu-texto weight-grueso letra-font">{{ etiquetas?.viaje_rural_altitud }}</p>
+                                <p *ngIf="!etiquetas?.viaje_rural_altitud" class="altitu-texto weight-grueso letra-font">viaje_rural_altitud</p>
+                        </div>
                 </div>
                 <div class="col-8 col-sm-6 col-lg-9 px-0">
                     <p class="altitu-texto weight-delgado">{{detalle.altitud}}</p>
                 </div>
                 <div class="col-4 col-sm-2 col-lg-3 offset-sm-2 offset-lg-0">
-                    <p class="altitu-texto weight-grueso letra-font">Tags</p>
+                        <div (click)="openDialog ('viaje_rural_tags', etiquetas?.viaje_rural_tags, 0)">
+                                <p *ngIf="etiquetas?.viaje_rural_tags" class="altitu-texto weight-grueso letra-font">{{ etiquetas?.viaje_rural_tags }}</p>
+                                <p *ngIf="!etiquetas?.viaje_rural_tags" class="altitu-texto weight-grueso letra-font">viaje_rural_tags</p>
+                        </div>
                 </div>
                 <div class="col-8 col-sm-6 col-lg-9 px-0">
                     <div class="row m-0">
@@ -103,28 +112,46 @@
 <div class="container-fluid px-0">
     <div class="row m-0">
     <div class="col-md-4 col-lg-3 fondo-rojo color-blanco px-md-5 text-center text-lg-left">
-        <h5 class="subtitulo-incluye-no mt-5">Incluye</h5>
+        <div (click)="openDialog ('viaje_rural_incluye', etiquetas?.viaje_rural_incluye, 0)">
+            <h5 *ngIf="etiquetas?.viaje_rural_incluye" class="subtitulo-incluye-no mt-5">{{ etiquetas?.viaje_rural_incluye }}</h5>
+            <h5 *ngIf="!etiquetas?.viaje_rural_incluye" class="subtitulo-incluye-no mt-5">viaje_rural_incluye</h5>
+        </div>
         <div class="list-unstyled texto-general mt-4 mb-5">
             {{detalle.incluye}}  
         </div>       
     </div>
     <div class="col-md-4 col-lg-6 px-md-5 text-center text-lg-left">
-        <h5 class="subtitulo-incluye-no color-05 mt-5">Distancias</h5>
+        <div (click)="openDialog ('viaje_rural_distancia', etiquetas?.viaje_rural_distancia, 0)">
+            <h5 *ngIf="etiquetas?.viaje_rural_distancia" class="subtitulo-incluye-no color-05 mt-5">{{ etiquetas?.viaje_rural_distancia }}</h5>
+            <h5 *ngIf="!etiquetas?.viaje_rural_distancia" class="subtitulo-incluye-no color-05 mt-5">viaje_rural_distancia</h5>
+        </div>
         <div class="mt-4 mb-5">
             {{detalle.distancia}}
         </div>
     </div>
     <div class="col-md-4 col-lg-3 fondo-azul color-blanco px-md-5 text-center text-lg-left">
-        <h5 class="subtitulo-incluye-no mt-5">Informes y reservas</h5>
+        <div (click)="openDialog ('viaje_rural_informes', etiquetas?.viaje_rural_informes, 0)">
+            <h5 *ngIf="etiquetas?.viaje_rural_informes" class="subtitulo-incluye-no mt-5">{{ etiquetas?.viaje_rural_informes }}</h5>
+            <h5 *ngIf="!etiquetas?.viaje_rural_informes" class="subtitulo-incluye-no mt-5">viaje_rural_informes</h5>
+        </div>
         <div class="texto-general mt-4">
             {{detalle.informes_reserva}}
         </div>
         <div class="mb-5">
-            <p class="texto-general mb-0 mt-4">Teléfono:</p>
+            <div (click)="openDialog ('viaje_rural_telefono', etiquetas?.viaje_rural_telefono, 0)">
+                <p *ngIf="etiquetas?.viaje_rural_telefono" class="texto-general mb-0 mt-4">{{ etiquetas?.viaje_rural_telefono }}</p>
+                <p *ngIf="!etiquetas?.viaje_rural_telefono" class="texto-general mb-0 mt-4">viaje_rural_telefono</p>
+            </div>
             <p class="tele-cor-web-font">{{detalle.telefono}}</p>
-            <p class="texto-general mb-0 mt-4"> E-Mail:</p>
+            <div (click)="openDialog ('viaje_rural_email', etiquetas?.viaje_rural_email, 0)">
+                <p *ngIf="etiquetas?.viaje_rural_email" class="texto-general mb-0 mt-4"> {{ etiquetas?.viaje_rural_email }}</p>
+                <p *ngIf="!etiquetas?.viaje_rural_email" class="texto-general mb-0 mt-4"> viaje_rural_email:</p>
+            </div>
             <p class="tele-cor-web-font">{{detalle.email}}</p>
-            <p class="texto-general mb-0 mt-4">Página Web:</p>
+            <div (click)="openDialog ('viaje_rural_pagina', etiquetas?.viaje_rural_pagina, 0)">
+                <p *ngIf="etiquetas?.viaje_rural_pagina" class="texto-general mb-0 mt-4"> {{ etiquetas?.viaje_rural_pagina }}</p>
+                <p *ngIf="!etiquetas?.viaje_rural_pagina" class="texto-general mb-0 mt-4">viaje_rural_pagina</p>
+            </div>
             <a class="tele-cor-web-font" [href]="detalle.pagina_web" target="_blank" style="color: white; text-transform: none;">{{detalle.pagina_web}}</a>
         </div>
     </div>

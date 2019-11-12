@@ -3,7 +3,8 @@ import { DatabaseService } from '../../../services/database.service';
 import { Router } from '@angular/router';
 import { DialogTextComponent } from '../../dialogs/dialog-text/dialog-text.component';
 import { DialogImageComponent } from '../../dialogs/dialog-image/dialog-image.component';
-import { MatDialog, MatDialogConfig } from "@angular/material"
+import { MatDialog, MatDialogConfig } from "@angular/material";
+import { UtilsService } from '../../services/utils.service'; 
 @Component({
   selector: 'app-circuitosturisticos',
   templateUrl: './circuitosturisticos.component.html',
@@ -16,7 +17,8 @@ imagenes: any;
   constructor(
     public db:DatabaseService,
     public route: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    public utils: UtilsService
   ) { }
 
   ngOnInit() {
@@ -39,6 +41,15 @@ imagenes: any;
     });
 
     this.TodoslosCircuitosTuristicos ();
+
+    this.utils.idioma.subscribe((nextValue: string) => {
+      console.log ("Next Idioma", nextValue);
+      /* subscribirme */
+      this.db.getPaginaWebEtiquetas ('circuitos_turisticos_' + nextValue).subscribe ((res) => {
+        this.etiquetas = res;
+      });
+    });
+
   }
 
 

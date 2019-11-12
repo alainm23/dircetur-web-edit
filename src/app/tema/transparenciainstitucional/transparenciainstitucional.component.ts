@@ -5,6 +5,8 @@ import { DialogImageComponent } from '../../dialogs/dialog-image/dialog-image.co
 import { DatabaseService } from '../../../services/database.service';
 import { MatDialog, MatDialogConfig } from "@angular/material"
 
+import { UtilsService } from '../../services/utils.service';
+
 @Component({
   selector: 'app-transparenciainstitucional',
   templateUrl: './transparenciainstitucional.component.html',
@@ -17,7 +19,8 @@ export class TransparenciainstitucionalComponent implements OnInit {
   imagenes: any;
   constructor(
     public db:DatabaseService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    public utils: UtilsService
   ) { 
     
   }
@@ -71,6 +74,15 @@ export class TransparenciainstitucionalComponent implements OnInit {
       this.imagenes = res;
       console.log ("res", res);
     });
+
+    this.utils.idioma.subscribe((nextValue: string) => {
+      console.log ("Next Idioma", nextValue);
+      /* subscribirme */
+      this.db.getPaginaWebEtiquetas ('transparencia_institucional_' + nextValue).subscribe ((res) => {
+        this.etiquetas = res;
+      });
+    });
+
   }
 
   openDialog (etiqueta_key: string, etiqueta_valor: string, tipo_entry: number) {

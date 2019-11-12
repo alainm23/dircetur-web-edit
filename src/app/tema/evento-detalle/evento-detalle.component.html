@@ -5,7 +5,16 @@
         
     </div>
     <div class="col-sm-7 px-5 pt-xl-5 text-center text-sm-left fondo-azul-cal mt-5 mt-sm-0">
-        <h1 class=" mt-md-3 mt-lg-5 mt-xl-5 pt-sm-5 pl-lg-3 titulo-cal">Calendario<span class="subtitulo-cal"> Dircetur</span> </h1>
+        <h1 class=" mt-md-3 mt-lg-5 mt-xl-5 pt-sm-5 pl-lg-3 titulo-cal">
+            <span (click)="openDialog ('evento_detalle_titutlo', etiquetas?.evento_detalle_titutlo, 0)">
+                <span *ngIf="etiquetas?.evento_detalle_titutlo">{{ etiquetas?.evento_detalle_titutlo }}</span>
+                <span *ngIf="!etiquetas?.evento_detalle_titutlo">evento_detalle_titutlo</span>
+            </span>
+            <span (click)="openDialog ('evento_detalle_subtitulo', etiquetas?.evento_detalle_subtitulo, 0)">
+                <span *ngIf="etiquetas?.evento_detalle_subtitulo" class="subtitulo-cal"> {{ etiquetas?.evento_detalle_subtitulo }}</span> 
+                <span *ngIf="!etiquetas?.evento_detalle_subtitulo" class="subtitulo-cal">evento_detalle_subtitulo</span> 
+            </span>
+            </h1>
     </div>
     </div>
 </div>
@@ -49,10 +58,16 @@
         </div>
         </div>
         <div class="col-12 mt-4">
-            <button class="btn btn-detalle-cal py-2" (click)="goCalendario ()">< Volver al calendario</button>
+            <div (click)="openDialog ('evento_detalle_btn_calendaro', etiquetas?.evento_detalle_btn_calendaro, 0)">
+                <button *ngIf="etiquetas?.evento_detalle_btn_calendaro" class="btn btn-detalle-cal py-2" >{{ etiquetas?.evento_detalle_btn_calendaro }}</button>
+                <button *ngIf="!etiquetas?.evento_detalle_btn_calendaro" class="btn btn-detalle-cal py-2" >evento_detalle_btn_calendaro</button>
+            </div>
         </div>
         <div class="col-12 mt-5">
-            <h2 class="subtitulo-art mb-0">Próximos eventos</h2>
+            <div (click)="openDialog ('evento_detalle_proximos', etiquetas?.evento_detalle_proximos, 0)">
+                <h2 *ngIf="etiquetas?.evento_detalle_proximos" class="subtitulo-art mb-0">{{ etiquetas?.evento_detalle_proximos }}</h2>
+                <h2 *ngIf="!etiquetas?.evento_detalle_proximos" class="subtitulo-art mb-0">evento_detalle_proximos</h2>
+            </div>
         </div>
         <div class="col-12 mt-4">
             <div class="row m-0">
@@ -88,7 +103,11 @@
                         </div>
                         <div class="col-12 text-left pb-2">
                             <!--span class="cal-subtitulo-font"><small><img src="assets/imagenes/icono-img1.png"> {{ evento.datageneral.provincia.nombre }}</small> </span-->
-                            <a class="calendario-link-font" style="cursor: pointer;" (click)="verDetalleEvento(evento.data.id)" >Ver mas ></a>
+                            
+                            <div (click)="openDialog ('evento_detalle_calendario_link', etiquetas?.evento_detalle_calendario_link, 0)">
+                                <a *ngIf="etiquetas?.evento_detalle_calendario_link" class="calendario-link-font" style="cursor: pointer;">{{ etiquetas?.evento_detalle_calendario_link }}</a>
+                                <a *ngIf="!etiquetas?.evento_detalle_calendario_link" class="calendario-link-font" style="cursor: pointer;">evento_detalle_calendario_link</a>
+                            </div>
                         </div>
                         </div>
                     </div> 

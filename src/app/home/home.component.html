@@ -332,8 +332,8 @@
                    <div class="row m-0">
                      <div class="col-12 text-center mb-5 mb-md-3 mb-lg-3 mb-xl-5">
                        <div (click)="openDialog ('home_lineas_comercioexterior_1', etiquetas?.home_lineas_comercioexterior_1, 0)">
-                         <h3 *ngIf="etiquetas?.home_lineas_comercioexterior" class="">{{ etiquetas?.home_lineas_comercioexterior_1 }}</h3>
-                         <h3 *ngIf="!etiquetas?.home_lineas_comercioexterior" class="">Comercio exterior</h3>
+                         <h3 *ngIf="etiquetas?.home_lineas_comercioexterior_1" class="">{{ etiquetas?.home_lineas_comercioexterior_1 }}</h3>
+                         <h3 *ngIf="!etiquetas?.home_lineas_comercioexterior_1" class="">Comercio exterior</h3>
                        </div>
                   </div>
                   <div class="col-12 col-lg-12  text-center px-xl-5">
@@ -682,7 +682,7 @@
                                   <p class="cal-subtitulo-font mb-">{{ evento.datageneral.categoria.name }}</p>
                                 </div>
                                 <div class="col-12 text-right pb-2 px-1">
-                                  <div (click)="openDialog ('home_calendario_link_ver_mas', etiquetas?.home_calendario_link_completo, 0)">
+                                  <div (click)="openDialog ('home_calendario_link_ver_mas', etiquetas?.home_calendario_link_ver_mas, 0)">
                                       <a *ngIf="etiquetas?.home_calendario_link_ver_mas" class="calendario-link-font" style="cursor: pointer;"  placement="top" [ngbTooltip]="evento.datageneral.titulo" container="body">{{ etiquetas?.home_calendario_link_ver_mas }}</a>
                                       <a *ngIf="!etiquetas?.home_calendario_link_ver_mas" class="calendario-link-font" style="cursor: pointer;"  placement="top" [ngbTooltip]="evento.datageneral.titulo" container="body">home_calendario_link_ver_mas</a>
                                   </div>
