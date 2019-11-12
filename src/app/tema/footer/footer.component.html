@@ -45,7 +45,7 @@
                  </div>
                  <div class="col-md-6 pl-lg-3 pl-xl-5 pr-xl-2">
                    <ul class="list-unstyled" style="color: #BCBCBC;">
-                     <li><a class="color-letra-footer" (click)="goSobreDIR ()" style="cursor: pointer;">Dircetur</a></li>
+                     <li><a class="color-letra-footer" (click)="goSobreDIR ()" style="cursor: pointer;">{{ etiquetas?.footer_menu_dircetur }}</a>&nbsp;<small (click)="openDialog ('footer_menu_dircetur', etiquetas?.footer_menu_dircetur, 0)">(Editar)</small></li>
                      <li><a class="color-letra-footer">Servicios turísticos</a></li>
                      <li><a class="color-letra-footer" (click)="goTurismo ()" style="cursor: pointer;">Turismo</a></li>
                      <li><a class="color-letra-footer" (click)="goComercioExterior ()" style="cursor: pointer;">Comercio exterior</a></li>
