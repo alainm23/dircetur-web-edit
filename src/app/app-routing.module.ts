@@ -26,39 +26,46 @@ import { RestauranteCartillaComponent } from './tema/restaurante-cartilla/restau
 import { AgenciaCartillaComponent } from './tema/agencia-cartilla/agencia-cartilla.component';
 import { ViajeProgramadoComponent } from './tema/viaje-programado/viaje-programado.component';
 import { ViajeRuralComponent } from './tema/viaje-rural/viaje-rural.component';
+import { NoLoginComponent } from './no-login/no-login.component';
+
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent},
-  { path: 'sobre-nosotros', component: ContenidoComponent},
-  { path: 'transparencia-institucional', component: TransparenciainstitucionalComponent},
-  { path: 'circuitos-turisticos', component: CircuitosturisticosComponent},
-  { path: 'boleto-turistico', component: BoletoturisticoComponent},
-  { path: 'turismo-rural-comunitario', component: TurismoruralcomunitarioComponent},
-  { path: 'turismo-social', component: TurismosocialComponent},
-  { path: 'blog-detalle/:id', component: BlogDetalleComponent},
-  { path: 'evento-detalle/:id', component: EventoDetalleComponent},
-  { path: 'circuito-detalle/:id', component: CircuitoDetalleComponent},
-  { path: 'turismo', component: TurismoComponent },
-  { path: 'comercio-exterior', component: ComercioexteriorComponent},
-  { path: 'artesania', component: ArtesaniaComponent},
-  { path: 'blogs/:id', component: BlogsComponent},
-  { path: 'viaje-programado/:id', component: ViajeProgramadoComponent},
-  { path: 'viaje-rural/:id', component: ViajeRuralComponent},
+  { path: 'no-login', component: NoLoginComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'sobre-nosotros', component: ContenidoComponent, canActivate: [AuthGuard]},
+  { path: 'transparencia-institucional', component: TransparenciainstitucionalComponent, canActivate: [AuthGuard]},
+  { path: 'circuitos-turisticos', component: CircuitosturisticosComponent, canActivate: [AuthGuard]},
+  { path: 'boleto-turistico', component: BoletoturisticoComponent, canActivate: [AuthGuard]},
+  { path: 'turismo-rural-comunitario', component: TurismoruralcomunitarioComponent, canActivate: [AuthGuard]},
+  { path: 'turismo-social', component: TurismosocialComponent, canActivate: [AuthGuard]},
+  { path: 'blog-detalle/:id', component: BlogDetalleComponent, canActivate: [AuthGuard]},
+  { path: 'evento-detalle/:id', component: EventoDetalleComponent, canActivate: [AuthGuard]},
+  { path: 'circuito-detalle/:id', component: CircuitoDetalleComponent, canActivate: [AuthGuard]},
+  { path: 'turismo', component: TurismoComponent, canActivate: [AuthGuard]},
+  { path: 'comercio-exterior', component: ComercioexteriorComponent, canActivate: [AuthGuard]},
+  { path: 'artesania', component: ArtesaniaComponent, canActivate: [AuthGuard]},
+  { path: 'blogs/:id', component: BlogsComponent, canActivate: [AuthGuard]},
+  { path: 'viaje-programado/:id', component: ViajeProgramadoComponent, canActivate: [AuthGuard]},
+  { path: 'viaje-rural/:id', component: ViajeRuralComponent, canActivate: [AuthGuard]},
  /* { path: 'eventos', component: EventosComponent},
   { path: 'proyectos-especiales', component: ProyectosEspecialesComponent},*/
-  { path: 'contacto', component: ContactoComponent},
-  { path: 'calendario', component: CalendarioComponent},
-  { path: 'agencia-cartilla', component: AgenciaCartillaComponent},
-  { path: 'alojamiento-cartilla', component: AlojamientoCartillaComponent},
-  { path: 'restaurante-cartilla', component: RestauranteCartillaComponent},
-  { path: 'guia-cartilla', component: GuiaCartillaComponent},
-  { path: '**', component: HomeComponent},
-  { path: '', component: HomeComponent },
+  { path: 'contacto', component: ContactoComponent, canActivate: [AuthGuard]},
+  { path: 'calendario', component: CalendarioComponent, canActivate: [AuthGuard]},
+  { path: 'agencia-cartilla', component: AgenciaCartillaComponent, canActivate: [AuthGuard]},
+  { path: 'alojamiento-cartilla', component: AlojamientoCartillaComponent, canActivate: [AuthGuard]},
+  { path: 'restaurante-cartilla', component: RestauranteCartillaComponent, canActivate: [AuthGuard]},
+  { path: 'guia-cartilla', component: GuiaCartillaComponent, canActivate: [AuthGuard]},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    AuthGuard
+  ],
 })
 
 export class AppRoutingModule {

@@ -10,6 +10,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule, } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FlickityModule } from 'ngx-flickity';
@@ -44,10 +45,14 @@ import { DialogTextComponent } from './dialogs/dialog-text/dialog-text.component
 // Forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { AuthGuard } from './services/auth.guard';
+
 // Editor
 import { HttpClientModule} from '@angular/common/http';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { DialogImageComponent } from './dialogs/dialog-image/dialog-image.component';
+import { NoLoginComponent } from './no-login/no-login.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -56,13 +61,15 @@ import { DialogImageComponent } from './dialogs/dialog-image/dialog-image.compon
     HeaderComponent,
     FooterComponent,
     DialogTextComponent,
-    DialogImageComponent
+    DialogImageComponent,
+    NoLoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     NgbModule,
     FlickityModule,
     AgenciaCartillaModule,
@@ -100,7 +107,7 @@ import { DialogImageComponent } from './dialogs/dialog-image/dialog-image.compon
     AngularFireStorageModule,
     MatProgressBarModule
   ],
-  providers: [],
+  providers: [AuthGuard, CookieService],
   bootstrap: [AppComponent],
   entryComponents: [DialogTextComponent, DialogImageComponent]
 })
