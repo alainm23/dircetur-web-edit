@@ -10,40 +10,39 @@
                <ul class="nav navbar-nav ocultar-menu dercha-list-menu  mt-xl-1" >
                <li class="nav-item">
                   <a class="nav-link color-letra-menu" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dircetur
-                  </a>
+                    {{ etiquetas?.home_menu_dircetur }}</a>&nbsp;<small (click)="openDialog ('home_menu_dircetur', etiquetas?.home_menu_dircetur, 0)">(Editar)</small>
                   <div style="width: 13rem;" class="dropdown-menu pt-0 ml-lg-1 ml-xl-4 bajar-submenu ml-3 ml-lg-0" aria-labelledby="navbarDropdown">
                     <div class="color-axul-menu"></div>
-                    <a class="dropdown-item despliagable-font my-1" (click)="goSobreDIR ()">Sobre DIRCETUR</a>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goSobreDIR ()">{{ etiquetas?.home_menu_sobre }}</a>&nbsp;<small (click)="openDialog ('home_menu_sobre', etiquetas?.home_menu_sobre, 0)">(Editar)</small>
                     <div class="color-megro-menu ml-4"></div>
-                    <a class="dropdown-item despliagable-font my-1" (click)="goTransparenciaInst ()">Trasparencia institucional</a>
+                    <a class="dropdown-item despliagable-font my-1" (click)="goTransparenciaInst ()">{{ etiquetas?.home_menu_transparencia }}</a>&nbsp;<small (click)="openDialog ('home_menu_transparencia', etiquetas?.home_menu_transparencia, 0)">(Editar)</small>
                     <div class="color-megro-menu ml-4"></div>
-                    <a class="dropdown-item despliagable-font my-1" href="http://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=13895#.XXwtq5MzaYU" target="_blank">Portal de transparencia</a>
+                    <a class="dropdown-item despliagable-font my-1" href="http://www.transparencia.gob.pe/enlaces/pte_transparencia_enlaces.aspx?id_entidad=13895#.XXwtq5MzaYU" target="_blank">{{ etiquetas?.home_menu_portal }}</a>&nbsp;<small (click)="openDialog ('home_menu_portal', etiquetas?.home_menu_portal, 0)">(Editar)</small>
                   </div>
                 </li>
-               <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" href="#" id="dropdownstMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Servicios turísticos</a>
+               <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" href="#" id="dropdownstMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ etiquetas?.home_menu_servico }}</a>&nbsp;<small (click)="openDialog ('home_menu_servico', etiquetas?.home_menu_servico, 0)">(Editar)</small>
                  <div style="width: 13rem;" class="dropdown-menu pt-0 bajar-submenu" aria-labelledby="dropdownstMenu2" id="desplaigable-servicios">
                    <div class="color-axul-menu"></div>
-                   <a class="dropdown-item despliagable-font my-1" (click)="goBoletoTuristico ()">Boleto turistico</a>
+                   <a class="dropdown-item despliagable-font my-1" (click)="goBoletoTuristico ()">{{ etiquetas?.home_menu_boleto }}</a>&nbsp;<small (click)="openDialog ('home_menu_boleto', etiquetas?.home_menu_boleto, 0)">(Editar)</small>
                    <div class="color-megro-menu ml-4"></div>
-                   <a class="dropdown-item despliagable-font my-1" (click)="goTurismoSocial ()">Turismo social</a>
+                   <a class="dropdown-item despliagable-font my-1" (click)="goTurismoSocial ()">{{ etiquetas?.home_menu_turismo_social }}</a>&nbsp;<small (click)="openDialog ('home_menu_turismo_social', etiquetas?.home_menu_turismo_social, 0)">(Editar)</small>
                    <div class="color-megro-menu ml-4"></div>
-                   <a class="dropdown-item despliagable-font my-1" (click)="goCircuitosTuristicos ()">Circuitos turísticos</a>
+                   <a class="dropdown-item despliagable-font my-1" (click)="goCircuitosTuristicos ()">{{ etiquetas?.home_menu_circuito}}</a>&nbsp;<small (click)="openDialog ('home_menu_circuito', etiquetas?.home_menu_circuito, 0)">(Editar)</small>
                    <div class="color-megro-menu ml-4"></div>
-                   <a class="dropdown-item despliagable-font my-1" (click)="goTurismoRural ()">Turismo rural-comunitario</a>
+                   <a class="dropdown-item despliagable-font my-1" (click)="goTurismoRural ()">{{ etiquetas?.home_menu_turismo_rural }}</a>&nbsp;<small (click)="openDialog ('home_menu_turismo_rural', etiquetas?.home_menu_turismo_rural, 0)">(Editar)</small>
                  </div>
                </li>
-               <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" href="#" id="dropdownldMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lineas de dirección</a>
+               <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" href="#" id="dropdownldMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ etiquetas?.home_menu_linea }}</a>&nbsp;<small (click)="openDialog ('home_menu_linea', etiquetas?.home_menu_linea, 0)">(Editar)</small>
                   <div style="width: 13rem;" class="dropdown-menu pt-0 bajar-submenu" aria-labelledby="dropdownldMenu2" id="desplaigable-lineas">
                    <div class="color-axul-menu"></div>
-                   <a class="dropdown-item despliagable-font my-1" (click)="goTurismo ()">Turismo</a>
+                   <a class="dropdown-item despliagable-font my-1" (click)="goTurismo ()">{{ etiquetas?.home_menu_turismo }}</a>&nbsp;<small (click)="openDialog ('home_menu_turismo', etiquetas?.home_menu_turismo, 0)">(Editar)</small>
                    <div class="color-megro-menu ml-4"></div>
-                   <a class="dropdown-item despliagable-font my-1" (click)="goComercioExterior ()">Comercio exterior</a>
+                   <a class="dropdown-item despliagable-font my-1" (click)="goComercioExterior ()">{{ etiquetas?.home_menu_comercio }}</a>&nbsp;<small (click)="openDialog ('home_menu_comercio', etiquetas?.home_menu_comercio, 0)">(Editar)</small>
                    <div class="color-megro-menu ml-4"></div>
-                   <a class="dropdown-item despliagable-font my-1" (click)="goArtesania ()">Artesania</a>
+                   <a class="dropdown-item despliagable-font my-1" (click)="goArtesania ()">{{ etiquetas?.home_menu_artesania }}</a>&nbsp;<small (click)="openDialog ('home_menu_artesania', etiquetas?.home_menu_artesania, 0)">(Editar)</small>
                  </div>
                </li>
-               <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" href="#" id="dropdowncMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Comunicacion</a>
+               <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" href="#" id="dropdowncMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ etiquetas?.home_menu_comunicacion }}</a>&nbsp;<small (click)="openDialog ('home_menu_comunicacion', etiquetas?.home_menu_comunicacion, 0)">(Editar)</small>
                  <div style="width: 13rem;" class="dropdown-menu pt-0 bajar-submenu" aria-labelledby="dropdowncMenu2" id="desplaigable-comunicacion">
                    <div class="color-axul-menu"></div>
                    <div *ngFor="let categoria of Categorias; let i=index; let longitud=count">
@@ -52,13 +51,13 @@
                    </div>
                  </div>
                </li>
-               <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" (click)="goContacto ()" style="cursor: pointer;">Contacto</a></li>
-               <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" href="#" id="dropdowniMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ingresar</a>
+               <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" (click)="goContacto ()" style="cursor: pointer;">{{ etiquetas?.home_menu_contacto }}</a>&nbsp;<small (click)="openDialog ('home_menu_contacto', etiquetas?.home_menu_contacto, 0)">(Editar)</small></li>
+               <li class="nav-item ml-lg-4 ml-xl-0" role="presentation"><a class="nav-link color-letra-menu" href="#" id="dropdowniMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ etiquetas?.home_menu_ingresar }}</a>&nbsp;<small (click)="openDialog ('home_menu_ingresar', etiquetas?.home_menu_ingresar, 0)">(Editar)</small>
                  <div style="width: 13rem;" class="dropdown-menu pt-0 bajar-submenu" aria-labelledby="dropdowniMenu2" id="desplaigable-ingresar">
                    <div class="color-axul-menu"></div>
-                   <a class="dropdown-item despliagable-font my-1" href="">Proveedores</a>
+                   <a class="dropdown-item despliagable-font my-1" href="">{{ etiquetas?.home_menu_proveedores }}</a>&nbsp;<small (click)="openDialog ('home_menu_proveedores', etiquetas?.home_menu_proveedores, 0)">(Editar)</small>
                    <div class="color-megro-menu ml-4"></div>
-                   <a class="dropdown-item despliagable-font my-1" href="">Municipalidades</a>
+                   <a class="dropdown-item despliagable-font my-1" href="">{{ etiquetas?.home_menu_municipalidades }}</a>&nbsp;<small (click)="openDialog ('home_menu_municipalidades', etiquetas?.home_menu_municipalidades, 0)">(Editar)</small>
                  </div>
                </li>
 
