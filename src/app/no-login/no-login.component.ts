@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilsService } from '../services/utils.service';
+
+
 @Component({
   selector: 'app-no-login',
   templateUrl: './no-login.component.html',
@@ -7,7 +9,7 @@ import { UtilsService } from '../services/utils.service';
 })
 export class NoLoginComponent implements OnInit {
 
-  constructor(public utils: UtilsService,) { }
+  constructor(public utils: UtilsService) { }
 
   ngOnInit() {
     this.utils.footer_visible = false;

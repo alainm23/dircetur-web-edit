@@ -1,10 +1,4 @@
 <p><b>Etiqueta:</b> {{ etiqueta_key }}</p>
-
-<p *ngIf="tipo_entry === 0"><b>Etiqueta actual:</b> {{ etiqueta_valor }}</p>
-<div *ngIf="tipo_entry === 1">
-  <p><b>Etiqueta actual:</b></p>
-  <div [innerHtml]="etiqueta_valor"></div>
-</div>
 <p><b>Idioma:</b> {{ idioma }}</p>
 
 <mat-dialog-content [formGroup]="form" *ngIf="tipo_entry === 0">

@@ -27,10 +27,12 @@ import { AgenciaCartillaComponent } from './tema/agencia-cartilla/agencia-cartil
 import { ViajeProgramadoComponent } from './tema/viaje-programado/viaje-programado.component';
 import { ViajeRuralComponent } from './tema/viaje-rural/viaje-rural.component';
 import { NoLoginComponent } from './no-login/no-login.component';
+import { LoginComponent } from './login/login.component';
 
 import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
+  { path: 'login/:custom_token', component: LoginComponent },
   { path: 'no-login', component: NoLoginComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'sobre-nosotros', component: ContenidoComponent, canActivate: [AuthGuard]},

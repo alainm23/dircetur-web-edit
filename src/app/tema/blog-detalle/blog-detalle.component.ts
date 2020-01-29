@@ -29,7 +29,7 @@ detalle:any;
   ngOnInit() {
     
     window.scrollTo(0, 0);
-/* Capturamos el id */
+    /* Capturamos el id */
     this.activatedRoute.params.subscribe( params =>{
       this.db.getBlogByKey(params['id']).subscribe( data => 
         {

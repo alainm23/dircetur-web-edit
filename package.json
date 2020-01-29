@@ -30,6 +30,7 @@
     "firebase": "^7.2.0",
     "flickity-imagesloaded": "^2.0.0",
     "hammerjs": "^2.0.8",
+    "instantsearch.js": "^4.0.1",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
     "ngx-cookie-service": "^2.2.0",

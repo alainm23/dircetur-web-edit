@@ -38,9 +38,9 @@ import { ArtesaniaModule } from './tema/artesania/artesania.module';
 import { ViajeProgramadoModule } from './tema/viaje-programado/viaje-programado.module';
 import { ViajeRuralModule } from './tema/viaje-rural/viaje-rural.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule, MatInputModule, MatProgressBarModule } from "@angular/material";
 
-import { DialogTextComponent } from './dialogs/dialog-text/dialog-text.component';
+// Materuial
+import { MatDialogModule, MatInputModule, MatProgressBarModule } from "@angular/material";
 
 // Forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -50,9 +50,13 @@ import { AuthGuard } from './services/auth.guard';
 // Editor
 import { HttpClientModule} from '@angular/common/http';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import { DialogImageComponent } from './dialogs/dialog-image/dialog-image.component';
+
+import { DialogImageComponent } from './dialogs/dialog-image/dialog-image.component';4
+import { DialogTextComponent } from './dialogs/dialog-text/dialog-text.component';
+
 import { NoLoginComponent } from './no-login/no-login.component';
 import { CookieService } from 'ngx-cookie-service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +66,8 @@ import { CookieService } from 'ngx-cookie-service';
     FooterComponent,
     DialogTextComponent,
     DialogImageComponent,
-    NoLoginComponent
+    NoLoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -25,7 +25,7 @@ export class AppComponent {
       public cookieService: CookieService,
       public afAuth: AngularFireAuth
     ) {
-      this.check_user ();
+      //this.check_user ();
 
       moment.locale ("es");
       

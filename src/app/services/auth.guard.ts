@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
               private util: UtilsService) {}
 
   canActivate() {
-   /* return this.isLogin ()
+    return this.isLogin ()
       .then (user => {
         if (user) {
           console.log("Usuario logeado", user);
@@ -35,8 +35,7 @@ export class AuthGuard implements CanActivate {
           
           return false;
         }
-      });*/
-      return true;
+      });
   }
 
   async isLogin (){
