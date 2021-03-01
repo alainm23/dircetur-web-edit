@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.utils.footer_visible = false;
 
-    this.activatedRoute.params.subscribe( params =>{
+    this.activatedRoute.params.subscribe(params =>{
       const custom_token = params['custom_token'];
 
       console.log ('custom_token', custom_token);
